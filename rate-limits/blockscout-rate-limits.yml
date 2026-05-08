@@ -7,29 +7,36 @@ created: '2026-05-08'
 modified: '2026-05-08'
 reconciled: false
 tags:
-- Web3
-- Explorer
-- Open Source
-- EVM
-- Multi-Chain
-- Rate Limiting
-- Quotas
-- Throttling
-description: Placeholder rate-limit artifact for Blockscout. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+  - Web3
+  - Explorer
+  - EVM
+  - Rate Limiting
+description: >-
+  Per-chain Blockscout instances enforce a fair-use rate limit on the public REST endpoints
+  (typically 10 rps per IP). The hosted PRO API on dev.blockscout.com gates per-key rate caps
+  by plan tier and meters monthly credits.
+notes: Rate-limit table for the PRO API was not directly accessible during research.
 sources:
-- https://www.blockscout.com/
+  - https://docs.blockscout.com/devs/apis
 responseCodes:
   throttled: 429
 limits:
-- name: Default
-  scope: account
-  metric: varies
-  limit: see provider documentation
-  notes: Pending reconciliation.
+  - name: Public per-chain instance (fair use)
+    scope: ip
+    metric: requests_per_second
+    limit: 10
+  - name: PRO Free
+    scope: api_key
+    metric: requests_per_second
+    limit: 5
+  - name: PRO Paid
+    scope: api_key
+    metric: requests_per_second
+    limit: -1
+    notes: Per-tier; consult dev.blockscout.com/pricing.
 policies:
-- name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  - name: Backoff Strategy
+    description: Honor 429 Retry-After and apply exponential backoff with jitter.
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
