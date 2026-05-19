@@ -108,6 +108,8 @@ apis:
       - Cross-chain wallet UIs
       - Aggregator analytics
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/blockscout
   - type: Portal
     url: https://www.blockscout.com/
   - type: Documentation
