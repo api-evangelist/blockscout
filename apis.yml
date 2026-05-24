@@ -124,6 +124,8 @@ common:
     url: rate-limits/blockscout-rate-limits.yml
   - type: FinOps
     url: finops/blockscout-finops.yml
+  - type: LLMsTxt
+    url: https://dev.blockscout.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
