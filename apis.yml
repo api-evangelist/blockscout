@@ -4,14 +4,14 @@ name: Blockscout
 kind: company
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Web3
-  - Explorer
-  - Open Source
-  - EVM
-  - Multi-Chain
-  - GraphQL
-  - REST
-  - Etherscan-Compatible
+- Web3
+- Explorer
+- Open Source
+- EVM
+- Multi-Chain
+- GraphQL
+- REST
+- Etherscan-Compatible
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
@@ -21,111 +21,113 @@ description: >-
   API, and an Etherscan-compatible API. The hosted Blockscout PRO API at dev.blockscout.com
   provides multi-chain access with unified routes, plans, and credit-based metering.
 apis:
-  - aid: blockscout:rest-api-v2
-    name: Blockscout REST API v2
-    tags:
-      - REST
-      - EVM
-      - Explorer
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://eth.blockscout.com/api/v2
-    humanURL: https://docs.blockscout.com/devs/apis/rest
-    description: >-
-      Recommended REST API on each Blockscout instance. Endpoints cover blocks, transactions,
-      addresses, tokens, smart-contract verification, and more. Path varies by chain (eth,
-      optimism, base, etc.). Free for self-hosted; subject to PRO API plans on dev.blockscout.com.
-    properties:
-      - type: Documentation
-        url: https://docs.blockscout.com/devs/apis/rest
-    x-features:
-      - Modern REST surface
-      - Per-chain hosted instances
-      - Smart-contract verification
-    x-use-cases:
-      - Wallet UIs
-      - Indexing analytics
-      - Block explorer mirroring
-  - aid: blockscout:graphql-api
-    name: Blockscout GraphQL API
-    tags:
-      - GraphQL
-      - EVM
-      - Explorer
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://eth.blockscout.com/api/v1/graphql
-    humanURL: https://docs.blockscout.com/devs/apis/graphql
-    description: GraphQL API exposing blocks, transactions, addresses, and tokens.
-    properties:
-      - type: Documentation
-        url: https://docs.blockscout.com/devs/apis/graphql
-    x-features:
-      - GraphQL queries
-      - Block, tx, address, token schema
-    x-use-cases:
-      - Analytics workflows
-      - Custom data slicing
-  - aid: blockscout:etherscan-compatible-api
-    name: Blockscout Etherscan-Compatible API
-    tags:
-      - Etherscan-Compatible
-      - REST
-      - Migration
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://eth.blockscout.com/api
-    humanURL: https://docs.blockscout.com/devs/apis/rpc
-    description: Drop-in Etherscan-style RPC API (action / module query parameters) for easy migration.
-    properties:
-      - type: Documentation
-        url: https://docs.blockscout.com/devs/apis/rpc
-    x-features:
-      - Etherscan-compatible action / module routes
-      - Simplified migration
-    x-use-cases:
-      - Migrating Etherscan integrations
-      - Compatible tooling
-  - aid: blockscout:pro-api
-    name: Blockscout PRO API
-    tags:
-      - Pro
-      - Multi-chain
-      - Subscription
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-    baseURL: https://dev.blockscout.com
-    humanURL: https://docs.blockscout.com/devs/apis/pro
-    description: >-
-      Hosted multi-chain Blockscout API with unified routes, plans, and credit-based metering.
-      Replaces the older MyAccount API; old keys do not work on PRO routes.
-    properties:
-      - type: Documentation
-        url: https://docs.blockscout.com/devs/apis/pro
-      - type: Pricing
-        url: https://dev.blockscout.com/pricing
-    x-features:
-      - Unified multi-chain access
-      - Credit-based metering
-      - Plan-tier rate limits
-    x-use-cases:
-      - Cross-chain wallet UIs
-      - Aggregator analytics
-common:
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/blockscout
-  - type: Portal
-    url: https://www.blockscout.com/
+- aid: blockscout:rest-api-v2
+  name: Blockscout REST API v2
+  tags:
+  - REST
+  - EVM
+  - Explorer
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://eth.blockscout.com/api/v2
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  description: >-
+    Recommended REST API on each Blockscout instance. Endpoints cover blocks, transactions,
+    addresses, tokens, smart-contract verification, and more. Path varies by chain (eth,
+    optimism, base, etc.). Free for self-hosted; subject to PRO API plans on dev.blockscout.com.
+  properties:
   - type: Documentation
-    url: https://docs.blockscout.com/
-  - type: Developer Portal
-    url: https://dev.blockscout.com/
-  - type: GitHub
-    url: https://github.com/blockscout
-  - type: Plans
-    url: plans/blockscout-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/blockscout-rate-limits.yml
-  - type: FinOps
-    url: finops/blockscout-finops.yml
-  - type: LLMsTxt
-    url: https://dev.blockscout.com/llms.txt
+    url: https://docs.blockscout.com/devs/apis/rest
+  x-features:
+  - Modern REST surface
+  - Per-chain hosted instances
+  - Smart-contract verification
+  x-use-cases:
+  - Wallet UIs
+  - Indexing analytics
+  - Block explorer mirroring
+- aid: blockscout:graphql-api
+  name: Blockscout GraphQL API
+  tags:
+  - GraphQL
+  - EVM
+  - Explorer
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://eth.blockscout.com/api/v1/graphql
+  humanURL: https://docs.blockscout.com/devs/apis/graphql
+  description: GraphQL API exposing blocks, transactions, addresses, and tokens.
+  properties:
+  - type: Documentation
+    url: https://docs.blockscout.com/devs/apis/graphql
+  - url: graphql/blockscout-graphql.md
+    type: GraphQL
+  x-features:
+  - GraphQL queries
+  - Block, tx, address, token schema
+  x-use-cases:
+  - Analytics workflows
+  - Custom data slicing
+- aid: blockscout:etherscan-compatible-api
+  name: Blockscout Etherscan-Compatible API
+  tags:
+  - Etherscan-Compatible
+  - REST
+  - Migration
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://eth.blockscout.com/api
+  humanURL: https://docs.blockscout.com/devs/apis/rpc
+  description: Drop-in Etherscan-style RPC API (action / module query parameters) for easy migration.
+  properties:
+  - type: Documentation
+    url: https://docs.blockscout.com/devs/apis/rpc
+  x-features:
+  - Etherscan-compatible action / module routes
+  - Simplified migration
+  x-use-cases:
+  - Migrating Etherscan integrations
+  - Compatible tooling
+- aid: blockscout:pro-api
+  name: Blockscout PRO API
+  tags:
+  - Pro
+  - Multi-chain
+  - Subscription
+  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  baseURL: https://dev.blockscout.com
+  humanURL: https://docs.blockscout.com/devs/apis/pro
+  description: >-
+    Hosted multi-chain Blockscout API with unified routes, plans, and credit-based metering.
+    Replaces the older MyAccount API; old keys do not work on PRO routes.
+  properties:
+  - type: Documentation
+    url: https://docs.blockscout.com/devs/apis/pro
+  - type: Pricing
+    url: https://dev.blockscout.com/pricing
+  x-features:
+  - Unified multi-chain access
+  - Credit-based metering
+  - Plan-tier rate limits
+  x-use-cases:
+  - Cross-chain wallet UIs
+  - Aggregator analytics
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/blockscout
+- type: Portal
+  url: https://www.blockscout.com/
+- type: Documentation
+  url: https://docs.blockscout.com/
+- type: Developer Portal
+  url: https://dev.blockscout.com/
+- type: GitHub
+  url: https://github.com/blockscout
+- type: Plans
+  url: plans/blockscout-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/blockscout-rate-limits.yml
+- type: FinOps
+  url: finops/blockscout-finops.yml
+- type: LLMsTxt
+  url: https://dev.blockscout.com/llms.txt
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
