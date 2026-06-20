@@ -2,7 +2,7 @@ aid: blockscout
 url: https://raw.githubusercontent.com/api-evangelist/blockscout/refs/heads/main/apis.yml
 name: Blockscout
 kind: company
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Web3
 - Explorer
@@ -27,7 +27,7 @@ apis:
   - REST
   - EVM
   - Explorer
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://eth.blockscout.com/api/v2
   humanURL: https://docs.blockscout.com/devs/apis/rest
   description: >-
@@ -51,7 +51,7 @@ apis:
   - GraphQL
   - EVM
   - Explorer
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://eth.blockscout.com/api/v1/graphql
   humanURL: https://docs.blockscout.com/devs/apis/graphql
   description: GraphQL API exposing blocks, transactions, addresses, and tokens.
@@ -72,7 +72,7 @@ apis:
   - Etherscan-Compatible
   - REST
   - Migration
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://eth.blockscout.com/api
   humanURL: https://docs.blockscout.com/devs/apis/rpc
   description: Drop-in Etherscan-style RPC API (action / module query parameters) for easy migration.
@@ -91,7 +91,7 @@ apis:
   - Pro
   - Multi-chain
   - Subscription
-  image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   baseURL: https://dev.blockscout.com
   humanURL: https://docs.blockscout.com/devs/apis/pro
   description: >-
