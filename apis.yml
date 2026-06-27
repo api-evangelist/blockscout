@@ -116,7 +116,7 @@ common:
   url: https://www.blockscout.com/
 - type: Documentation
   url: https://docs.blockscout.com/
-- type: Developer Portal
+- type: DeveloperPortal
   url: https://dev.blockscout.com/
 - type: GitHub
   url: https://github.com/blockscout
@@ -126,7 +126,7 @@ common:
   url: rate-limits/blockscout-rate-limits.yml
 - type: FinOps
   url: finops/blockscout-finops.yml
-- type: LLMsTxt
+- type: LlmsText
   url: https://dev.blockscout.com/llms.txt
 maintainers:
 - FN: Kin Lane
