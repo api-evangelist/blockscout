@@ -110,6 +110,8 @@ apis:
   - Cross-chain wallet UIs
   - Aggregator analytics
 common:
+- type: DomainSecurity
+  url: security/blockscout-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/blockscout
 - type: Portal
@@ -128,6 +130,8 @@ common:
   url: finops/blockscout-finops.yml
 - type: LlmsText
   url: https://dev.blockscout.com/llms.txt
+- url: https://www.blog.blockscout.com/rss/
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
