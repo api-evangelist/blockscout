@@ -110,6 +110,8 @@ apis:
   - Cross-chain wallet UIs
   - Aggregator analytics
 common:
+- type: AgenticAccess
+  url: agentic-access/blockscout-agentic-access.yml
 - type: DomainSecurity
   url: security/blockscout-domain-security.yml
 - type: LinkedIn
