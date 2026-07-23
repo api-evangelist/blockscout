@@ -1,0 +1,149 @@
+openapi: 3.0.0
+info:
+  description: API for BlockScout web app
+  version: 1.0.0
+  title: BlockScout Addresses Withdrawals API
+  contact:
+    email: support@blockscout.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://eth.blockscout.com/api/v2/
+  description: Ethereum mainnet
+- url: https://optimism.blockscout.com/api/v2/
+  description: Optimism mainnet
+- url: https://base.blockscout.com/api/v2/
+  description: Base mainnet
+- url: https://eth-sepolia.blockscout.com/api/v2/
+  description: Ethereum testnet
+tags:
+- name: Withdrawals
+paths:
+  /withdrawals:
+    get:
+      summary: get withdrawals
+      operationId: get_withdrawals
+      responses:
+        '200':
+          description: withdrawals
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - items
+                - next_page_params
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Withdrawal'
+                  next_page_params:
+                    type: object
+                    example:
+                      index: 1
+                      items_count: 50
+      tags:
+      - Withdrawals
+components:
+  schemas:
+    AddressParam:
+      type: object
+      required:
+      - hash
+      - implementation_name
+      - is_contract
+      - is_verified
+      - name
+      - private_tags
+      - public_tags
+      - watchlist_names
+      properties:
+        hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        implementation_name:
+          type: string
+          example: implementationName
+        name:
+          type: string
+          example: contractName
+        ens_domain_name:
+          type: string
+          example: domain.eth
+        metadata:
+          type: object
+          example:
+            slug: tag_slug
+            name: Tag name
+            tagType: name
+            ordinal: 0
+            meta: {}
+        is_contract:
+          type: boolean
+        private_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        watchlist_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+        public_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        is_verified:
+          type: boolean
+    Withdrawal:
+      required:
+      - index
+      - amount
+      - validator_index
+      properties:
+        index:
+          type: integer
+          example: 1
+        amount:
+          type: string
+          example: '1000000000000000000'
+        validator_index:
+          type: integer
+          example: 1
+        receiver:
+          $ref: '#/components/schemas/AddressParam'
+        block_number:
+          type: integer
+          example: 1
+        timestamp:
+          type: string
+          example: '2023-06-20T07:55:00.000000Z'
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    AddressTag:
+      type: object
+      required:
+      - address_hash
+      - display_name
+      - label
+      properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label

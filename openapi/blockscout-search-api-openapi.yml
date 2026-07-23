@@ -1,0 +1,216 @@
+openapi: 3.0.0
+info:
+  description: API for BlockScout web app
+  version: 1.0.0
+  title: BlockScout Addresses Search API
+  contact:
+    email: support@blockscout.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://eth.blockscout.com/api/v2/
+  description: Ethereum mainnet
+- url: https://optimism.blockscout.com/api/v2/
+  description: Optimism mainnet
+- url: https://base.blockscout.com/api/v2/
+  description: Base mainnet
+- url: https://eth-sepolia.blockscout.com/api/v2/
+  description: Ethereum testnet
+tags:
+- name: Search
+paths:
+  /search:
+    get:
+      parameters:
+      - in: query
+        name: q
+        schema:
+          type: string
+          example: USDT
+      summary: search
+      operationId: search
+      responses:
+        '200':
+          description: search response
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - items
+                - next_page_params
+                properties:
+                  items:
+                    type: array
+                    items:
+                      oneOf:
+                      - $ref: '#/components/schemas/SearchResultToken'
+                      - $ref: '#/components/schemas/SearchResultAddressOrContract'
+                      - $ref: '#/components/schemas/SearchResultBlock'
+                      - $ref: '#/components/schemas/SearchResultTransaction'
+                  next_page_params:
+                    type: object
+                    example:
+                      address_hash: '0x052Ad78E3aA0b0F2D3912FD3b50a9a289CF2f7Aa'
+                      block_hash: null
+                      holders_count: 548
+                      inserted_at: '2021-12-07T08:39:01.062253Z'
+                      item_type: token
+                      items_count: 50
+                      name: RealToken S 13245 Monica St Detroit MI
+                      q: '1'
+                      transaction_hash: null
+        '400':
+          description: bad input parameter
+      tags:
+      - Search
+  /search/check-redirect:
+    get:
+      parameters:
+      - in: query
+        name: q
+        schema:
+          type: string
+          example: USDT
+      summary: search redirect
+      operationId: search redirect
+      responses:
+        '200':
+          description: search response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResultRedirect'
+        '400':
+          description: bad input parameter
+      tags:
+      - Search
+components:
+  schemas:
+    SearchResultBlock:
+      required:
+      - block_hash
+      - block_number
+      - timestamp
+      - type
+      - url
+      properties:
+        block_hash:
+          type: string
+          example: '0xba83e9ba0b43e8d112a07fdab08d53f473d2b7fb0e585bd437ae739933db203e'
+        block_number:
+          type: integer
+          example: 24816691
+        timestamp:
+          type: string
+          example: '2022-10-31T07:18:05.000000Z'
+        type:
+          type: string
+          example: block
+        url:
+          type: string
+          example: /xdai/mainnet/block/0xba83e9ba0b43e8d112a07fdab08d53f473d2b7fb0e585bd437ae739933db203e
+    SearchResultAddressOrContract:
+      required:
+      - address
+      - is_smart_contract_verified
+      - name
+      - type
+      - url
+      properties:
+        address_hash:
+          type: string
+          example: '0xe2FBdeADC82c71C1b8bFf9CA4f9E7666224A362c'
+        is_smart_contract_verified:
+          type: boolean
+          example: true
+        name:
+          type: string
+          example: Name
+        type:
+          type: string
+          example: address|contract
+        url:
+          type: string
+          example: /xdai/mainnet/address/0xc1c1031e4A44B98707203480029e6576CB3267e3
+    SearchResultRedirect:
+      required:
+      - parameter
+      - redirect
+      - type
+      properties:
+        parameter:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        redirect:
+          type: boolean
+        type:
+          type: string
+          example: address | block | transaction
+    SearchResultToken:
+      required:
+      - address
+      - address_url
+      - exchange_rate
+      - icon_url
+      - is_smart_contract_verified
+      - name
+      - symbol
+      - token_type
+      - token_url
+      - total_supply
+      - type
+      properties:
+        address_hash:
+          type: string
+          example: '0xdAC17F958D2ee523a2206206994597C13D831ec7'
+        address_url:
+          type: string
+          example: /address/0xdAC17F958D2ee523a2206206994597C13D831ec7
+        exchange_rate:
+          type: string
+          example: '0.999813'
+        icon_url:
+          type: string
+          example: https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png
+        is_smart_contract_verified:
+          type: boolean
+          example: true
+        name:
+          type: string
+          example: Tether USD
+        symbol:
+          type: string
+          example: USDT
+        token_type:
+          type: string
+          example: ERC-20
+        token_url:
+          type: string
+          example: /token/0xdAC17F958D2ee523a2206206994597C13D831ec7
+        total_supply:
+          type: string
+          example: '39030615894320966'
+        type:
+          type: string
+          example: token
+    SearchResultTransaction:
+      required:
+      - timestamp
+      - transaction_hash
+      - type
+      - url
+      properties:
+        timestamp:
+          type: string
+          example: '2022-10-31T07:18:05.000000Z'
+        transaction_hash:
+          type: string
+          example: '0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69'
+        type:
+          type: string
+          example: transaction
+        url:
+          type: string
+          example: /xdai/mainnet/tx/0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69

@@ -1,0 +1,303 @@
+openapi: 3.0.0
+info:
+  description: API for BlockScout web app
+  version: 1.0.0
+  title: BlockScout Addresses Token Transfers API
+  contact:
+    email: support@blockscout.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://eth.blockscout.com/api/v2/
+  description: Ethereum mainnet
+- url: https://optimism.blockscout.com/api/v2/
+  description: Optimism mainnet
+- url: https://base.blockscout.com/api/v2/
+  description: Base mainnet
+- url: https://eth-sepolia.blockscout.com/api/v2/
+  description: Ethereum testnet
+tags:
+- name: Token Transfers
+paths:
+  /token-transfers:
+    get:
+      summary: get token transfers
+      operationId: get_token_transfers
+      responses:
+        '200':
+          description: token transfers
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - items
+                - next_page_params
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TokenTransfer'
+                  next_page_params:
+                    type: object
+                    example:
+                      block_number: 27170298
+                      index: 0
+        '400':
+          description: bad input parameter
+      tags:
+      - Token Transfers
+components:
+  schemas:
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    TotalERC20:
+      required:
+      - decimals
+      - value
+      properties:
+        decimals:
+          type: string
+          example: '18'
+        value:
+          type: string
+          example: '1000'
+    TokenInfo:
+      type: object
+      required:
+      - address
+      - circulating_market_cap
+      - icon_url
+      - symbol
+      - name
+      - decimals
+      - type
+      - holders
+      - exchange_rate
+      - total_supply
+      properties:
+        circulating_market_cap:
+          type: string
+          example: '83606435600.3635'
+        icon_url:
+          type: string
+          example: https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png
+        name:
+          type: string
+          example: Tether USD
+        decimals:
+          type: string
+          example: '6'
+        symbol:
+          type: string
+          example: USDT
+        address_hash:
+          type: string
+          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
+        type:
+          type: string
+          example: ERC-20
+        holders_count:
+          type: string
+          example: '837494234523'
+        exchange_rate:
+          type: string
+          example: '0.99'
+        total_supply:
+          type: string
+          example: '10000000'
+    AddressTag:
+      type: object
+      required:
+      - address_hash
+      - display_name
+      - label
+      properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    TotalERC721:
+      required:
+      - token_id
+      properties:
+        token_id:
+          type: string
+          example: '1'
+        token_instance:
+          $ref: '#/components/schemas/NFTInstance'
+    NFTInstance:
+      required:
+      - is_unique
+      - id
+      - token
+      - owner
+      properties:
+        is_unique:
+          type: boolean
+        id:
+          type: string
+          example: '431'
+        holder_address_hash:
+          type: string
+          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
+        image_url:
+          type: string
+          example: example.com/picture.png
+        animation_url:
+          type: string
+          example: example.com/video.mp4
+        external_app_url:
+          type: string
+          example: d-app.com
+        metadata:
+          type: object
+          example:
+            year: 2023
+            tags:
+            - poap
+            - event
+            name: 'Social Listening Committee #2 Attendees'
+            image_url: https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png
+            home_url: https://app.poap.xyz/token/6292128
+            external_url: https://api.poap.tech/metadata/99010/6292128
+            description: This is the POAP for attendees of the second Social Listening Committee.
+            attributes:
+            - value: 01-Feb-2023
+              trait_type: startDate
+            - value: 01-Feb-2023
+              trait_type: endDate
+            - value: 'false'
+              trait_type: virtualEvent
+            - value: Paris
+              trait_type: city
+            - value: France
+              trait_type: country
+            - value: https://www.chanel.com
+              trait_type: eventURL
+        owner:
+          $ref: '#/components/schemas/AddressParam'
+        token:
+          $ref: '#/components/schemas/TokenInfo'
+    AddressParam:
+      type: object
+      required:
+      - hash
+      - implementation_name
+      - is_contract
+      - is_verified
+      - name
+      - private_tags
+      - public_tags
+      - watchlist_names
+      properties:
+        hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        implementation_name:
+          type: string
+          example: implementationName
+        name:
+          type: string
+          example: contractName
+        ens_domain_name:
+          type: string
+          example: domain.eth
+        metadata:
+          type: object
+          example:
+            slug: tag_slug
+            name: Tag name
+            tagType: name
+            ordinal: 0
+            meta: {}
+        is_contract:
+          type: boolean
+        private_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        watchlist_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+        public_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        is_verified:
+          type: boolean
+    TotalERC1155:
+      required:
+      - token_id
+      - decimals
+      - value
+      properties:
+        token_id:
+          type: string
+          example: '1'
+        decimals:
+          type: string
+          example: null
+        value:
+          type: string
+          example: '1000'
+        token_instance:
+          $ref: '#/components/schemas/NFTInstance'
+    TokenTransfer:
+      type: object
+      required:
+      - block_hash
+      - from
+      - log_index
+      - to
+      - token
+      - total
+      - transaction_hash
+      - type
+      properties:
+        block_hash:
+          type: string
+          example: '0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a'
+        from:
+          $ref: '#/components/schemas/AddressParam'
+        log_index:
+          type: integer
+          example: 16
+        method:
+          type: string
+          example: transfer
+        timestamp:
+          type: string
+          example: '2023-07-03T20:09:59.000000Z'
+        to:
+          $ref: '#/components/schemas/AddressParam'
+        token:
+          $ref: '#/components/schemas/TokenInfo'
+        total:
+          oneOf:
+          - $ref: '#/components/schemas/TotalERC20'
+          - $ref: '#/components/schemas/TotalERC721'
+          - $ref: '#/components/schemas/TotalERC1155'
+        transaction_hash:
+          type: string
+          example: '0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592'
+        type:
+          type: string
+          example: token_transfer

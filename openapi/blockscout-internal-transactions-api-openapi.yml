@@ -1,0 +1,176 @@
+openapi: 3.0.0
+info:
+  description: API for BlockScout web app
+  version: 1.0.0
+  title: BlockScout Addresses Internal Transactions API
+  contact:
+    email: support@blockscout.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://eth.blockscout.com/api/v2/
+  description: Ethereum mainnet
+- url: https://optimism.blockscout.com/api/v2/
+  description: Optimism mainnet
+- url: https://base.blockscout.com/api/v2/
+  description: Base mainnet
+- url: https://eth-sepolia.blockscout.com/api/v2/
+  description: Ethereum testnet
+tags:
+- name: Internal Transactions
+paths:
+  /internal-transactions:
+    get:
+      summary: get internal transactions
+      operationId: get_internal_transactions
+      responses:
+        '200':
+          description: internal transactions
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - items
+                - next_page_params
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InternalTransaction'
+                  next_page_params:
+                    type: object
+                    example:
+                      block_number: 27170298
+                      index: 0
+                      transaction_index: 0
+      tags:
+      - Internal Transactions
+components:
+  schemas:
+    AddressParam:
+      type: object
+      required:
+      - hash
+      - implementation_name
+      - is_contract
+      - is_verified
+      - name
+      - private_tags
+      - public_tags
+      - watchlist_names
+      properties:
+        hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        implementation_name:
+          type: string
+          example: implementationName
+        name:
+          type: string
+          example: contractName
+        ens_domain_name:
+          type: string
+          example: domain.eth
+        metadata:
+          type: object
+          example:
+            slug: tag_slug
+            name: Tag name
+            tagType: name
+            ordinal: 0
+            meta: {}
+        is_contract:
+          type: boolean
+        private_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        watchlist_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+        public_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        is_verified:
+          type: boolean
+    InternalTransaction:
+      type: object
+      required:
+      - block_number
+      - created_contract
+      - error
+      - from
+      - gas_limit
+      - index
+      - success
+      - timestamp
+      - to
+      - transaction_hash
+      - type
+      - value
+      properties:
+        block_number:
+          type: integer
+          example: 8844586
+        created_contract:
+          $ref: '#/components/schemas/AddressParam'
+        error:
+          type: string
+          example: reverted
+        from:
+          $ref: '#/components/schemas/AddressParam'
+        gas_limit:
+          type: string
+          example: '351759'
+        index:
+          type: integer
+          example: 1
+        success:
+          type: boolean
+          example: true
+        timestamp:
+          type: string
+          example: '2023-04-17T10:37:12.000000Z'
+        to:
+          $ref: '#/components/schemas/AddressParam'
+        transaction_hash:
+          type: string
+          example: '0x08ea4d75ad0abe327a7fd368733eaeac43077989e635d800530d7906ebf3bd54'
+        type:
+          type: string
+          example: call
+        value:
+          type: string
+          example: '30000000000000000'
+    AddressTag:
+      type: object
+      required:
+      - address_hash
+      - display_name
+      - label
+      properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label

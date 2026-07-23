@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  description: API for BlockScout web app
+  version: 1.0.0
+  title: BlockScout Addresses Proxy API
+  contact:
+    email: support@blockscout.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://eth.blockscout.com/api/v2/
+  description: Ethereum mainnet
+- url: https://optimism.blockscout.com/api/v2/
+  description: Optimism mainnet
+- url: https://base.blockscout.com/api/v2/
+  description: Base mainnet
+- url: https://eth-sepolia.blockscout.com/api/v2/
+  description: Ethereum testnet
+tags:
+- name: Proxy
+paths:
+  /proxy/account-abstraction/status:
+    get:
+      summary: get account abstraction indexing status
+      operationId: get_account_abstraction_status
+      responses:
+        '200':
+          description: A successful response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1IndexerStatus'
+        '500':
+          description: unexpected error
+      tags:
+      - Proxy
+components:
+  schemas:
+    v1IndexerStatus:
+      properties:
+        finished_past_indexing:
+          type: boolean
+        v06:
+          $ref: '#/components/schemas/v1EntryPointIndexerStatus'
+        v07:
+          $ref: '#/components/schemas/v1EntryPointIndexerStatus'
+    v1EntryPointIndexerStatus:
+      properties:
+        enabled:
+          type: boolean
+        live:
+          type: boolean
+        past_db_logs_indexing_finished:
+          type: boolean
+        past_rpc_logs_indexing_finished:
+          type: boolean

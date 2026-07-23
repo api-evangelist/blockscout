@@ -1,0 +1,349 @@
+openapi: 3.0.0
+info:
+  description: API for BlockScout web app
+  version: 1.0.0
+  title: BlockScout Addresses Smart Contracts API
+  contact:
+    email: support@blockscout.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://eth.blockscout.com/api/v2/
+  description: Ethereum mainnet
+- url: https://optimism.blockscout.com/api/v2/
+  description: Optimism mainnet
+- url: https://base.blockscout.com/api/v2/
+  description: Base mainnet
+- url: https://eth-sepolia.blockscout.com/api/v2/
+  description: Ethereum testnet
+tags:
+- name: Smart Contracts
+paths:
+  /smart-contracts:
+    get:
+      summary: get verified smart contracts
+      operationId: get_smart_contracts
+      parameters:
+      - in: query
+        name: q
+        schema:
+          type: string
+          example: proxy
+      - in: query
+        name: filter
+        schema:
+          type: string
+          example: vyper | solidity | yul
+      responses:
+        '200':
+          description: smart contract
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - items
+                - next_page_params
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SmartContractForList'
+                  next_page_params:
+                    type: object
+                    example:
+                      items_count: 50
+                      smart_contract_id: 46
+        '400':
+          description: bad input parameter
+      tags:
+      - Smart Contracts
+  /smart-contracts/counters:
+    get:
+      summary: get verified smart contracts counters
+      operationId: get_smart_contracts_counters
+      responses:
+        '200':
+          description: smart contracts counters
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - new_smart_contracts_24h
+                - new_verified_smart_contracts_24h
+                - smart_contracts
+                - verified_smart_contracts
+                properties:
+                  new_smart_contracts_24h:
+                    type: string
+                    example: '12'
+                  new_verified_smart_contracts_24h:
+                    type: string
+                    example: '11'
+                  smart_contracts:
+                    type: string
+                    example: '20'
+                  verified_smart_contracts:
+                    type: string
+                    example: '15'
+        '400':
+          description: bad input parameter
+      tags:
+      - Smart Contracts
+  /smart-contracts/{address_hash}:
+    get:
+      summary: get smart contract
+      operationId: get_smart_contract
+      parameters:
+      - $ref: '#/components/parameters/addressHash'
+      responses:
+        '200':
+          description: smart contract
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmartContract'
+        '400':
+          description: bad input parameter
+      tags:
+      - Smart Contracts
+components:
+  schemas:
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    ExternalLibrary:
+      required:
+      - name
+      - address_hash
+      properties:
+        name:
+          type: string
+          example: MathLib
+        address_hash:
+          type: string
+          example: '0xF61f5c4a3664501F499A9289AaEe76a709CE536e'
+    AddressTag:
+      type: object
+      required:
+      - address_hash
+      - display_name
+      - label
+      properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    ConstructorArguments:
+      type: object
+      example:
+      - '0x2a3885b3f0c98f3e36334d4fa7beda53cb0ae095'
+      - internalType: address
+        name: _logic
+        type: address
+    AddressParam:
+      type: object
+      required:
+      - hash
+      - implementation_name
+      - is_contract
+      - is_verified
+      - name
+      - private_tags
+      - public_tags
+      - watchlist_names
+      properties:
+        hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        implementation_name:
+          type: string
+          example: implementationName
+        name:
+          type: string
+          example: contractName
+        ens_domain_name:
+          type: string
+          example: domain.eth
+        metadata:
+          type: object
+          example:
+            slug: tag_slug
+            name: Tag name
+            tagType: name
+            ordinal: 0
+            meta: {}
+        is_contract:
+          type: boolean
+        private_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        watchlist_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+        public_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        is_verified:
+          type: boolean
+    SmartContractForList:
+      required:
+      - address
+      - coin_balance
+      - compiler_version
+      - has_constructor_args
+      - language
+      - optimization_enabled
+      - verified_at
+      properties:
+        address_hash:
+          $ref: '#/components/schemas/AddressParam'
+        coin_balance:
+          type: string
+          example: '10000'
+        compiler_version:
+          type: string
+          example: v0.5.10+commit.5a6ea5b1
+        language:
+          type: string
+          example: vyper | yul | solidity
+        has_constructor_args:
+          type: boolean
+        optimization_enabled:
+          type: boolean
+        transactions_count:
+          type: integer
+        verified_at:
+          type: string
+          example: '2022-03-05T11:40:29.087000Z'
+        market_cap:
+          type: number
+          example: 1000000000.0001
+    SmartContract:
+      properties:
+        verified_twin_address_hash:
+          type: string
+          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
+        is_verified:
+          type: boolean
+        is_changed_bytecode:
+          type: boolean
+        is_partially_verified:
+          type: boolean
+        is_fully_verified:
+          type: boolean
+        is_verified_via_sourcify:
+          type: boolean
+        is_verified_via_eth_bytecode_db:
+          type: boolean
+        can_be_visualized_via_sol2uml:
+          type: boolean
+        minimal_proxy_address_hash:
+          type: string
+          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
+        sourcify_repo_url:
+          type: string
+          example: https://sourcify.repo.com/100/link_to_a_contract_at_sourcify
+        name:
+          type: string
+          example: Cryptostamp3L2
+        optimization_enabled:
+          type: boolean
+          example: false
+        optimizations_runs:
+          type: integer
+          example: 200
+        compiler_version:
+          type: string
+          example: v0.8.4+commit.c7e474f2
+        evm_version:
+          type: string
+          example: default
+        verified_at:
+          type: string
+          example: '2021-06-02T17:54:17.116055Z'
+        abi:
+          type: string
+          example: '[{"type":"constructor","stateMutability":"nonpayable","inputs":[{"type":"address","name":"_bridgeDataAddress","internalType":"address"},{"type":"uint256","name":"_finalSupply","internalType":"uint256"},{"type":"uint256[5]","name":"_totalColorSupply","internalType":"uint256[5]"}]}]'
+        source_code:
+          type: string
+          example: contract A {}
+        file_path:
+          type: string
+          example: contract.sol
+        compiler_settings:
+          type: object
+          example:
+            compilationTarget:
+              '@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol': ERC1967Proxy
+            evmVersion: london
+            libraries: {}
+            metadata:
+              bytecodeHash: ipfs
+            optimizer:
+              enabled: true
+              runs: 200
+            remappings: []
+        constructor_args:
+          type: string
+          example: '0x01'
+        additional_sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContractSource'
+        decoded_constructor_args:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConstructorArguments'
+        deployed_bytecode:
+          type: string
+          example: '0x01'
+        creation_bytecode:
+          type: string
+          example: '0x02'
+        external_libraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalLibrary'
+        language:
+          type: string
+          example: solidity | vyper | yul
+        creation_status:
+          type: string
+          example: selfdestructed | failed | success
+    ContractSource:
+      properties:
+        file_path:
+          type: string
+          example: contracts/erc-20.sol
+        source_code:
+          type: string
+          example: pragma solidity ^0.8.0; \n contract A {}
+  parameters:
+    addressHash:
+      name: address_hash
+      in: path
+      description: Address hash
+      required: true
+      schema:
+        type: string
+        pattern: ^0x([A-Fa-f0-9]{40})$

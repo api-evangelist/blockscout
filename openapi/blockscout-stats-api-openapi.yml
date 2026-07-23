@@ -1,0 +1,161 @@
+openapi: 3.0.0
+info:
+  description: API for BlockScout web app
+  version: 1.0.0
+  title: BlockScout Addresses Stats API
+  contact:
+    email: support@blockscout.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://eth.blockscout.com/api/v2/
+  description: Ethereum mainnet
+- url: https://optimism.blockscout.com/api/v2/
+  description: Optimism mainnet
+- url: https://base.blockscout.com/api/v2/
+  description: Base mainnet
+- url: https://eth-sepolia.blockscout.com/api/v2/
+  description: Ethereum testnet
+tags:
+- name: Stats
+paths:
+  /stats:
+    get:
+      summary: get stats counters
+      operationId: get_stats
+      responses:
+        '200':
+          description: stats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatsResponse'
+      tags:
+      - Stats
+  /stats/charts/transactions:
+    get:
+      summary: get transactions chart
+      operationId: get_txs_chart
+      responses:
+        '200':
+          description: transaction chart
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - chart_data
+                properties:
+                  chart_data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TransactionChartItem'
+      tags:
+      - Stats
+  /stats/charts/market:
+    get:
+      summary: get market chart
+      operationId: get_market_chart
+      responses:
+        '200':
+          description: market chart
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - chart_data
+                - available_supply
+                properties:
+                  available_supply:
+                    type: string
+                    example: '164918857.718061'
+                  chart_data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MarketChartItem'
+      tags:
+      - Stats
+components:
+  schemas:
+    StatsResponse:
+      required:
+      - total_blocks
+      - total_addresses
+      - total_transactions
+      - average_block_time
+      - coin_price
+      - total_gas_used
+      - transactions_today
+      - gas_used_today
+      - gas_prices
+      - static_gas_price
+      - market_cap
+      - network_utilization_percentage
+      properties:
+        total_blocks:
+          type: string
+          example: '508700'
+        total_addresses:
+          type: string
+          example: '982340'
+        total_transactions:
+          type: string
+          example: '1699427'
+        average_block_time:
+          type: number
+          example: 2.5e4
+        coin_price:
+          type: string
+          example: '0.00254957'
+        total_gas_used:
+          type: string
+          example: '0'
+        transactions_today:
+          type: string
+          example: '622'
+        gas_used_today:
+          type: string
+          example: '49063630'
+        gas_prices:
+          type: object
+          example:
+            average: 10.0
+            fast: 10.0
+            slow: 10.0
+        static_gas_price:
+          type: string
+          example: '10.1'
+        market_cap:
+          type: string
+          example: '420471.10604559750644'
+        network_utilization_percentage:
+          type: number
+          example: 40.2142
+    TransactionChartItem:
+      required:
+      - date
+      - transactions_count
+      properties:
+        date:
+          type: string
+          example: '2022-10-31'
+        transactions_count:
+          type: integer
+          example: 622
+    MarketChartItem:
+      required:
+      - date
+      - closing_price
+      - market_cap
+      properties:
+        date:
+          type: string
+          example: '2022-10-31'
+        closing_price:
+          type: string
+          example: '0.00254915'
+        market_cap:
+          type: string
+          example: '420471.10604559750644'

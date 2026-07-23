@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  description: API for BlockScout web app
+  version: 1.0.0
+  title: BlockScout Addresses Config API
+  contact:
+    email: support@blockscout.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://eth.blockscout.com/api/v2/
+  description: Ethereum mainnet
+- url: https://optimism.blockscout.com/api/v2/
+  description: Optimism mainnet
+- url: https://base.blockscout.com/api/v2/
+  description: Base mainnet
+- url: https://eth-sepolia.blockscout.com/api/v2/
+  description: Ethereum testnet
+tags:
+- name: Config
+paths:
+  /config/json-rpc-url:
+    get:
+      summary: get json rpc url
+      operationId: get_json_rpc_url
+      responses:
+        '200':
+          description: json rpc url
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - json_rpc_url
+                properties:
+                  json_rpc_url:
+                    type: string
+                    example: https://core.poa.network
+      tags:
+      - Config

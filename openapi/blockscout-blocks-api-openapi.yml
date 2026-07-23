@@ -1,0 +1,838 @@
+openapi: 3.0.0
+info:
+  description: API for BlockScout web app
+  version: 1.0.0
+  title: BlockScout Addresses Blocks API
+  contact:
+    email: support@blockscout.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://eth.blockscout.com/api/v2/
+  description: Ethereum mainnet
+- url: https://optimism.blockscout.com/api/v2/
+  description: Optimism mainnet
+- url: https://base.blockscout.com/api/v2/
+  description: Base mainnet
+- url: https://eth-sepolia.blockscout.com/api/v2/
+  description: Ethereum testnet
+tags:
+- name: Blocks
+paths:
+  /blocks:
+    get:
+      parameters:
+      - in: query
+        name: type
+        schema:
+          type: string
+          example: block | uncle | reorg
+      summary: get blocks
+      operationId: get_blocks
+      responses:
+        '200':
+          description: block
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - items
+                - next_page_params
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Block'
+                  next_page_params:
+                    type: object
+                    example:
+                      block_number: 27729304
+                      items_count: 50
+        '400':
+          description: bad input parameter
+      tags:
+      - Blocks
+  /blocks/{block_number_or_hash}:
+    get:
+      summary: get block info
+      operationId: get_block
+      parameters:
+      - $ref: '#/components/parameters/blockNumberOrHash'
+      responses:
+        '200':
+          description: block
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Block'
+        '400':
+          description: bad input parameter
+      tags:
+      - Blocks
+  /blocks/{block_number_or_hash}/transactions:
+    get:
+      summary: get block transactions
+      operationId: get_block_txs
+      parameters:
+      - $ref: '#/components/parameters/blockNumberOrHash'
+      responses:
+        '200':
+          description: block
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - items
+                - next_page_params
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Transaction'
+                  next_page_params:
+                    type: object
+                    example:
+                      block_number: 27736955
+                      index: 4
+                      items_count: 50
+        '400':
+          description: bad input parameter
+      tags:
+      - Blocks
+  /blocks/{block_number_or_hash}/withdrawals:
+    get:
+      summary: get block withdrawals
+      operationId: get_block_withdrawals
+      parameters:
+      - $ref: '#/components/parameters/blockNumberOrHash'
+      responses:
+        '200':
+          description: block's withdrawals (pay attention that block_number together with timestamp fields is not included to response in this endpoint)
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - items
+                - next_page_params
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Withdrawal'
+                  next_page_params:
+                    type: object
+                    example:
+                      index: 1
+                      items_count: 50
+        '400':
+          description: bad input parameter
+      tags:
+      - Blocks
+components:
+  schemas:
+    TotalERC20:
+      required:
+      - decimals
+      - value
+      properties:
+        decimals:
+          type: string
+          example: '18'
+        value:
+          type: string
+          example: '1000'
+    DecodedInput:
+      type: object
+      required:
+      - method_call
+      - method_id
+      - parameters
+      properties:
+        method_call:
+          type: string
+          example: transferFrom(address _from, address _to, uint256 _value)
+        method_id:
+          type: string
+          example: 23b872dd
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/DecodedInputParameter'
+    Transaction:
+      type: object
+      required:
+      - timestamp
+      - fee
+      - gas_limit
+      - block_number
+      - status
+      - method
+      - confirmations
+      - type
+      - exchange_rate
+      - to
+      - transaction_burnt_fee
+      - max_fee_per_gas
+      - result
+      - hash
+      - gas_price
+      - priority_fee
+      - base_fee_per_gas
+      - from
+      - token_transfers
+      - transaction_types
+      - gas_used
+      - created_contract
+      - position
+      - nonce
+      - has_error_in_internal_transactions
+      - actions
+      - decoded_input
+      - token_transfers_overflow
+      - raw_input
+      - value
+      - max_priority_fee_per_gas
+      - revert_reason
+      - confirmation_duration
+      - transaction_tag
+      properties:
+        timestamp:
+          type: string
+          example: '2022-08-02T07:18:05.000000Z'
+        fee:
+          $ref: '#/components/schemas/Fee'
+        gas_limit:
+          type: integer
+        block_number:
+          type: integer
+          format: int32
+          example: 23484035
+        status:
+          type: string
+          example: ok | error
+        method:
+          type: string
+          example: transferFrom
+        confirmations:
+          type: integer
+          example: 1035
+        type:
+          type: integer
+          example: 2
+        exchange_rate:
+          type: string
+          example: '1866.51'
+        to:
+          nullable: true,
+          $ref: '#/components/schemas/AddressParam'
+        transaction_burnt_fee:
+          type: string
+          example: '1099596081903840'
+        max_fee_per_gas:
+          type: string
+          example: '55357460102'
+        result:
+          type: string
+          example: 'Error: (Awaiting internal transactions for reason)'
+        hash:
+          type: string
+          example: '0x5d90a9da2b8da402b11bc92c8011ec8a62a2d59da5c7ac4ae0f73ec51bb73368'
+        gas_price:
+          type: string
+          example: '26668595172'
+        priority_fee:
+          type: string
+          example: '2056916056308'
+        base_fee_per_gas:
+          type: string
+          example: '26618801760'
+        from:
+          $ref: '#/components/schemas/AddressParam'
+        token_transfers:
+          type: array
+          items:
+            $ref: '#/components/schemas/TokenTransfer'
+        transaction_types:
+          type: array
+          items:
+            type: string
+          example:
+          - token_transfer
+          - contract_creation
+          - contract_call
+          - token_creation
+          - coin_transfer
+        gas_used:
+          type: string
+          example: '41309'
+        created_contract:
+          nullable: true,
+          $ref: '#/components/schemas/AddressParam'
+        position:
+          type: integer
+          example: 117
+        nonce:
+          type: integer
+          example: 115
+        has_error_in_internal_transactions:
+          type: boolean
+          example: false
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/TransactionAction'
+        decoded_input:
+          $ref: '#/components/schemas/DecodedInput'
+        token_transfers_overflow:
+          type: boolean
+          example: false
+        raw_input:
+          type: string
+          example: '0xa9059cbb000000000000000000000000ef8801eaf234ff82801821ffe2d78d60a0237f97000000000000000000000000000000000000000000000000000000003178cb80'
+        value:
+          type: string
+          example: '0'
+        max_priority_fee_per_gas:
+          type: string
+          example: '49793412'
+        revert_reason:
+          type: string
+          example: 'Error: (Awaiting internal transactions for reason)'
+        confirmation_duration:
+          type: object
+          example:
+          - 0
+          - 17479.0
+        transaction_tag:
+          type: string
+          example: private_transaction_tag
+    TransactionActionUniswapV3MintNFT:
+      required:
+      - data
+      - protocol
+      - type
+      properties:
+        data:
+          type: object
+          example:
+            name: 'Uniswap V3: Positions NFT'
+            symbol: UNI-V3-POS
+            address: '0x1F98431c8aD98523631AE4a59f267346ea31F984'
+            to: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
+            ids:
+            - '1'
+            - '2'
+            block_number: 1
+        protocol:
+          type: string
+          example: uniswap_v3
+        type:
+          type: string
+          example: mint_nft
+    TotalERC1155:
+      required:
+      - token_id
+      - decimals
+      - value
+      properties:
+        token_id:
+          type: string
+          example: '1'
+        decimals:
+          type: string
+          example: null
+        value:
+          type: string
+          example: '1000'
+        token_instance:
+          $ref: '#/components/schemas/NFTInstance'
+    TransactionActionAaveV3BSWRF:
+      required:
+      - data
+      - protocol
+      - type
+      properties:
+        data:
+          type: object
+          example:
+            amount: '1.289548595490270429'
+            symbol: AAVE
+            address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
+            block_number: 1
+        protocol:
+          type: string
+          example: aave_v3
+        type:
+          type: string
+          example: borrow | supply | withdraw | repay | flash_loan
+    TokenTransfer:
+      type: object
+      required:
+      - block_hash
+      - from
+      - log_index
+      - to
+      - token
+      - total
+      - transaction_hash
+      - type
+      properties:
+        block_hash:
+          type: string
+          example: '0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a'
+        from:
+          $ref: '#/components/schemas/AddressParam'
+        log_index:
+          type: integer
+          example: 16
+        method:
+          type: string
+          example: transfer
+        timestamp:
+          type: string
+          example: '2023-07-03T20:09:59.000000Z'
+        to:
+          $ref: '#/components/schemas/AddressParam'
+        token:
+          $ref: '#/components/schemas/TokenInfo'
+        total:
+          oneOf:
+          - $ref: '#/components/schemas/TotalERC20'
+          - $ref: '#/components/schemas/TotalERC721'
+          - $ref: '#/components/schemas/TotalERC1155'
+        transaction_hash:
+          type: string
+          example: '0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592'
+        type:
+          type: string
+          example: token_transfer
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    TokenInfo:
+      type: object
+      required:
+      - address
+      - circulating_market_cap
+      - icon_url
+      - symbol
+      - name
+      - decimals
+      - type
+      - holders
+      - exchange_rate
+      - total_supply
+      properties:
+        circulating_market_cap:
+          type: string
+          example: '83606435600.3635'
+        icon_url:
+          type: string
+          example: https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png
+        name:
+          type: string
+          example: Tether USD
+        decimals:
+          type: string
+          example: '6'
+        symbol:
+          type: string
+          example: USDT
+        address_hash:
+          type: string
+          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
+        type:
+          type: string
+          example: ERC-20
+        holders_count:
+          type: string
+          example: '837494234523'
+        exchange_rate:
+          type: string
+          example: '0.99'
+        total_supply:
+          type: string
+          example: '10000000'
+    TransactionActionAaveV3EnableDisableCollateral:
+      required:
+      - data
+      - protocol
+      - type
+      properties:
+        data:
+          type: object
+          example:
+            symbol: AAVE
+            address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
+            block_number: 1
+        protocol:
+          type: string
+          example: aave_v3
+        type:
+          type: string
+          example: enable_collateral | disable_collateral
+    TransactionAction:
+      oneOf:
+      - $ref: '#/components/schemas/TransactionActionAaveV3LiquidationCall'
+      - $ref: '#/components/schemas/TransactionActionAaveV3BSWRF'
+      - $ref: '#/components/schemas/TransactionActionAaveV3EnableDisableCollateral'
+      - $ref: '#/components/schemas/TransactionActionUniswapV3MintNFT'
+      - $ref: '#/components/schemas/TransactionActionUniswapV3BCS'
+    Block:
+      type: object
+      required:
+      - base_fee_per_gas
+      - burnt_fees
+      - burnt_fees_percentage
+      - difficulty
+      - extra_data
+      - gas_limit
+      - gas_target_percentage
+      - gas_used
+      - gas_used_percentage
+      - hash
+      - height
+      - miner
+      - nonce
+      - parent_hash
+      - priority_fee
+      - rewards
+      - size
+      - state_root
+      - timestamp
+      - total_difficulty
+      - transactions_count
+      - transaction_fees
+      - type
+      - uncles_hashes
+      - withdrawals_count
+      properties:
+        base_fee_per_gas:
+          type: string
+          example: '26618801760'
+        burnt_fees:
+          type: string
+          example: '261263193229977120'
+        burnt_fees_percentage:
+          type: number
+          example: 85.19028810863084
+        difficulty:
+          type: string
+          example: '0'
+        extra_data:
+          type: string
+          example: TODO
+        gas_limit:
+          type: string
+          example: '30000000'
+        gas_target_percentage:
+          type: number
+          example: -34.56675333333333
+        gas_used:
+          type: string
+          example: '9814987'
+        gas_used_percentage:
+          type: number
+          example: 32.71662333333333
+        hash:
+          type: string
+          example: '0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a'
+        height:
+          type: integer
+          example: 17615720
+        miner:
+          $ref: '#/components/schemas/AddressParam'
+        nonce:
+          type: string
+          example: '0x0000000000000000'
+        parent_hash:
+          type: string
+          example: '0xd464e02d81e2bdf6bc5fa9b8e33f0b564c464a82d821a3e56531f8636dc00dfa'
+        priority_fee:
+          type: string
+          example: '45418705646601378'
+        rewards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reward'
+        size:
+          type: integer
+          example: 49997
+        state_root:
+          type: string
+          example: TODO
+        timestamp:
+          type: string
+          example: '2023-07-03T20:09:59.000000Z'
+        total_difficulty:
+          type: string
+          example: '58750003716598352816469'
+        transactions_count:
+          type: integer
+          example: 120
+        transaction_fees:
+          type: string
+          example: '306681898876578498'
+        type:
+          type: string
+          example: block
+        uncles_hashes:
+          type: array
+          items:
+            type: string
+            example: '0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347'
+        withdrawals_count:
+          type: integer
+          example: 16
+    TotalERC721:
+      required:
+      - token_id
+      properties:
+        token_id:
+          type: string
+          example: '1'
+        token_instance:
+          $ref: '#/components/schemas/NFTInstance'
+    TransactionActionAaveV3LiquidationCall:
+      required:
+      - data
+      - protocol
+      - type
+      properties:
+        data:
+          type: object
+          example:
+            debt_amount: '1.289548595490270429'
+            debt_symbol: AAVE
+            debt_address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
+            collateral_amount: '110.824768'
+            collateral_symbol: USDC
+            collateral_address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+            block_number: 1
+        protocol:
+          type: string
+          example: aave_v3
+        type:
+          type: string
+          example: liquidation_call
+    Fee:
+      type: object
+      required:
+      - type
+      - value
+      properties:
+        type:
+          type: string
+          example: maximum | actual
+        value:
+          type: string
+          example: '9853224000000000'
+    Withdrawal:
+      required:
+      - index
+      - amount
+      - validator_index
+      properties:
+        index:
+          type: integer
+          example: 1
+        amount:
+          type: string
+          example: '1000000000000000000'
+        validator_index:
+          type: integer
+          example: 1
+        receiver:
+          $ref: '#/components/schemas/AddressParam'
+        block_number:
+          type: integer
+          example: 1
+        timestamp:
+          type: string
+          example: '2023-06-20T07:55:00.000000Z'
+    TransactionActionUniswapV3BCS:
+      required:
+      - data
+      - protocol
+      - type
+      properties:
+        data:
+          type: object
+          example:
+            address0: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
+            address1: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+            amount0: '1.289548595490270429'
+            amount1: '110.824768'
+            symbol0: AAVE
+            symbol1: USDC
+        protocol:
+          type: string
+          example: uniswap_v3
+        type:
+          type: string
+          example: burn | collect | swap
+    AddressTag:
+      type: object
+      required:
+      - address_hash
+      - display_name
+      - label
+      properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    DecodedInputParameter:
+      type: object
+      required:
+      - name
+      - type
+      - value
+      properties:
+        name:
+          type: string
+          example: signature
+        type:
+          type: string
+          example: bytes
+        value:
+          type: string
+          example: '0x0'
+    NFTInstance:
+      required:
+      - is_unique
+      - id
+      - token
+      - owner
+      properties:
+        is_unique:
+          type: boolean
+        id:
+          type: string
+          example: '431'
+        holder_address_hash:
+          type: string
+          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
+        image_url:
+          type: string
+          example: example.com/picture.png
+        animation_url:
+          type: string
+          example: example.com/video.mp4
+        external_app_url:
+          type: string
+          example: d-app.com
+        metadata:
+          type: object
+          example:
+            year: 2023
+            tags:
+            - poap
+            - event
+            name: 'Social Listening Committee #2 Attendees'
+            image_url: https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png
+            home_url: https://app.poap.xyz/token/6292128
+            external_url: https://api.poap.tech/metadata/99010/6292128
+            description: This is the POAP for attendees of the second Social Listening Committee.
+            attributes:
+            - value: 01-Feb-2023
+              trait_type: startDate
+            - value: 01-Feb-2023
+              trait_type: endDate
+            - value: 'false'
+              trait_type: virtualEvent
+            - value: Paris
+              trait_type: city
+            - value: France
+              trait_type: country
+            - value: https://www.chanel.com
+              trait_type: eventURL
+        owner:
+          $ref: '#/components/schemas/AddressParam'
+        token:
+          $ref: '#/components/schemas/TokenInfo'
+    AddressParam:
+      type: object
+      required:
+      - hash
+      - implementation_name
+      - is_contract
+      - is_verified
+      - name
+      - private_tags
+      - public_tags
+      - watchlist_names
+      properties:
+        hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        implementation_name:
+          type: string
+          example: implementationName
+        name:
+          type: string
+          example: contractName
+        ens_domain_name:
+          type: string
+          example: domain.eth
+        metadata:
+          type: object
+          example:
+            slug: tag_slug
+            name: Tag name
+            tagType: name
+            ordinal: 0
+            meta: {}
+        is_contract:
+          type: boolean
+        private_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        watchlist_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+        public_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        is_verified:
+          type: boolean
+    Reward:
+      type: object
+      required:
+      - reward
+      - type
+      properties:
+        reward:
+          type: integer
+        type:
+          type: string
+          example: Miner Reward | Emission Reward | Chore Reward | Uncle Reward
+  parameters:
+    blockNumberOrHash:
+      name: block_number_or_hash
+      schema:
+        type: string
+      in: path
+      required: true
+      description: Block number or hash
