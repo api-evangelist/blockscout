@@ -2,7 +2,19 @@ aid: blockscout
 url: https://raw.githubusercontent.com/api-evangelist/blockscout/refs/heads/main/apis.yml
 name: Blockscout
 kind: company
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/blockscout.png
 tags:
 - Web3
 - Explorer
@@ -31,9 +43,9 @@ apis:
   baseURL: https://eth.blockscout.com/api/v2
   humanURL: https://docs.blockscout.com/devs/apis/rest
   description: >-
-    Recommended REST API on each Blockscout instance. Endpoints cover blocks, transactions,
-    addresses, tokens, smart-contract verification, and more. Path varies by chain (eth,
-    optimism, base, etc.). Free for self-hosted; subject to PRO API plans on dev.blockscout.com.
+    Recommended REST API on each Blockscout instance. Endpoints cover blocks, transactions, addresses,
+    tokens, smart-contract verification, and more. Path varies by chain (eth, optimism, base, etc.). Free
+    for self-hosted; subject to PRO API plans on dev.blockscout.com.
   properties:
   - type: Documentation
     url: https://docs.blockscout.com/devs/apis/rest
@@ -95,8 +107,8 @@ apis:
   baseURL: https://dev.blockscout.com
   humanURL: https://docs.blockscout.com/devs/apis/pro
   description: >-
-    Hosted multi-chain Blockscout API with unified routes, plans, and credit-based metering.
-    Replaces the older MyAccount API; old keys do not work on PRO routes.
+    Hosted multi-chain Blockscout API with unified routes, plans, and credit-based metering. Replaces
+    the older MyAccount API; old keys do not work on PRO routes.
   properties:
   - type: Documentation
     url: https://docs.blockscout.com/devs/apis/pro
@@ -109,6 +121,147 @@ apis:
   x-use-cases:
   - Cross-chain wallet UIs
   - Aggregator analytics
+- aid: blockscout:blockscout-addresses-api
+  name: Blockscout Addresses API
+  description: The Addresses API from Blockscout — 15 operation(s) for addresses.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Addresses
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-addresses-api-openapi.yml
+- aid: blockscout:blockscout-blocks-api
+  name: Blockscout Blocks API
+  description: The Blocks API from Blockscout — 4 operation(s) for blocks.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Blocks
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-blocks-api-openapi.yml
+- aid: blockscout:blockscout-celestiaservice-api
+  name: Blockscout CelestiaService API
+  description: The CelestiaService API from Blockscout — 3 operation(s) for celestiaservice.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - CelestiaService
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-celestiaservice-api-openapi.yml
+- aid: blockscout:blockscout-config-api
+  name: Blockscout Config API
+  description: The Config API from Blockscout — 1 operation(s) for config.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Config
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-config-api-openapi.yml
+- aid: blockscout:blockscout-internal-transactions-api
+  name: Blockscout Internal Transactions API
+  description: >-
+    The Internal Transactions API from Blockscout — 1 operation(s) for internal transactions.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Internal Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-internal-transactions-api-openapi.yml
+- aid: blockscout:blockscout-main-page-api
+  name: Blockscout Main Page API
+  description: The Main Page API from Blockscout — 3 operation(s) for main page.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Main Page
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-main-page-api-openapi.yml
+- aid: blockscout:blockscout-proxy-api
+  name: Blockscout Proxy API
+  description: The Proxy API from Blockscout — 1 operation(s) for proxy.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Proxy
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-proxy-api-openapi.yml
+- aid: blockscout:blockscout-search-api
+  name: Blockscout Search API
+  description: The Search API from Blockscout — 2 operation(s) for search.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-search-api-openapi.yml
+- aid: blockscout:blockscout-smart-contracts-api
+  name: Blockscout Smart Contracts API
+  description: The Smart Contracts API from Blockscout — 3 operation(s) for smart contracts.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Smart Contracts
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-smart-contracts-api-openapi.yml
+- aid: blockscout:blockscout-stats-api
+  name: Blockscout Stats API
+  description: The Stats API from Blockscout — 3 operation(s) for stats.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Stats
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-stats-api-openapi.yml
+- aid: blockscout:blockscout-token-transfers-api
+  name: Blockscout Token Transfers API
+  description: The Token Transfers API from Blockscout — 1 operation(s) for token transfers.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Token Transfers
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-token-transfers-api-openapi.yml
+- aid: blockscout:blockscout-tokens-api
+  name: Blockscout Tokens API
+  description: The Tokens API from Blockscout — 11 operation(s) for tokens.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-tokens-api-openapi.yml
+- aid: blockscout:blockscout-transactions-api
+  name: Blockscout Transactions API
+  description: The Transactions API from Blockscout — 8 operation(s) for transactions.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-transactions-api-openapi.yml
+- aid: blockscout:blockscout-withdrawals-api
+  name: Blockscout Withdrawals API
+  description: The Withdrawals API from Blockscout — 1 operation(s) for withdrawals.
+  humanURL: https://docs.blockscout.com/devs/apis/rest
+  baseURL: https://eth.blockscout.com/api/v2
+  tags:
+  - Withdrawals
+  properties:
+  - type: OpenAPI
+    url: openapi/blockscout-withdrawals-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/blockscout-agentic-access.yml
