@@ -1,0 +1,40 @@
+{
+  "provider": "blockscout",
+  "sources": [
+    "blockscout-addresses-api-openapi.yml",
+    "blockscout-blocks-api-openapi.yml",
+    "blockscout-celestiaservice-api-openapi.yml",
+    "blockscout-config-api-openapi.yml",
+    "blockscout-internal-transactions-api-openapi.yml",
+    "blockscout-main-page-api-openapi.yml",
+    "blockscout-proxy-api-openapi.yml",
+    "blockscout-search-api-openapi.yml",
+    "blockscout-smart-contracts-api-openapi.yml",
+    "blockscout-stats-api-openapi.yml",
+    "blockscout-token-transfers-api-openapi.yml",
+    "blockscout-tokens-api-openapi.yml",
+    "blockscout-transactions-api-openapi.yml",
+    "blockscout-withdrawals-api-openapi.yml"
+  ],
+  "outputs": [
+    "blockscout-addresses-api-openapi.yml",
+    "blockscout-blocks-api-openapi.yml",
+    "blockscout-celestiaservice-api-openapi.yml",
+    "blockscout-config-api-openapi.yml",
+    "blockscout-internal-transactions-api-openapi.yml",
+    "blockscout-main-page-api-openapi.yml",
+    "blockscout-proxy-api-openapi.yml",
+    "blockscout-search-api-openapi.yml",
+    "blockscout-smart-contracts-api-openapi.yml",
+    "blockscout-stats-api-openapi.yml",
+    "blockscout-token-transfers-api-openapi.yml",
+    "blockscout-tokens-api-openapi.yml",
+    "blockscout-transactions-api-openapi.yml",
+    "blockscout-withdrawals-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
