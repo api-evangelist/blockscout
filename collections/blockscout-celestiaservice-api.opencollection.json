@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BlockScout Addresses CelestiaService API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CelestiaService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CelestiaService_GetBlob",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/api/v1/celestia/blob",
+            "params": [
+              {
+                "name": "height",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "commitment",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skipData",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "CelestiaService_GetL2BatchMetadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/api/v1/celestia/l2BatchMetadata",
+            "params": [
+              {
+                "name": "height",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "namespace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "commitment",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "If the requested service is unknown, the call will fail with status\nNOT_FOUND.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/health",
+            "params": [
+              {
+                "name": "service",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "If the requested service is unknown, the call will fail with status\nNOT_FOUND."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

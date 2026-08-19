@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "9fcf5196-1b4f-44e2-9ba3-95f8d21b6bf4",
+      "name": "Withdrawals",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "be1dad93-7d75-44ec-ad54-080de12669b8",
+          "name": "get withdrawals",
+          "request": {
+            "name": "get withdrawals",
+            "description": {},
+            "url": {
+              "path": [
+                "withdrawals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a9ef31ee-3c4e-4419-90ec-8fab5ee4bdd0",
+              "name": "withdrawals",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "withdrawals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"amount\": \"1000000000000000000\",\n      \"validator_index\": 1,\n      \"receiver\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"block_number\": 1,\n      \"timestamp\": \"2023-06-20T07:55:00.000000Z\"\n    },\n    {\n      \"index\": 1,\n      \"amount\": \"1000000000000000000\",\n      \"validator_index\": 1,\n      \"receiver\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"block_number\": 1,\n      \"timestamp\": \"2023-06-20T07:55:00.000000Z\"\n    }\n  ],\n  \"next_page_params\": {\n    \"index\": 1,\n    \"items_count\": 50\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eth.blockscout.com/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "5202e5eb-586e-4dff-adf5-b0f1e1364162",
+    "name": "BlockScout Addresses Withdrawals API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for BlockScout web app\n\nContact Support:\n Email: support@blockscout.com",
+      "type": "text/plain"
+    }
+  }
+}

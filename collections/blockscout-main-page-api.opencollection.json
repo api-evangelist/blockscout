@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BlockScout Addresses Main Page API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Main Page",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get main page transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/main-page/transactions"
+          },
+          "docs": "get main page transactions"
+        },
+        {
+          "info": {
+            "name": "get main page blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/main-page/blocks"
+          },
+          "docs": "get main page blocks"
+        },
+        {
+          "info": {
+            "name": "get indexing status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/main-page/indexing-status"
+          },
+          "docs": "get indexing status"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

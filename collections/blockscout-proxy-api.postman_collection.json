@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "dbd7ee6b-33d3-46fb-ab19-72d1d072649d",
+      "name": "Proxy",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3e59bdf4-c8cb-4744-a128-e095315e620f",
+          "name": "get account abstraction indexing status",
+          "request": {
+            "name": "get account abstraction indexing status",
+            "description": {},
+            "url": {
+              "path": [
+                "proxy",
+                "account-abstraction",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31ebc3eb-3aa9-436c-99b6-d425edc722bc",
+              "name": "A successful response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "proxy",
+                    "account-abstraction",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"finished_past_indexing\": false,\n  \"v06\": {\n    \"enabled\": false,\n    \"live\": true,\n    \"past_db_logs_indexing_finished\": false,\n    \"past_rpc_logs_indexing_finished\": true\n  },\n  \"v07\": {\n    \"enabled\": false,\n    \"live\": true,\n    \"past_db_logs_indexing_finished\": true,\n    \"past_rpc_logs_indexing_finished\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1365d937-4f55-4198-bb95-b2990e01eb94",
+              "name": "unexpected error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "proxy",
+                    "account-abstraction",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eth.blockscout.com/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "aa5d5e39-4b5d-4073-9242-bbdc692e4a1a",
+    "name": "BlockScout Addresses Proxy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for BlockScout web app\n\nContact Support:\n Email: support@blockscout.com",
+      "type": "text/plain"
+    }
+  }
+}

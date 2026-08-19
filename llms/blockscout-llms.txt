@@ -1,0 +1,57 @@
+# Blockscout Developer Portal
+
+> Blockscout Developer Portal provides access to Blockscout PRO API — an enhanced API service
+> with higher call limits for Blockscout-hosted blockchain networks.
+
+## Access
+
+- Registration and API key management: https://dev.blockscout.com
+- API key format: `proapi_xxxxxxxx`
+- Authentication: `Authorization: Bearer <api-key>` header on every request
+
+## Agent Skill
+
+For code-generating agents, the canonical way to start building against the PRO API is the `web3-dev` agent skill. It provides the full OpenAPI endpoint index, canonical Bearer-token authentication, CDN-required request headers, a JSON-RPC gateway for contract reads, pagination cursor mechanics, and per-call credit accounting — covering details that this document only summarises.
+
+- [blockscout/agent-skills](https://github.com/blockscout/agent-skills/blob/main/README.md): Installation instructions for all supported agent platforms
+
+## Plans
+
+To get current plan details (pricing, rate limits, credits), call the plans API:
+
+```
+curl https://api.blockscout.com/api/json/plans
+```
+
+To check current balance and credits spent, call the user profile API:
+
+```
+curl https://api.blockscout.com/api/json/users/me
+```
+
+Note: both endpoints require authorization on the developer portal (https://dev.blockscout.com).
+
+### Enterprise Custom
+- Custom pricing
+- Improved SLA
+- Personal support
+- Scaling and reporting
+
+## Documentation
+
+- [Blockscout Developer Portal](https://dev.blockscout.com): Registration, API key management, usage statistics
+- [PRO API Overview](https://docs.blockscout.com/devs/pro-api.md): PRO API documentation
+- [API Documentation](https://docs.blockscout.com/devs/apis): Comprehensive API guides
+- [ETH RPC API](https://docs.blockscout.com/devs/apis/rpc/eth-rpc.md): Standard Ethereum JSON-RPC methods
+- [JSON RPC API](https://docs.blockscout.com/devs/apis/rpc.md): Blockscout JSON RPC with modules
+- [REST API](https://docs.blockscout.com/devs/apis/rest.md): RESTful API endpoints
+
+## Optional
+
+- [Account Module](https://docs.blockscout.com/devs/apis/rpc/account.md): Account-related RPC methods
+- [Block Module](https://docs.blockscout.com/devs/apis/rpc/block.md): Block data RPC methods
+- [Contract Module](https://docs.blockscout.com/devs/apis/rpc/contract.md): Smart contract RPC methods
+- [Logs Module](https://docs.blockscout.com/devs/apis/rpc/logs.md): Event logs RPC methods
+- [Stats Module](https://docs.blockscout.com/devs/apis/rpc/stats.md): Statistics RPC methods
+- [Token Module](https://docs.blockscout.com/devs/apis/rpc/token.md): Token data RPC methods
+- [Transaction Module](https://docs.blockscout.com/devs/apis/rpc/transaction.md): Transaction RPC methods

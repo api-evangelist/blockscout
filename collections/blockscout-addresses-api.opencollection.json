@@ -1,0 +1,335 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BlockScout Addresses API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Addresses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get native coin holders list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses"
+          },
+          "docs": "get native coin holders list"
+        },
+        {
+          "info": {
+            "name": "get address info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get address info"
+        },
+        {
+          "info": {
+            "name": "get address counters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/counters",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get address counters"
+        },
+        {
+          "info": {
+            "name": "get address transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/transactions",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get address transactions"
+        },
+        {
+          "info": {
+            "name": "get address token transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/token-transfers",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get address token transfers"
+        },
+        {
+          "info": {
+            "name": "get address internal transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/internal-transactions",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get address internal transactions"
+        },
+        {
+          "info": {
+            "name": "get address logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/logs",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get address logs"
+        },
+        {
+          "info": {
+            "name": "get blocks validated by address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/blocks-validated",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get blocks validated by address"
+        },
+        {
+          "info": {
+            "name": "get all tokens balances for the address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/token-balances",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get all tokens balances for the address"
+        },
+        {
+          "info": {
+            "name": "token balances with filtering and pagination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/tokens",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "token balances with filtering and pagination"
+        },
+        {
+          "info": {
+            "name": "get address coin balance history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/coin-balance-history",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get address coin balance history"
+        },
+        {
+          "info": {
+            "name": "get address coin balance history by day",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/coin-balance-history-by-day",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get address coin balance history by day"
+        },
+        {
+          "info": {
+            "name": "get address withdrawals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/withdrawals",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get address withdrawals"
+        },
+        {
+          "info": {
+            "name": "get list of NFT owned by address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/nft",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get list of NFT owned by address"
+        },
+        {
+          "info": {
+            "name": "get list of NFT owned by address, grouped by collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/addresses/:address_hash/nft/collections",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get list of NFT owned by address, grouped by collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

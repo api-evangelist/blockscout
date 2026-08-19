@@ -1,0 +1,265 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BlockScout Addresses Tokens API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tokens",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get tokens list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get tokens list"
+        },
+        {
+          "info": {
+            "name": "get token info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get token info"
+        },
+        {
+          "info": {
+            "name": "get token token transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash/transfers",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get token token transfers"
+        },
+        {
+          "info": {
+            "name": "get token holders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash/holders",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get token holders"
+        },
+        {
+          "info": {
+            "name": "get token holders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash/counters",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get token holders"
+        },
+        {
+          "info": {
+            "name": "get NFT instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash/instances",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get NFT instances"
+        },
+        {
+          "info": {
+            "name": "get NFT instance by id",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash/instances/:id",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "integer id"
+              }
+            ]
+          },
+          "docs": "get NFT instance by id"
+        },
+        {
+          "info": {
+            "name": "get transfers of NFT instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash/instances/:id/transfers",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "integer id"
+              }
+            ]
+          },
+          "docs": "get transfers of NFT instance"
+        },
+        {
+          "info": {
+            "name": "get token instance holders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash/instances/:id/holders",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "integer id"
+              }
+            ]
+          },
+          "docs": "get token instance holders"
+        },
+        {
+          "info": {
+            "name": "get transfers count of NFT instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash/instances/:id/transfers-count",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "integer id"
+              }
+            ]
+          },
+          "docs": "get transfers count of NFT instance"
+        },
+        {
+          "info": {
+            "name": "re-fetch token instance metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://eth.blockscout.com/api/v2/tokens/:address_hash/instances/:id/refetch-metadata",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "integer id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "re-fetch token instance metadata"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BlockScout Addresses Blocks API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Blocks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/blocks",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get blocks"
+        },
+        {
+          "info": {
+            "name": "get block info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/blocks/:block_number_or_hash",
+            "params": [
+              {
+                "name": "block_number_or_hash",
+                "value": "",
+                "type": "path",
+                "description": "Block number or hash"
+              }
+            ]
+          },
+          "docs": "get block info"
+        },
+        {
+          "info": {
+            "name": "get block transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/blocks/:block_number_or_hash/transactions",
+            "params": [
+              {
+                "name": "block_number_or_hash",
+                "value": "",
+                "type": "path",
+                "description": "Block number or hash"
+              }
+            ]
+          },
+          "docs": "get block transactions"
+        },
+        {
+          "info": {
+            "name": "get block withdrawals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/blocks/:block_number_or_hash/withdrawals",
+            "params": [
+              {
+                "name": "block_number_or_hash",
+                "value": "",
+                "type": "path",
+                "description": "Block number or hash"
+              }
+            ]
+          },
+          "docs": "get block withdrawals"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

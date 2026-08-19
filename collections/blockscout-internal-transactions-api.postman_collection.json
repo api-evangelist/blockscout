@@ -1,0 +1,99 @@
+{
+  "item": [
+    {
+      "id": "ea9529c2-2b07-4001-9b92-5d7567079214",
+      "name": "Internal Transactions",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "09fac0df-b928-4cc5-a0f9-e68f7d1c66a9",
+          "name": "get internal transactions",
+          "request": {
+            "name": "get internal transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "internal-transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f0a50423-05b5-4960-b37f-eedcb63de099",
+              "name": "internal transactions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "internal-transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"block_number\": 8844586,\n      \"created_contract\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"error\": \"reverted\",\n      \"from\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"gas_limit\": \"351759\",\n      \"index\": 1,\n      \"success\": true,\n      \"timestamp\": \"2023-04-17T10:37:12.000000Z\",\n      \"to\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"transaction_hash\": \"0x08ea4d75ad0abe327a7fd368733eaeac43077989e635d800530d7906ebf3bd54\",\n      \"type\": \"call\",\n      \"value\": \"30000000000000000\"\n    },\n    {\n      \"block_number\": 8844586,\n      \"created_contract\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"error\": \"reverted\",\n      \"from\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"gas_limit\": \"351759\",\n      \"index\": 1,\n      \"success\": true,\n      \"timestamp\": \"2023-04-17T10:37:12.000000Z\",\n      \"to\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"transaction_hash\": \"0x08ea4d75ad0abe327a7fd368733eaeac43077989e635d800530d7906ebf3bd54\",\n      \"type\": \"call\",\n      \"value\": \"30000000000000000\"\n    }\n  ],\n  \"next_page_params\": {\n    \"block_number\": 27170298,\n    \"index\": 0,\n    \"transaction_index\": 0\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eth.blockscout.com/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4587cc75-b8a8-42a5-9499-84471336a99a",
+    "name": "BlockScout Addresses Internal Transactions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for BlockScout web app\n\nContact Support:\n Email: support@blockscout.com",
+      "type": "text/plain"
+    }
+  }
+}

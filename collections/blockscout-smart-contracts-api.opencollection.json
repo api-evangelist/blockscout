@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BlockScout Addresses Smart Contracts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Smart Contracts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get verified smart contracts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/smart-contracts",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get verified smart contracts"
+        },
+        {
+          "info": {
+            "name": "get verified smart contracts counters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/smart-contracts/counters"
+          },
+          "docs": "get verified smart contracts counters"
+        },
+        {
+          "info": {
+            "name": "get smart contract",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/smart-contracts/:address_hash",
+            "params": [
+              {
+                "name": "address_hash",
+                "value": "",
+                "type": "path",
+                "description": "Address hash"
+              }
+            ]
+          },
+          "docs": "get smart contract"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

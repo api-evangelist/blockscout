@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BlockScout Addresses Stats API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stats",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get stats counters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/stats"
+          },
+          "docs": "get stats counters"
+        },
+        {
+          "info": {
+            "name": "get transactions chart",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/stats/charts/transactions"
+          },
+          "docs": "get transactions chart"
+        },
+        {
+          "info": {
+            "name": "get market chart",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/stats/charts/market"
+          },
+          "docs": "get market chart"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

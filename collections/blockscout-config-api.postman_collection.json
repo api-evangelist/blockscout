@@ -1,0 +1,101 @@
+{
+  "item": [
+    {
+      "id": "0b9fda00-a382-4110-85a9-5ed70acff80a",
+      "name": "Config",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "54d2c5ae-5e3c-46a6-a4a6-b1a35ed60390",
+          "name": "get json rpc url",
+          "request": {
+            "name": "get json rpc url",
+            "description": {},
+            "url": {
+              "path": [
+                "config",
+                "json-rpc-url"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bd0e4906-df2b-45e5-9b98-cd077f7b80c2",
+              "name": "json rpc url",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "config",
+                    "json-rpc-url"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"json_rpc_url\": \"https://core.poa.network\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eth.blockscout.com/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b4c9059a-e5e3-420c-9e87-0008665c5038",
+    "name": "BlockScout Addresses Config API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for BlockScout web app\n\nContact Support:\n Email: support@blockscout.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "item": [
+    {
+      "id": "1a932c4f-7dc9-44c1-8c32-8472455b63c7",
+      "name": "Stats",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "45e20eb2-aed3-4ba9-af9a-59a7b1c1c2f8",
+          "name": "get stats counters",
+          "request": {
+            "name": "get stats counters",
+            "description": {},
+            "url": {
+              "path": [
+                "stats"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea32ad72-ccab-4240-9c6c-0bf125422733",
+              "name": "stats",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total_blocks\": \"508700\",\n  \"total_addresses\": \"982340\",\n  \"total_transactions\": \"1699427\",\n  \"average_block_time\": 25000,\n  \"coin_price\": \"0.00254957\",\n  \"total_gas_used\": \"0\",\n  \"transactions_today\": \"622\",\n  \"gas_used_today\": \"49063630\",\n  \"gas_prices\": {\n    \"average\": 10,\n    \"fast\": 10,\n    \"slow\": 10\n  },\n  \"static_gas_price\": \"10.1\",\n  \"market_cap\": \"420471.10604559750644\",\n  \"network_utilization_percentage\": 40.2142\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f153505-8fe5-4a2f-b9e0-9380cdbc552c",
+          "name": "get transactions chart",
+          "request": {
+            "name": "get transactions chart",
+            "description": {},
+            "url": {
+              "path": [
+                "stats",
+                "charts",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e72bd01a-80ad-4f8a-b2d3-da56cb21f1c1",
+              "name": "transaction chart",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    "charts",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chart_data\": [\n    {\n      \"date\": \"2022-10-31\",\n      \"transactions_count\": 622\n    },\n    {\n      \"date\": \"2022-10-31\",\n      \"transactions_count\": 622\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3687324-d878-4182-8bef-dbde0ea8d279",
+          "name": "get market chart",
+          "request": {
+            "name": "get market chart",
+            "description": {},
+            "url": {
+              "path": [
+                "stats",
+                "charts",
+                "market"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b55c7fd-55a8-4868-b0ef-403622b7b47f",
+              "name": "market chart",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "stats",
+                    "charts",
+                    "market"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"chart_data\": [\n    {\n      \"date\": \"2022-10-31\",\n      \"closing_price\": \"0.00254915\",\n      \"market_cap\": \"420471.10604559750644\"\n    },\n    {\n      \"date\": \"2022-10-31\",\n      \"closing_price\": \"0.00254915\",\n      \"market_cap\": \"420471.10604559750644\"\n    }\n  ],\n  \"available_supply\": \"164918857.718061\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eth.blockscout.com/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c06e5a55-2c63-4ea4-a281-966cd740b560",
+    "name": "BlockScout Addresses Stats API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for BlockScout web app\n\nContact Support:\n Email: support@blockscout.com",
+      "type": "text/plain"
+    }
+  }
+}

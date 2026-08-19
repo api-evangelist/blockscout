@@ -1,0 +1,379 @@
+{
+  "item": [
+    {
+      "id": "85d4e27f-0de8-4939-976a-cfc302d1e1be",
+      "name": "Smart Contracts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b86a0c96-27b0-438d-8fce-3937f4f20831",
+          "name": "get verified smart contracts",
+          "request": {
+            "name": "get verified smart contracts",
+            "description": {},
+            "url": {
+              "path": [
+                "smart-contracts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "67765ff6-2f2b-47a9-8817-76fce9996395",
+              "name": "smart contract",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "smart-contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "proxy"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "vyper | solidity | yul"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"coin_balance\": \"10000\",\n      \"compiler_version\": \"v0.5.10+commit.5a6ea5b1\",\n      \"has_constructor_args\": true,\n      \"language\": \"vyper | yul | solidity\",\n      \"optimization_enabled\": false,\n      \"verified_at\": \"2022-03-05T11:40:29.087000Z\",\n      \"address_hash\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"transactions_count\": 1303,\n      \"market_cap\": 1000000000.0001\n    },\n    {\n      \"coin_balance\": \"10000\",\n      \"compiler_version\": \"v0.5.10+commit.5a6ea5b1\",\n      \"has_constructor_args\": true,\n      \"language\": \"vyper | yul | solidity\",\n      \"optimization_enabled\": false,\n      \"verified_at\": \"2022-03-05T11:40:29.087000Z\",\n      \"address_hash\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"transactions_count\": 383,\n      \"market_cap\": 1000000000.0001\n    }\n  ],\n  \"next_page_params\": {\n    \"items_count\": 50,\n    \"smart_contract_id\": 46\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23145441-73a3-490d-90d5-559bcfd6507b",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "smart-contracts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "proxy"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "vyper | solidity | yul"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "746ae0e1-73e8-4332-ac37-752f5dfdbb8f",
+          "name": "get verified smart contracts counters",
+          "request": {
+            "name": "get verified smart contracts counters",
+            "description": {},
+            "url": {
+              "path": [
+                "smart-contracts",
+                "counters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b242de8-9b3b-4094-acaa-0b378e315512",
+              "name": "smart contracts counters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "smart-contracts",
+                    "counters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"new_smart_contracts_24h\": \"12\",\n  \"new_verified_smart_contracts_24h\": \"11\",\n  \"smart_contracts\": \"20\",\n  \"verified_smart_contracts\": \"15\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c80ee0cd-381c-4388-b8e6-28c0036cae41",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "smart-contracts",
+                    "counters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72709e2a-7306-4d4b-989d-80471c5228d9",
+          "name": "get smart contract",
+          "request": {
+            "name": "get smart contract",
+            "description": {},
+            "url": {
+              "path": [
+                "smart-contracts",
+                ":address_hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e369322d-9acd-47b6-9039-4493b1c5185d",
+              "name": "smart contract",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "smart-contracts",
+                    ":address_hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"verified_twin_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n  \"is_verified\": false,\n  \"is_changed_bytecode\": true,\n  \"is_partially_verified\": true,\n  \"is_fully_verified\": true,\n  \"is_verified_via_sourcify\": false,\n  \"is_verified_via_eth_bytecode_db\": false,\n  \"can_be_visualized_via_sol2uml\": true,\n  \"minimal_proxy_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n  \"sourcify_repo_url\": \"https://sourcify.repo.com/100/link_to_a_contract_at_sourcify\",\n  \"name\": \"Cryptostamp3L2\",\n  \"optimization_enabled\": false,\n  \"optimizations_runs\": 200,\n  \"compiler_version\": \"v0.8.4+commit.c7e474f2\",\n  \"evm_version\": \"default\",\n  \"verified_at\": \"2021-06-02T17:54:17.116055Z\",\n  \"abi\": \"[{\\\"type\\\":\\\"constructor\\\",\\\"stateMutability\\\":\\\"nonpayable\\\",\\\"inputs\\\":[{\\\"type\\\":\\\"address\\\",\\\"name\\\":\\\"_bridgeDataAddress\\\",\\\"internalType\\\":\\\"address\\\"},{\\\"type\\\":\\\"uint256\\\",\\\"name\\\":\\\"_finalSupply\\\",\\\"internalType\\\":\\\"uint256\\\"},{\\\"type\\\":\\\"uint256[5]\\\",\\\"name\\\":\\\"_totalColorSupply\\\",\\\"internalType\\\":\\\"uint256[5]\\\"}]}]\",\n  \"source_code\": \"contract A {}\",\n  \"file_path\": \"contract.sol\",\n  \"compiler_settings\": {\n    \"compilationTarget\": {\n      \"@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol\": \"ERC1967Proxy\"\n    },\n    \"evmVersion\": \"london\",\n    \"libraries\": {},\n    \"metadata\": {\n      \"bytecodeHash\": \"ipfs\"\n    },\n    \"optimizer\": {\n      \"enabled\": true,\n      \"runs\": 200\n    },\n    \"remappings\": []\n  },\n  \"constructor_args\": \"0x01\",\n  \"additional_sources\": [\n    {\n      \"file_path\": \"contracts/erc-20.sol\",\n      \"source_code\": \"pragma solidity ^0.8.0; \\\\n contract A {}\"\n    },\n    {\n      \"file_path\": \"contracts/erc-20.sol\",\n      \"source_code\": \"pragma solidity ^0.8.0; \\\\n contract A {}\"\n    }\n  ],\n  \"deployed_bytecode\": \"0x01\",\n  \"creation_bytecode\": \"0x02\",\n  \"external_libraries\": [\n    {\n      \"name\": \"MathLib\",\n      \"address_hash\": \"0xF61f5c4a3664501F499A9289AaEe76a709CE536e\"\n    },\n    {\n      \"name\": \"MathLib\",\n      \"address_hash\": \"0xF61f5c4a3664501F499A9289AaEe76a709CE536e\"\n    }\n  ],\n  \"language\": \"solidity | vyper | yul\",\n  \"creation_status\": \"selfdestructed | failed | success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "15764f7b-5969-4cee-925b-6bc7ebf42435",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "smart-contracts",
+                    ":address_hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eth.blockscout.com/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0c24d739-a6d7-459b-93d8-231cf0561879",
+    "name": "BlockScout Addresses Smart Contracts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for BlockScout web app\n\nContact Support:\n Email: support@blockscout.com",
+      "type": "text/plain"
+    }
+  }
+}

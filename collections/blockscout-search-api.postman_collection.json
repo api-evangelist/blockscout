@@ -1,0 +1,259 @@
+{
+  "item": [
+    {
+      "id": "eab38bd6-a120-47da-9efe-6c590dc25789",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "89f8e12a-48d2-47b4-9af9-279168e04b38",
+          "name": "search",
+          "request": {
+            "name": "search",
+            "description": {},
+            "url": {
+              "path": [
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80929e3a-c31f-44bf-9564-d0c5bc2a6a7a",
+              "name": "search response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "USDT"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"address_url\": \"/address/0xdAC17F958D2ee523a2206206994597C13D831ec7\",\n      \"exchange_rate\": \"0.999813\",\n      \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n      \"is_smart_contract_verified\": true,\n      \"name\": \"Tether USD\",\n      \"symbol\": \"USDT\",\n      \"token_type\": \"ERC-20\",\n      \"token_url\": \"/token/0xdAC17F958D2ee523a2206206994597C13D831ec7\",\n      \"total_supply\": \"39030615894320966\",\n      \"type\": \"token\",\n      \"address_hash\": \"0xdAC17F958D2ee523a2206206994597C13D831ec7\"\n    },\n    {\n      \"address_url\": \"/address/0xdAC17F958D2ee523a2206206994597C13D831ec7\",\n      \"exchange_rate\": \"0.999813\",\n      \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n      \"is_smart_contract_verified\": true,\n      \"name\": \"Tether USD\",\n      \"symbol\": \"USDT\",\n      \"token_type\": \"ERC-20\",\n      \"token_url\": \"/token/0xdAC17F958D2ee523a2206206994597C13D831ec7\",\n      \"total_supply\": \"39030615894320966\",\n      \"type\": \"token\",\n      \"address_hash\": \"0xdAC17F958D2ee523a2206206994597C13D831ec7\"\n    }\n  ],\n  \"next_page_params\": {\n    \"address_hash\": \"0x052Ad78E3aA0b0F2D3912FD3b50a9a289CF2f7Aa\",\n    \"block_hash\": null,\n    \"holders_count\": 548,\n    \"inserted_at\": \"2021-12-07T08:39:01.062253Z\",\n    \"item_type\": \"token\",\n    \"items_count\": 50,\n    \"name\": \"RealToken S 13245 Monica St Detroit MI\",\n    \"q\": \"1\",\n    \"transaction_hash\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "747f1523-4a6d-42b4-a735-141b13071ef9",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "USDT"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "103aee93-0f02-4280-bc49-58e76350b479",
+          "name": "search redirect",
+          "request": {
+            "name": "search redirect",
+            "description": {},
+            "url": {
+              "path": [
+                "search",
+                "check-redirect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9124e7a-fd0c-41f6-87e3-4dc18f53e27a",
+              "name": "search response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "check-redirect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "USDT"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"parameter\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n  \"redirect\": true,\n  \"type\": \"address | block | transaction\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a52ab16-ffce-438e-b1c0-fe462c2417c8",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "check-redirect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "USDT"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eth.blockscout.com/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2ffefba4-d38d-419c-bf7d-3baa212284e4",
+    "name": "BlockScout Addresses Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for BlockScout web app\n\nContact Support:\n Email: support@blockscout.com",
+      "type": "text/plain"
+    }
+  }
+}

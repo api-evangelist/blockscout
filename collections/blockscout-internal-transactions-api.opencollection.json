@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BlockScout Addresses Internal Transactions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Internal Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get internal transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/internal-transactions"
+          },
+          "docs": "get internal transactions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

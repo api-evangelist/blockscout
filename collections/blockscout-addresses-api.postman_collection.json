@@ -1,0 +1,2014 @@
+{
+  "item": [
+    {
+      "id": "b71ce3c5-1194-4486-ab57-4aa21708569d",
+      "name": "Addresses",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1b9bb44-1a87-4622-b256-7f2377bf57f4",
+          "name": "get native coin holders list",
+          "request": {
+            "name": "get native coin holders list",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f67e0a94-530d-41b6-a851-ece61a6f13fc",
+              "name": "token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"exchange_rate\": \"0.01\",\n  \"total_supply\": \"100000000\",\n  \"items\": [\n    {\n      \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"transactions_count\": \"1234\",\n      \"creator_address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"creation_transaction_hash\": \"0x1f610ff9c1efad6b5a8bb6afcc0786cd7343f03f9a61e2544fcff908cedee924\",\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"coin_balance\": \"10000000\",\n      \"exchange_rate\": \"1.01\",\n      \"implementation_address\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"block_number_balance_updated_at\": 27656552,\n      \"implementation_name\": \"implementationName\",\n      \"name\": \"contractName\",\n      \"is_contract\": false,\n      \"private_tags\": [\n        {\n          \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        },\n        {\n          \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        }\n      ],\n      \"watchlist_names\": [\n        {\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        },\n        {\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        }\n      ],\n      \"public_tags\": [\n        {\n          \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        },\n        {\n          \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        }\n      ],\n      \"is_verified\": false,\n      \"has_beacon_chain_withdrawals\": true,\n      \"has_logs\": false,\n      \"has_token_transfers\": false,\n      \"has_tokens\": true,\n      \"has_validated_blocks\": true,\n      \"creation_status\": \"selfdestructed | failed | success\"\n    },\n    {\n      \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"transactions_count\": \"1234\",\n      \"creator_address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"creation_transaction_hash\": \"0x1f610ff9c1efad6b5a8bb6afcc0786cd7343f03f9a61e2544fcff908cedee924\",\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"coin_balance\": \"10000000\",\n      \"exchange_rate\": \"1.01\",\n      \"implementation_address\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"block_number_balance_updated_at\": 27656552,\n      \"implementation_name\": \"implementationName\",\n      \"name\": \"contractName\",\n      \"is_contract\": false,\n      \"private_tags\": [\n        {\n          \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        },\n        {\n          \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        }\n      ],\n      \"watchlist_names\": [\n        {\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        },\n        {\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        }\n      ],\n      \"public_tags\": [\n        {\n          \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        },\n        {\n          \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"display_name\": \"name to show\",\n          \"label\": \"label\"\n        }\n      ],\n      \"is_verified\": true,\n      \"has_beacon_chain_withdrawals\": false,\n      \"has_logs\": true,\n      \"has_token_transfers\": false,\n      \"has_tokens\": false,\n      \"has_validated_blocks\": true,\n      \"creation_status\": \"selfdestructed | failed | success\"\n    }\n  ],\n  \"next_page_params\": {\n    \"fetched_coin_balance\": \"269536604956070000000\",\n    \"hash\": \"0xf74769d9ffe1cd17f20b283995cf9e7fa2a262ed\",\n    \"items_count\": 50\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db873dc5-d197-4426-9488-493372421a58",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e7798747-4e51-4d4a-9fc3-2fb93a671301",
+          "name": "get address info",
+          "request": {
+            "name": "get address info",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1baa6f79-7228-4897-9639-6abc10be70b9",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n  \"creator_address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n  \"creation_transaction_hash\": \"0x1f610ff9c1efad6b5a8bb6afcc0786cd7343f03f9a61e2544fcff908cedee924\",\n  \"token\": {\n    \"circulating_market_cap\": \"83606435600.3635\",\n    \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n    \"symbol\": \"USDT\",\n    \"name\": \"Tether USD\",\n    \"decimals\": \"6\",\n    \"type\": \"ERC-20\",\n    \"exchange_rate\": \"0.99\",\n    \"total_supply\": \"10000000\",\n    \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n    \"holders_count\": \"837494234523\"\n  },\n  \"coin_balance\": \"10000000\",\n  \"exchange_rate\": \"1.01\",\n  \"implementation_address\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n  \"block_number_balance_updated_at\": 27656552,\n  \"implementation_name\": \"implementationName\",\n  \"name\": \"contractName\",\n  \"is_contract\": true,\n  \"private_tags\": [\n    {\n      \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"display_name\": \"name to show\",\n      \"label\": \"label\"\n    },\n    {\n      \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"display_name\": \"name to show\",\n      \"label\": \"label\"\n    }\n  ],\n  \"watchlist_names\": [\n    {\n      \"display_name\": \"name to show\",\n      \"label\": \"label\"\n    },\n    {\n      \"display_name\": \"name to show\",\n      \"label\": \"label\"\n    }\n  ],\n  \"public_tags\": [\n    {\n      \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"display_name\": \"name to show\",\n      \"label\": \"label\"\n    },\n    {\n      \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n      \"display_name\": \"name to show\",\n      \"label\": \"label\"\n    }\n  ],\n  \"is_verified\": false,\n  \"has_beacon_chain_withdrawals\": false,\n  \"has_logs\": true,\n  \"has_token_transfers\": true,\n  \"has_tokens\": true,\n  \"has_validated_blocks\": false,\n  \"creation_status\": \"selfdestructed | failed | success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "acf582c0-32a0-4ace-b473-27d71e639c2c",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff355a37-096f-4889-ae5b-e4880851462e",
+          "name": "get address counters",
+          "request": {
+            "name": "get address counters",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "counters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "01f9c7bf-51ff-4582-a4f6-3088b859c9a6",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "counters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"transactions_count\": \"0\",\n  \"token_transfers_count\": \"0\",\n  \"gas_usage_count\": \"0\",\n  \"validations_count\": \"0\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f6c0579c-723f-4322-888d-04c96ff30c3d",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "counters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20309f55-583c-471e-bade-7fe8c40595a7",
+          "name": "get address transactions",
+          "request": {
+            "name": "get address transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "020c6f78-dd29-4833-bf3d-6a0a648c8050",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "to | from"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"timestamp\": \"2022-08-02T07:18:05.000000Z\",\n      \"fee\": {\n        \"type\": \"maximum | actual\",\n        \"value\": \"9853224000000000\"\n      },\n      \"gas_limit\": 3295,\n      \"block_number\": 23484035,\n      \"status\": \"ok | error\",\n      \"method\": \"transferFrom\",\n      \"confirmations\": 1035,\n      \"type\": 2,\n      \"exchange_rate\": \"1866.51\",\n      \"to\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"transaction_burnt_fee\": \"1099596081903840\",\n      \"max_fee_per_gas\": \"55357460102\",\n      \"result\": \"Error: (Awaiting internal transactions for reason)\",\n      \"hash\": \"0x5d90a9da2b8da402b11bc92c8011ec8a62a2d59da5c7ac4ae0f73ec51bb73368\",\n      \"gas_price\": \"26668595172\",\n      \"priority_fee\": \"2056916056308\",\n      \"base_fee_per_gas\": \"26618801760\",\n      \"from\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"token_transfers\": [\n        {\n          \"block_hash\": \"0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a\",\n          \"from\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": false,\n            \"is_verified\": true,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"log_index\": 16,\n          \"to\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": true,\n            \"is_verified\": false,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"token\": {\n            \"circulating_market_cap\": \"83606435600.3635\",\n            \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n            \"symbol\": \"USDT\",\n            \"name\": \"Tether USD\",\n            \"decimals\": \"6\",\n            \"type\": \"ERC-20\",\n            \"exchange_rate\": \"0.99\",\n            \"total_supply\": \"10000000\",\n            \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n            \"holders_count\": \"837494234523\"\n          },\n          \"total\": {\n            \"decimals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"transaction_hash\": \"0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592\",\n          \"type\": \"token_transfer\",\n          \"method\": \"transfer\",\n          \"timestamp\": \"2023-07-03T20:09:59.000000Z\"\n        },\n        {\n          \"block_hash\": \"0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a\",\n          \"from\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": true,\n            \"is_verified\": true,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"log_index\": 16,\n          \"to\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": false,\n            \"is_verified\": false,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"token\": {\n            \"circulating_market_cap\": \"83606435600.3635\",\n            \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n            \"symbol\": \"USDT\",\n            \"name\": \"Tether USD\",\n            \"decimals\": \"6\",\n            \"type\": \"ERC-20\",\n            \"exchange_rate\": \"0.99\",\n            \"total_supply\": \"10000000\",\n            \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n            \"holders_count\": \"837494234523\"\n          },\n          \"total\": {\n            \"decimals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"transaction_hash\": \"0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592\",\n          \"type\": \"token_transfer\",\n          \"method\": \"transfer\",\n          \"timestamp\": \"2023-07-03T20:09:59.000000Z\"\n        }\n      ],\n      \"transaction_types\": [\n        \"token_transfer\",\n        \"contract_creation\",\n        \"contract_call\",\n        \"token_creation\",\n        \"coin_transfer\"\n      ],\n      \"gas_used\": \"41309\",\n      \"created_contract\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"position\": 117,\n      \"nonce\": 115,\n      \"has_error_in_internal_transactions\": false,\n      \"actions\": [\n        {\n          \"data\": {\n            \"debt_amount\": \"1.289548595490270429\",\n            \"debt_symbol\": \"AAVE\",\n            \"debt_address\": \"0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9\",\n            \"collateral_amount\": \"110.824768\",\n            \"collateral_symbol\": \"USDC\",\n            \"collateral_address\": \"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\n            \"block_number\": 1\n          },\n          \"protocol\": \"aave_v3\",\n          \"type\": \"liquidation_call\"\n        },\n        {\n          \"data\": {\n            \"debt_amount\": \"1.289548595490270429\",\n            \"debt_symbol\": \"AAVE\",\n            \"debt_address\": \"0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9\",\n            \"collateral_amount\": \"110.824768\",\n            \"collateral_symbol\": \"USDC\",\n            \"collateral_address\": \"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\n            \"block_number\": 1\n          },\n          \"protocol\": \"aave_v3\",\n          \"type\": \"liquidation_call\"\n        }\n      ],\n      \"decoded_input\": {\n        \"method_call\": \"transferFrom(address _from, address _to, uint256 _value)\",\n        \"method_id\": \"23b872dd\",\n        \"parameters\": [\n          {\n            \"name\": \"signature\",\n            \"type\": \"bytes\",\n            \"value\": \"0x0\"\n          },\n          {\n            \"name\": \"signature\",\n            \"type\": \"bytes\",\n            \"value\": \"0x0\"\n          }\n        ]\n      },\n      \"token_transfers_overflow\": false,\n      \"raw_input\": \"0xa9059cbb000000000000000000000000ef8801eaf234ff82801821ffe2d78d60a0237f97000000000000000000000000000000000000000000000000000000003178cb80\",\n      \"value\": \"0\",\n      \"max_priority_fee_per_gas\": \"49793412\",\n      \"revert_reason\": \"Error: (Awaiting internal transactions for reason)\",\n      \"confirmation_duration\": {},\n      \"transaction_tag\": \"private_transaction_tag\"\n    },\n    {\n      \"timestamp\": \"2022-08-02T07:18:05.000000Z\",\n      \"fee\": {\n        \"type\": \"maximum | actual\",\n        \"value\": \"9853224000000000\"\n      },\n      \"gas_limit\": 7802,\n      \"block_number\": 23484035,\n      \"status\": \"ok | error\",\n      \"method\": \"transferFrom\",\n      \"confirmations\": 1035,\n      \"type\": 2,\n      \"exchange_rate\": \"1866.51\",\n      \"to\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"transaction_burnt_fee\": \"1099596081903840\",\n      \"max_fee_per_gas\": \"55357460102\",\n      \"result\": \"Error: (Awaiting internal transactions for reason)\",\n      \"hash\": \"0x5d90a9da2b8da402b11bc92c8011ec8a62a2d59da5c7ac4ae0f73ec51bb73368\",\n      \"gas_price\": \"26668595172\",\n      \"priority_fee\": \"2056916056308\",\n      \"base_fee_per_gas\": \"26618801760\",\n      \"from\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"token_transfers\": [\n        {\n          \"block_hash\": \"0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a\",\n          \"from\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": true,\n            \"is_verified\": true,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"log_index\": 16,\n          \"to\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": false,\n            \"is_verified\": false,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"token\": {\n            \"circulating_market_cap\": \"83606435600.3635\",\n            \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n            \"symbol\": \"USDT\",\n            \"name\": \"Tether USD\",\n            \"decimals\": \"6\",\n            \"type\": \"ERC-20\",\n            \"exchange_rate\": \"0.99\",\n            \"total_supply\": \"10000000\",\n            \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n            \"holders_count\": \"837494234523\"\n          },\n          \"total\": {\n            \"decimals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"transaction_hash\": \"0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592\",\n          \"type\": \"token_transfer\",\n          \"method\": \"transfer\",\n          \"timestamp\": \"2023-07-03T20:09:59.000000Z\"\n        },\n        {\n          \"block_hash\": \"0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a\",\n          \"from\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": true,\n            \"is_verified\": true,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"log_index\": 16,\n          \"to\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": true,\n            \"is_verified\": true,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"token\": {\n            \"circulating_market_cap\": \"83606435600.3635\",\n            \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n            \"symbol\": \"USDT\",\n            \"name\": \"Tether USD\",\n            \"decimals\": \"6\",\n            \"type\": \"ERC-20\",\n            \"exchange_rate\": \"0.99\",\n            \"total_supply\": \"10000000\",\n            \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n            \"holders_count\": \"837494234523\"\n          },\n          \"total\": {\n            \"decimals\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"value\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"transaction_hash\": \"0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592\",\n          \"type\": \"token_transfer\",\n          \"method\": \"transfer\",\n          \"timestamp\": \"2023-07-03T20:09:59.000000Z\"\n        }\n      ],\n      \"transaction_types\": [\n        \"token_transfer\",\n        \"contract_creation\",\n        \"contract_call\",\n        \"token_creation\",\n        \"coin_transfer\"\n      ],\n      \"gas_used\": \"41309\",\n      \"created_contract\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"position\": 117,\n      \"nonce\": 115,\n      \"has_error_in_internal_transactions\": false,\n      \"actions\": [\n        {\n          \"data\": {\n            \"debt_amount\": \"1.289548595490270429\",\n            \"debt_symbol\": \"AAVE\",\n            \"debt_address\": \"0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9\",\n            \"collateral_amount\": \"110.824768\",\n            \"collateral_symbol\": \"USDC\",\n            \"collateral_address\": \"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\n            \"block_number\": 1\n          },\n          \"protocol\": \"aave_v3\",\n          \"type\": \"liquidation_call\"\n        },\n        {\n          \"data\": {\n            \"debt_amount\": \"1.289548595490270429\",\n            \"debt_symbol\": \"AAVE\",\n            \"debt_address\": \"0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9\",\n            \"collateral_amount\": \"110.824768\",\n            \"collateral_symbol\": \"USDC\",\n            \"collateral_address\": \"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48\",\n            \"block_number\": 1\n          },\n          \"protocol\": \"aave_v3\",\n          \"type\": \"liquidation_call\"\n        }\n      ],\n      \"decoded_input\": {\n        \"method_call\": \"transferFrom(address _from, address _to, uint256 _value)\",\n        \"method_id\": \"23b872dd\",\n        \"parameters\": [\n          {\n            \"name\": \"signature\",\n            \"type\": \"bytes\",\n            \"value\": \"0x0\"\n          },\n          {\n            \"name\": \"signature\",\n            \"type\": \"bytes\",\n            \"value\": \"0x0\"\n          }\n        ]\n      },\n      \"token_transfers_overflow\": false,\n      \"raw_input\": \"0xa9059cbb000000000000000000000000ef8801eaf234ff82801821ffe2d78d60a0237f97000000000000000000000000000000000000000000000000000000003178cb80\",\n      \"value\": \"0\",\n      \"max_priority_fee_per_gas\": \"49793412\",\n      \"revert_reason\": \"Error: (Awaiting internal transactions for reason)\",\n      \"confirmation_duration\": {},\n      \"transaction_tag\": \"private_transaction_tag\"\n    }\n  ],\n  \"next_page_params\": {\n    \"block_number\": 27736955,\n    \"index\": 4,\n    \"items_count\": 50\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e7dd128-a18e-4638-b628-c26707e7ee31",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "to | from"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c2a463f-d72d-43fe-b529-8a670aefafb6",
+          "name": "get address token transfers",
+          "request": {
+            "name": "get address token transfers",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "token-transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "290e3ff3-d186-4d79-8464-09d83682674d",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "token-transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "ERC-20,ERC-721,ERC-1155"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "to | from"
+                    },
+                    {
+                      "key": "token",
+                      "value": "0xb81afe27c103bcd42f4026cf719af6d802928765"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"block_hash\": \"0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a\",\n      \"from\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"log_index\": 16,\n      \"to\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"total\": {\n        \"decimals\": \"18\",\n        \"value\": \"1000\"\n      },\n      \"transaction_hash\": \"0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592\",\n      \"type\": \"token_transfer\",\n      \"method\": \"transfer\",\n      \"timestamp\": \"2023-07-03T20:09:59.000000Z\"\n    },\n    {\n      \"block_hash\": \"0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a\",\n      \"from\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"log_index\": 16,\n      \"to\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"total\": {\n        \"decimals\": \"18\",\n        \"value\": \"1000\"\n      },\n      \"transaction_hash\": \"0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592\",\n      \"type\": \"token_transfer\",\n      \"method\": \"transfer\",\n      \"timestamp\": \"2023-07-03T20:09:59.000000Z\"\n    }\n  ],\n  \"next_page_params\": {\n    \"block_number\": 27736955,\n    \"index\": 4\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0337501-99ea-40d1-a937-419e2c469e8a",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "token-transfers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "ERC-20,ERC-721,ERC-1155"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "to | from"
+                    },
+                    {
+                      "key": "token",
+                      "value": "0xb81afe27c103bcd42f4026cf719af6d802928765"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5da93f6-0828-4795-88b3-6e2cba2159cc",
+          "name": "get address internal transactions",
+          "request": {
+            "name": "get address internal transactions",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "internal-transactions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1fb9d557-665c-4dad-9e34-4433d52a865b",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "internal-transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "to | from"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"block_number\": 8844586,\n      \"created_contract\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"error\": \"reverted\",\n      \"from\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"gas_limit\": \"351759\",\n      \"index\": 1,\n      \"success\": true,\n      \"timestamp\": \"2023-04-17T10:37:12.000000Z\",\n      \"to\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"transaction_hash\": \"0x08ea4d75ad0abe327a7fd368733eaeac43077989e635d800530d7906ebf3bd54\",\n      \"type\": \"call\",\n      \"value\": \"30000000000000000\"\n    },\n    {\n      \"block_number\": 8844586,\n      \"created_contract\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"error\": \"reverted\",\n      \"from\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"gas_limit\": \"351759\",\n      \"index\": 1,\n      \"success\": true,\n      \"timestamp\": \"2023-04-17T10:37:12.000000Z\",\n      \"to\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"transaction_hash\": \"0x08ea4d75ad0abe327a7fd368733eaeac43077989e635d800530d7906ebf3bd54\",\n      \"type\": \"call\",\n      \"value\": \"30000000000000000\"\n    }\n  ],\n  \"next_page_params\": {\n    \"block_number\": 27625575,\n    \"index\": 0,\n    \"items_count\": 50,\n    \"transaction_index\": 0\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "179170ca-daf4-4ba7-9095-a3e0acf6443d",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "internal-transactions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "to | from"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "399ebded-6d9e-41d8-8133-a0486e5b0695",
+          "name": "get address logs",
+          "request": {
+            "name": "get address logs",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "logs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cb6cd662-b71b-4e04-911b-60d5484d880f",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"data\": \"0x000000000000000000000000000000000000000000000000006a94d74f430000\",\n      \"decoded\": {\n        \"method_call\": \"transferFrom(address _from, address _to, uint256 _value)\",\n        \"method_id\": \"23b872dd\",\n        \"parameters\": [\n          {\n            \"name\": \"signature\",\n            \"type\": \"bytes\",\n            \"value\": \"0x0\",\n            \"indexed\": false\n          },\n          {\n            \"name\": \"signature\",\n            \"type\": \"bytes\",\n            \"value\": \"0x0\",\n            \"indexed\": true\n          }\n        ]\n      },\n      \"index\": 35,\n      \"smart_contract\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"topics\": [\n        \"0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c\",\n        \"0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c\"\n      ],\n      \"transaction_hash\": \"0x08ea4d75ad0abe327a7fd368733eaeac43077989e635d800530d7906ebf3bd54\",\n      \"address_hash\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"block_hash\": \"0xf90fdff5f174f7f29ebdf203d32cad2fe95376e41880bb9e731ca5eb0eef7941\",\n      \"block_number\": 8844586\n    },\n    {\n      \"data\": \"0x000000000000000000000000000000000000000000000000006a94d74f430000\",\n      \"decoded\": {\n        \"method_call\": \"transferFrom(address _from, address _to, uint256 _value)\",\n        \"method_id\": \"23b872dd\",\n        \"parameters\": [\n          {\n            \"name\": \"signature\",\n            \"type\": \"bytes\",\n            \"value\": \"0x0\",\n            \"indexed\": true\n          },\n          {\n            \"name\": \"signature\",\n            \"type\": \"bytes\",\n            \"value\": \"0x0\",\n            \"indexed\": false\n          }\n        ]\n      },\n      \"index\": 35,\n      \"smart_contract\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"topics\": [\n        \"0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c\",\n        \"0xe1fffcc4923d04b559f4d29a8bfc6cda04eb5b0d3c460751c2402c5c5cc9109c\"\n      ],\n      \"transaction_hash\": \"0x08ea4d75ad0abe327a7fd368733eaeac43077989e635d800530d7906ebf3bd54\",\n      \"address_hash\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"block_hash\": \"0xf90fdff5f174f7f29ebdf203d32cad2fe95376e41880bb9e731ca5eb0eef7941\",\n      \"block_number\": 8844586\n    }\n  ],\n  \"next_page_params\": {\n    \"block_number\": 27736955,\n    \"index\": 68,\n    \"items_count\": 50\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78d22ad5-98ae-4ab1-b0e7-dc40f9107635",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "logs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c13aadf-5a56-4bfb-b5a8-7d1727150163",
+          "name": "get blocks validated by address",
+          "request": {
+            "name": "get blocks validated by address",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "blocks-validated"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87412977-16fa-45fa-9676-c61b53d372b9",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "blocks-validated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"base_fee_per_gas\": \"26618801760\",\n      \"burnt_fees\": \"261263193229977120\",\n      \"burnt_fees_percentage\": 85.19028810863084,\n      \"difficulty\": \"0\",\n      \"extra_data\": \"TODO\",\n      \"gas_limit\": \"30000000\",\n      \"gas_target_percentage\": -34.56675333333333,\n      \"gas_used\": \"9814987\",\n      \"gas_used_percentage\": 32.71662333333333,\n      \"hash\": \"0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a\",\n      \"height\": 17615720,\n      \"miner\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"nonce\": \"0x0000000000000000\",\n      \"parent_hash\": \"0xd464e02d81e2bdf6bc5fa9b8e33f0b564c464a82d821a3e56531f8636dc00dfa\",\n      \"priority_fee\": \"45418705646601378\",\n      \"rewards\": [\n        {\n          \"reward\": 1774,\n          \"type\": \"Miner Reward | Emission Reward | Chore Reward | Uncle Reward\"\n        },\n        {\n          \"reward\": 5182,\n          \"type\": \"Miner Reward | Emission Reward | Chore Reward | Uncle Reward\"\n        }\n      ],\n      \"size\": 49997,\n      \"state_root\": \"TODO\",\n      \"timestamp\": \"2023-07-03T20:09:59.000000Z\",\n      \"total_difficulty\": \"58750003716598352816469\",\n      \"transactions_count\": 120,\n      \"transaction_fees\": \"306681898876578498\",\n      \"type\": \"block\",\n      \"uncles_hashes\": [\n        \"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347\",\n        \"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347\"\n      ],\n      \"withdrawals_count\": 16\n    },\n    {\n      \"base_fee_per_gas\": \"26618801760\",\n      \"burnt_fees\": \"261263193229977120\",\n      \"burnt_fees_percentage\": 85.19028810863084,\n      \"difficulty\": \"0\",\n      \"extra_data\": \"TODO\",\n      \"gas_limit\": \"30000000\",\n      \"gas_target_percentage\": -34.56675333333333,\n      \"gas_used\": \"9814987\",\n      \"gas_used_percentage\": 32.71662333333333,\n      \"hash\": \"0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a\",\n      \"height\": 17615720,\n      \"miner\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"nonce\": \"0x0000000000000000\",\n      \"parent_hash\": \"0xd464e02d81e2bdf6bc5fa9b8e33f0b564c464a82d821a3e56531f8636dc00dfa\",\n      \"priority_fee\": \"45418705646601378\",\n      \"rewards\": [\n        {\n          \"reward\": 8103,\n          \"type\": \"Miner Reward | Emission Reward | Chore Reward | Uncle Reward\"\n        },\n        {\n          \"reward\": 4878,\n          \"type\": \"Miner Reward | Emission Reward | Chore Reward | Uncle Reward\"\n        }\n      ],\n      \"size\": 49997,\n      \"state_root\": \"TODO\",\n      \"timestamp\": \"2023-07-03T20:09:59.000000Z\",\n      \"total_difficulty\": \"58750003716598352816469\",\n      \"transactions_count\": 120,\n      \"transaction_fees\": \"306681898876578498\",\n      \"type\": \"block\",\n      \"uncles_hashes\": [\n        \"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347\",\n        \"0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347\"\n      ],\n      \"withdrawals_count\": 16\n    }\n  ],\n  \"next_page_params\": {\n    \"block_number\": 27736955,\n    \"items_count\": 50\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3e863057-b66c-4994-aa28-f0c4a09a83bc",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "blocks-validated"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a953b9bc-78be-4f44-bfd2-09a62d4f7520",
+          "name": "get all tokens balances for the address",
+          "request": {
+            "name": "get all tokens balances for the address",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "token-balances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a3d85489-fcf7-4b36-9198-1b0f7c340206",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "token-balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"value\": \"10000\",\n    \"token\": {\n      \"symbol\": \"USDT\",\n      \"name\": \"Tether USD\",\n      \"decimals\": \"16\",\n      \"type\": \"ERC-20\",\n      \"exchange_rate\": \"0.99\",\n      \"total_supply\": \"10000000\",\n      \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n      \"holders_count\": 837494234523\n    },\n    \"token_id\": \"123\",\n    \"token_instance\": {\n      \"is_unique\": false,\n      \"id\": \"431\",\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"owner\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"address_hash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"address_hash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n      \"image_url\": \"example.com/picture.png\",\n      \"animation_url\": \"example.com/video.mp4\",\n      \"external_app_url\": \"d-app.com\",\n      \"metadata\": {\n        \"year\": 2023,\n        \"tags\": [\n          \"poap\",\n          \"event\"\n        ],\n        \"name\": \"Social Listening Committee #2 Attendees\",\n        \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n        \"home_url\": \"https://app.poap.xyz/token/6292128\",\n        \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n        \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n        \"attributes\": [\n          {\n            \"value\": \"01-Feb-2023\",\n            \"trait_type\": \"startDate\"\n          },\n          {\n            \"value\": \"01-Feb-2023\",\n            \"trait_type\": \"endDate\"\n          },\n          {\n            \"value\": \"false\",\n            \"trait_type\": \"virtualEvent\"\n          },\n          {\n            \"value\": \"Paris\",\n            \"trait_type\": \"city\"\n          },\n          {\n            \"value\": \"France\",\n            \"trait_type\": \"country\"\n          },\n          {\n            \"value\": \"https://www.chanel.com\",\n            \"trait_type\": \"eventURL\"\n          }\n        ]\n      }\n    }\n  },\n  {\n    \"value\": \"10000\",\n    \"token\": {\n      \"symbol\": \"USDT\",\n      \"name\": \"Tether USD\",\n      \"decimals\": \"16\",\n      \"type\": \"ERC-20\",\n      \"exchange_rate\": \"0.99\",\n      \"total_supply\": \"10000000\",\n      \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n      \"holders_count\": 837494234523\n    },\n    \"token_id\": \"123\",\n    \"token_instance\": {\n      \"is_unique\": true,\n      \"id\": \"431\",\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"owner\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"address_hash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"address_hash\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"display_name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"label\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n      \"image_url\": \"example.com/picture.png\",\n      \"animation_url\": \"example.com/video.mp4\",\n      \"external_app_url\": \"d-app.com\",\n      \"metadata\": {\n        \"year\": 2023,\n        \"tags\": [\n          \"poap\",\n          \"event\"\n        ],\n        \"name\": \"Social Listening Committee #2 Attendees\",\n        \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n        \"home_url\": \"https://app.poap.xyz/token/6292128\",\n        \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n        \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n        \"attributes\": [\n          {\n            \"value\": \"01-Feb-2023\",\n            \"trait_type\": \"startDate\"\n          },\n          {\n            \"value\": \"01-Feb-2023\",\n            \"trait_type\": \"endDate\"\n          },\n          {\n            \"value\": \"false\",\n            \"trait_type\": \"virtualEvent\"\n          },\n          {\n            \"value\": \"Paris\",\n            \"trait_type\": \"city\"\n          },\n          {\n            \"value\": \"France\",\n            \"trait_type\": \"country\"\n          },\n          {\n            \"value\": \"https://www.chanel.com\",\n            \"trait_type\": \"eventURL\"\n          }\n        ]\n      }\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e266e16-36dd-4b36-8ca9-ca4f1bc6e1bd",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "token-balances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cb643f1-573a-46a6-9fe6-c9966998926c",
+          "name": "token balances with filtering and pagination",
+          "request": {
+            "name": "token balances with filtering and pagination",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "10b8df35-552a-4a66-9350-916bcfcff6d9",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "ERC-20,ERC-721,ERC-1155"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"value\": \"10000\",\n      \"token\": {\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"16\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": 837494234523\n      },\n      \"token_id\": \"123\",\n      \"token_instance\": {\n        \"is_unique\": false,\n        \"id\": \"431\",\n        \"token\": {\n          \"circulating_market_cap\": \"83606435600.3635\",\n          \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n          \"symbol\": \"USDT\",\n          \"name\": \"Tether USD\",\n          \"decimals\": \"6\",\n          \"type\": \"ERC-20\",\n          \"exchange_rate\": \"0.99\",\n          \"total_supply\": \"10000000\",\n          \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n          \"holders_count\": \"837494234523\"\n        },\n        \"owner\": {\n          \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"implementation_name\": \"implementationName\",\n          \"is_contract\": false,\n          \"is_verified\": false,\n          \"name\": \"contractName\",\n          \"private_tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"public_tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"watchlist_names\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ens_domain_name\": \"domain.eth\",\n          \"metadata\": {\n            \"slug\": \"tag_slug\",\n            \"name\": \"Tag name\",\n            \"tagType\": \"name\",\n            \"ordinal\": 0,\n            \"meta\": {}\n          }\n        },\n        \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"image_url\": \"example.com/picture.png\",\n        \"animation_url\": \"example.com/video.mp4\",\n        \"external_app_url\": \"d-app.com\",\n        \"metadata\": {\n          \"year\": 2023,\n          \"tags\": [\n            \"poap\",\n            \"event\"\n          ],\n          \"name\": \"Social Listening Committee #2 Attendees\",\n          \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n          \"home_url\": \"https://app.poap.xyz/token/6292128\",\n          \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n          \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n          \"attributes\": [\n            {\n              \"value\": \"01-Feb-2023\",\n              \"trait_type\": \"startDate\"\n            },\n            {\n              \"value\": \"01-Feb-2023\",\n              \"trait_type\": \"endDate\"\n            },\n            {\n              \"value\": \"false\",\n              \"trait_type\": \"virtualEvent\"\n            },\n            {\n              \"value\": \"Paris\",\n              \"trait_type\": \"city\"\n            },\n            {\n              \"value\": \"France\",\n              \"trait_type\": \"country\"\n            },\n            {\n              \"value\": \"https://www.chanel.com\",\n              \"trait_type\": \"eventURL\"\n            }\n          ]\n        }\n      }\n    },\n    {\n      \"value\": \"10000\",\n      \"token\": {\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"16\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": 837494234523\n      },\n      \"token_id\": \"123\",\n      \"token_instance\": {\n        \"is_unique\": true,\n        \"id\": \"431\",\n        \"token\": {\n          \"circulating_market_cap\": \"83606435600.3635\",\n          \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n          \"symbol\": \"USDT\",\n          \"name\": \"Tether USD\",\n          \"decimals\": \"6\",\n          \"type\": \"ERC-20\",\n          \"exchange_rate\": \"0.99\",\n          \"total_supply\": \"10000000\",\n          \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n          \"holders_count\": \"837494234523\"\n        },\n        \"owner\": {\n          \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n          \"implementation_name\": \"implementationName\",\n          \"is_contract\": false,\n          \"is_verified\": true,\n          \"name\": \"contractName\",\n          \"private_tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"public_tags\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"watchlist_names\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ens_domain_name\": \"domain.eth\",\n          \"metadata\": {\n            \"slug\": \"tag_slug\",\n            \"name\": \"Tag name\",\n            \"tagType\": \"name\",\n            \"ordinal\": 0,\n            \"meta\": {}\n          }\n        },\n        \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"image_url\": \"example.com/picture.png\",\n        \"animation_url\": \"example.com/video.mp4\",\n        \"external_app_url\": \"d-app.com\",\n        \"metadata\": {\n          \"year\": 2023,\n          \"tags\": [\n            \"poap\",\n            \"event\"\n          ],\n          \"name\": \"Social Listening Committee #2 Attendees\",\n          \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n          \"home_url\": \"https://app.poap.xyz/token/6292128\",\n          \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n          \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n          \"attributes\": [\n            {\n              \"value\": \"01-Feb-2023\",\n              \"trait_type\": \"startDate\"\n            },\n            {\n              \"value\": \"01-Feb-2023\",\n              \"trait_type\": \"endDate\"\n            },\n            {\n              \"value\": \"false\",\n              \"trait_type\": \"virtualEvent\"\n            },\n            {\n              \"value\": \"Paris\",\n              \"trait_type\": \"city\"\n            },\n            {\n              \"value\": \"France\",\n              \"trait_type\": \"country\"\n            },\n            {\n              \"value\": \"https://www.chanel.com\",\n              \"trait_type\": \"eventURL\"\n            }\n          ]\n        }\n      }\n    }\n  ],\n  \"next_page_params\": {\n    \"items_count\": 50,\n    \"token_name\": null,\n    \"token_type\": \"ERC-1155\",\n    \"value\": 14\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc87f63d-d109-4b38-ae69-ce9429cff84e",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "ERC-20,ERC-721,ERC-1155"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "58b25c9c-6ba2-4f04-b7e4-c79e17483230",
+          "name": "get address coin balance history",
+          "request": {
+            "name": "get address coin balance history",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "coin-balance-history"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "918d96b6-e0d2-4b78-81f5-b307a4a90cfe",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "coin-balance-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"block_number\": 1584930,\n      \"block_timestamp\": \"2022-08-02T07:18:05.000000Z\",\n      \"delta\": \"-234959404\",\n      \"value\": \"100232323\",\n      \"transaction_hash\": \"0x1f610ff9c1efad6b5a8bb6afcc0786cd7343f03f9a61e2544fcff908cedee924\"\n    },\n    {\n      \"block_number\": 1584930,\n      \"block_timestamp\": \"2022-08-02T07:18:05.000000Z\",\n      \"delta\": \"-234959404\",\n      \"value\": \"100232323\",\n      \"transaction_hash\": \"0x1f610ff9c1efad6b5a8bb6afcc0786cd7343f03f9a61e2544fcff908cedee924\"\n    }\n  ],\n  \"next_page_params\": {\n    \"block_number\": 27736955,\n    \"items_count\": 50\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee7ca4ee-91f3-4582-9025-4a6d031c0b36",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "coin-balance-history"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8fb46180-9981-478d-8b68-d04bf93c21d7",
+          "name": "get address coin balance history by day",
+          "request": {
+            "name": "get address coin balance history by day",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "coin-balance-history-by-day"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7bbaad99-776c-45fa-bb5c-39d5065ea607",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "coin-balance-history-by-day"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"date\": \"2022-08-02\",\n    \"value\": 1673.1183430684525\n  },\n  {\n    \"date\": \"2022-08-02\",\n    \"value\": 5897.9390331799705\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5f17dc0-1bee-4acf-bfd1-9b5f7d0828d8",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "coin-balance-history-by-day"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17f51061-bd1b-40f2-a01c-3aaa29a3e8a5",
+          "name": "get address withdrawals",
+          "request": {
+            "name": "get address withdrawals",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "withdrawals"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36dbf4aa-ef15-42c2-af27-0e8cc5fedb62",
+              "name": "pay attention that receiver field is not included to response in this endpoint",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "withdrawals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"index\": 1,\n      \"amount\": \"1000000000000000000\",\n      \"validator_index\": 1,\n      \"receiver\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"block_number\": 1,\n      \"timestamp\": \"2023-06-20T07:55:00.000000Z\"\n    },\n    {\n      \"index\": 1,\n      \"amount\": \"1000000000000000000\",\n      \"validator_index\": 1,\n      \"receiver\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": false,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"block_number\": 1,\n      \"timestamp\": \"2023-06-20T07:55:00.000000Z\"\n    }\n  ],\n  \"next_page_params\": {\n    \"index\": 1,\n    \"items_count\": 50\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47ad96d4-ac90-4676-a25c-903aa9b51115",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "withdrawals"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4eae28d0-7380-4148-ad66-37e1dcbbab4e",
+          "name": "get list of NFT owned by address",
+          "request": {
+            "name": "get list of NFT owned by address",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "nft"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ebbaf28a-a844-4829-ac46-c7fb77567791",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "nft"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "ERC-721,ERC-404,ERC-1155"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"token_type\": \"ERC-721\",\n      \"value\": \"1\",\n      \"is_unique\": true,\n      \"id\": \"431\",\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"owner\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": true,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n      \"image_url\": \"example.com/picture.png\",\n      \"animation_url\": \"example.com/video.mp4\",\n      \"external_app_url\": \"d-app.com\",\n      \"metadata\": {\n        \"year\": 2023,\n        \"tags\": [\n          \"poap\",\n          \"event\"\n        ],\n        \"name\": \"Social Listening Committee #2 Attendees\",\n        \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n        \"home_url\": \"https://app.poap.xyz/token/6292128\",\n        \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n        \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n        \"attributes\": [\n          {\n            \"value\": \"01-Feb-2023\",\n            \"trait_type\": \"startDate\"\n          },\n          {\n            \"value\": \"01-Feb-2023\",\n            \"trait_type\": \"endDate\"\n          },\n          {\n            \"value\": \"false\",\n            \"trait_type\": \"virtualEvent\"\n          },\n          {\n            \"value\": \"Paris\",\n            \"trait_type\": \"city\"\n          },\n          {\n            \"value\": \"France\",\n            \"trait_type\": \"country\"\n          },\n          {\n            \"value\": \"https://www.chanel.com\",\n            \"trait_type\": \"eventURL\"\n          }\n        ]\n      }\n    },\n    {\n      \"token_type\": \"ERC-721\",\n      \"value\": \"1\",\n      \"is_unique\": true,\n      \"id\": \"431\",\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"owner\": {\n        \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n        \"implementation_name\": \"implementationName\",\n        \"is_contract\": false,\n        \"is_verified\": true,\n        \"name\": \"contractName\",\n        \"private_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"public_tags\": [\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"address_hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"watchlist_names\": [\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          },\n          {\n            \"display_name\": \"name to show\",\n            \"label\": \"label\"\n          }\n        ],\n        \"ens_domain_name\": \"domain.eth\",\n        \"metadata\": {\n          \"slug\": \"tag_slug\",\n          \"name\": \"Tag name\",\n          \"tagType\": \"name\",\n          \"ordinal\": 0,\n          \"meta\": {}\n        }\n      },\n      \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n      \"image_url\": \"example.com/picture.png\",\n      \"animation_url\": \"example.com/video.mp4\",\n      \"external_app_url\": \"d-app.com\",\n      \"metadata\": {\n        \"year\": 2023,\n        \"tags\": [\n          \"poap\",\n          \"event\"\n        ],\n        \"name\": \"Social Listening Committee #2 Attendees\",\n        \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n        \"home_url\": \"https://app.poap.xyz/token/6292128\",\n        \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n        \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n        \"attributes\": [\n          {\n            \"value\": \"01-Feb-2023\",\n            \"trait_type\": \"startDate\"\n          },\n          {\n            \"value\": \"01-Feb-2023\",\n            \"trait_type\": \"endDate\"\n          },\n          {\n            \"value\": \"false\",\n            \"trait_type\": \"virtualEvent\"\n          },\n          {\n            \"value\": \"Paris\",\n            \"trait_type\": \"city\"\n          },\n          {\n            \"value\": \"France\",\n            \"trait_type\": \"country\"\n          },\n          {\n            \"value\": \"https://www.chanel.com\",\n            \"trait_type\": \"eventURL\"\n          }\n        ]\n      }\n    }\n  ],\n  \"next_page_params\": {\n    \"token_contract_address_hash\": \"0xb81afe27c103bcd42f4026cf719af6d802928765\",\n    \"token_id\": \"1011\",\n    \"token_type\": \"ERC-721\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cfca5251-e7e2-4406-879c-b603d0abe080",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "nft"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "ERC-721,ERC-404,ERC-1155"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99bfd513-5f76-43d3-9856-761362ce4132",
+          "name": "get list of NFT owned by address, grouped by collection",
+          "request": {
+            "name": "get list of NFT owned by address, grouped by collection",
+            "description": {},
+            "url": {
+              "path": [
+                "addresses",
+                ":address_hash",
+                "nft",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address_hash",
+                  "description": "(Required) Address hash"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc5dc86e-6fb4-4990-8400-9a0ca77e8c37",
+              "name": "address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "nft",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "ERC-721,ERC-404,ERC-1155"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"token_instances\": [\n        {\n          \"token_type\": \"ERC-721\",\n          \"value\": \"1\",\n          \"is_unique\": false,\n          \"id\": \"431\",\n          \"owner\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": false,\n            \"is_verified\": true,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n          \"image_url\": \"example.com/picture.png\",\n          \"animation_url\": \"example.com/video.mp4\",\n          \"external_app_url\": \"d-app.com\",\n          \"metadata\": {\n            \"year\": 2023,\n            \"tags\": [\n              \"poap\",\n              \"event\"\n            ],\n            \"name\": \"Social Listening Committee #2 Attendees\",\n            \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n            \"home_url\": \"https://app.poap.xyz/token/6292128\",\n            \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n            \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n            \"attributes\": [\n              {\n                \"value\": \"01-Feb-2023\",\n                \"trait_type\": \"startDate\"\n              },\n              {\n                \"value\": \"01-Feb-2023\",\n                \"trait_type\": \"endDate\"\n              },\n              {\n                \"value\": \"false\",\n                \"trait_type\": \"virtualEvent\"\n              },\n              {\n                \"value\": \"Paris\",\n                \"trait_type\": \"city\"\n              },\n              {\n                \"value\": \"France\",\n                \"trait_type\": \"country\"\n              },\n              {\n                \"value\": \"https://www.chanel.com\",\n                \"trait_type\": \"eventURL\"\n              }\n            ]\n          },\n          \"token\": {}\n        },\n        {\n          \"token_type\": \"ERC-721\",\n          \"value\": \"1\",\n          \"is_unique\": false,\n          \"id\": \"431\",\n          \"owner\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": false,\n            \"is_verified\": false,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n          \"image_url\": \"example.com/picture.png\",\n          \"animation_url\": \"example.com/video.mp4\",\n          \"external_app_url\": \"d-app.com\",\n          \"metadata\": {\n            \"year\": 2023,\n            \"tags\": [\n              \"poap\",\n              \"event\"\n            ],\n            \"name\": \"Social Listening Committee #2 Attendees\",\n            \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n            \"home_url\": \"https://app.poap.xyz/token/6292128\",\n            \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n            \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n            \"attributes\": [\n              {\n                \"value\": \"01-Feb-2023\",\n                \"trait_type\": \"startDate\"\n              },\n              {\n                \"value\": \"01-Feb-2023\",\n                \"trait_type\": \"endDate\"\n              },\n              {\n                \"value\": \"false\",\n                \"trait_type\": \"virtualEvent\"\n              },\n              {\n                \"value\": \"Paris\",\n                \"trait_type\": \"city\"\n              },\n              {\n                \"value\": \"France\",\n                \"trait_type\": \"country\"\n              },\n              {\n                \"value\": \"https://www.chanel.com\",\n                \"trait_type\": \"eventURL\"\n              }\n            ]\n          },\n          \"token\": {}\n        }\n      ],\n      \"amount\": \"1\"\n    },\n    {\n      \"token\": {\n        \"circulating_market_cap\": \"83606435600.3635\",\n        \"icon_url\": \"https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png\",\n        \"symbol\": \"USDT\",\n        \"name\": \"Tether USD\",\n        \"decimals\": \"6\",\n        \"type\": \"ERC-20\",\n        \"exchange_rate\": \"0.99\",\n        \"total_supply\": \"10000000\",\n        \"address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n        \"holders_count\": \"837494234523\"\n      },\n      \"token_instances\": [\n        {\n          \"token_type\": \"ERC-721\",\n          \"value\": \"1\",\n          \"is_unique\": false,\n          \"id\": \"431\",\n          \"owner\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": true,\n            \"is_verified\": true,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n          \"image_url\": \"example.com/picture.png\",\n          \"animation_url\": \"example.com/video.mp4\",\n          \"external_app_url\": \"d-app.com\",\n          \"metadata\": {\n            \"year\": 2023,\n            \"tags\": [\n              \"poap\",\n              \"event\"\n            ],\n            \"name\": \"Social Listening Committee #2 Attendees\",\n            \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n            \"home_url\": \"https://app.poap.xyz/token/6292128\",\n            \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n            \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n            \"attributes\": [\n              {\n                \"value\": \"01-Feb-2023\",\n                \"trait_type\": \"startDate\"\n              },\n              {\n                \"value\": \"01-Feb-2023\",\n                \"trait_type\": \"endDate\"\n              },\n              {\n                \"value\": \"false\",\n                \"trait_type\": \"virtualEvent\"\n              },\n              {\n                \"value\": \"Paris\",\n                \"trait_type\": \"city\"\n              },\n              {\n                \"value\": \"France\",\n                \"trait_type\": \"country\"\n              },\n              {\n                \"value\": \"https://www.chanel.com\",\n                \"trait_type\": \"eventURL\"\n              }\n            ]\n          },\n          \"token\": {}\n        },\n        {\n          \"token_type\": \"ERC-721\",\n          \"value\": \"1\",\n          \"is_unique\": false,\n          \"id\": \"431\",\n          \"owner\": {\n            \"hash\": \"0xEb533ee5687044E622C69c58B1B12329F56eD9ad\",\n            \"implementation_name\": \"implementationName\",\n            \"is_contract\": true,\n            \"is_verified\": false,\n            \"name\": \"contractName\",\n            \"private_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"public_tags\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"watchlist_names\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ],\n            \"ens_domain_name\": \"domain.eth\",\n            \"metadata\": {\n              \"slug\": \"tag_slug\",\n              \"name\": \"Tag name\",\n              \"tagType\": \"name\",\n              \"ordinal\": 0,\n              \"meta\": {}\n            }\n          },\n          \"holder_address_hash\": \"0x394c399dbA25B99Ab7708EdB505d755B3aa29997\",\n          \"image_url\": \"example.com/picture.png\",\n          \"animation_url\": \"example.com/video.mp4\",\n          \"external_app_url\": \"d-app.com\",\n          \"metadata\": {\n            \"year\": 2023,\n            \"tags\": [\n              \"poap\",\n              \"event\"\n            ],\n            \"name\": \"Social Listening Committee #2 Attendees\",\n            \"image_url\": \"https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png\",\n            \"home_url\": \"https://app.poap.xyz/token/6292128\",\n            \"external_url\": \"https://api.poap.tech/metadata/99010/6292128\",\n            \"description\": \"This is the POAP for attendees of the second Social Listening Committee.\",\n            \"attributes\": [\n              {\n                \"value\": \"01-Feb-2023\",\n                \"trait_type\": \"startDate\"\n              },\n              {\n                \"value\": \"01-Feb-2023\",\n                \"trait_type\": \"endDate\"\n              },\n              {\n                \"value\": \"false\",\n                \"trait_type\": \"virtualEvent\"\n              },\n              {\n                \"value\": \"Paris\",\n                \"trait_type\": \"city\"\n              },\n              {\n                \"value\": \"France\",\n                \"trait_type\": \"country\"\n              },\n              {\n                \"value\": \"https://www.chanel.com\",\n                \"trait_type\": \"eventURL\"\n              }\n            ]\n          },\n          \"token\": {}\n        }\n      ],\n      \"amount\": \"1\"\n    }\n  ],\n  \"next_page_params\": {\n    \"token_contract_address_hash\": \"0xb81afe27c103bcd42f4026cf719af6d802928765\",\n    \"token_type\": \"ERC-721\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2da2d612-9072-4772-b423-dbc9c9e612fc",
+              "name": "bad input parameter",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "addresses",
+                    ":address_hash",
+                    "nft",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "ERC-721,ERC-404,ERC-1155"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address_hash",
+                      "description": "(Required) Address hash"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://eth.blockscout.com/api/v2/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bc328785-7f6a-432e-b04d-e864138e5789",
+    "name": "BlockScout Addresses API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for BlockScout web app\n\nContact Support:\n Email: support@blockscout.com",
+      "type": "text/plain"
+    }
+  }
+}

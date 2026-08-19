@@ -1,0 +1,184 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "BlockScout Addresses Transactions API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/transactions",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "method",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get transactions"
+        },
+        {
+          "info": {
+            "name": "get transaction info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/transactions/:transaction_hash",
+            "params": [
+              {
+                "name": "transaction_hash",
+                "value": "",
+                "type": "path",
+                "description": "Transaction hash"
+              }
+            ]
+          },
+          "docs": "get transaction info"
+        },
+        {
+          "info": {
+            "name": "get transaction token transfers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/transactions/:transaction_hash/token-transfers",
+            "params": [
+              {
+                "name": "transaction_hash",
+                "value": "",
+                "type": "path",
+                "description": "Transaction hash"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "get transaction token transfers"
+        },
+        {
+          "info": {
+            "name": "get transaction internal transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/transactions/:transaction_hash/internal-transactions",
+            "params": [
+              {
+                "name": "transaction_hash",
+                "value": "",
+                "type": "path",
+                "description": "Transaction hash"
+              }
+            ]
+          },
+          "docs": "get transaction internal transactions"
+        },
+        {
+          "info": {
+            "name": "get transaction logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/transactions/:transaction_hash/logs",
+            "params": [
+              {
+                "name": "transaction_hash",
+                "value": "",
+                "type": "path",
+                "description": "Transaction hash"
+              }
+            ]
+          },
+          "docs": "get transaction logs"
+        },
+        {
+          "info": {
+            "name": "get transaction raw trace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/transactions/:transaction_hash/raw-trace",
+            "params": [
+              {
+                "name": "transaction_hash",
+                "value": "",
+                "type": "path",
+                "description": "Transaction hash"
+              }
+            ]
+          },
+          "docs": "get transaction raw trace"
+        },
+        {
+          "info": {
+            "name": "get transaction state changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/transactions/:transaction_hash/state-changes",
+            "params": [
+              {
+                "name": "transaction_hash",
+                "value": "",
+                "type": "path",
+                "description": "Transaction hash"
+              }
+            ]
+          },
+          "docs": "get transaction state changes"
+        },
+        {
+          "info": {
+            "name": "get human-readable transaction summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://eth.blockscout.com/api/v2/transactions/:transaction_hash/summary",
+            "params": [
+              {
+                "name": "transaction_hash",
+                "value": "",
+                "type": "path",
+                "description": "Transaction hash"
+              }
+            ]
+          },
+          "docs": "get human-readable transaction summary"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
