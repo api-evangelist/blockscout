@@ -26,7 +26,7 @@ tags:
 - Etherscan-Compatible
 created: '2026-05-08'
 modified: '2026-05-08'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 description: >-
   Blockscout is an open-source EVM blockchain explorer covering 1,000+ L1, L2, and L3 EVM chains.
   Each Blockscout instance exposes a REST v1 API (legacy), REST v2 API (recommended), GraphQL
