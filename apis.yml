@@ -18,6 +18,15 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/blockscout
 tags:
 - Web3
 - Explorer
+- Open-Source
+- EVM
+- Multi-Chain
+- GraphQL
+- REST
+- Etherscan-Compatible
+tags_raw:
+- Web3
+- Explorer
 - Open Source
 - EVM
 - Multi-Chain
@@ -100,6 +109,10 @@ apis:
 - aid: blockscout:pro-api
   name: Blockscout PRO API
   tags:
+  - PRO
+  - Multi-Chain
+  - Subscription
+  tags_raw:
   - Pro
   - Multi-chain
   - Subscription
@@ -248,6 +261,8 @@ apis:
   humanURL: https://docs.blockscout.com/devs/apis/rest
   baseURL: https://eth.blockscout.com/api/v2
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
