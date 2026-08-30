@@ -121,8 +121,8 @@ apis:
 - aid: blockscout:pro-api
   name: Blockscout PRO API
   tags:
-  - PRO
-  - Multi-Chain
+  - Pro
+  - Multi-chain
   - Subscription
   tags_raw:
   - Pro
