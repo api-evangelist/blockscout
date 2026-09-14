@@ -36,6 +36,10 @@ tags:
 - GraphQL
 - REST
 - Etherscan-Compatible
+- MCP
+- Agent Skills
+- x402
+- agent-native
 tags_raw:
 - Web3
 - Explorer
@@ -45,6 +49,10 @@ tags_raw:
 - GraphQL
 - REST
 - Etherscan-Compatible
+- MCP
+- Agent Skills
+- x402
+- agent-native
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.23'
@@ -294,6 +302,13 @@ common:
   url: https://www.blockscout.com/
 - type: AgenticAccess
   url: agentic-access/blockscout-agentic-access.yml
+- name: MCP Server
+  url: https://mcp.blockscout.com/mcp
+  type: MCPServer
+- type: AgentSkill
+  url: skills/_index.yml
+- type: x402
+  url: finops/blockscout-x402.yml
 - type: DomainSecurity
   url: security/blockscout-domain-security.yml
 - type: LinkedIn

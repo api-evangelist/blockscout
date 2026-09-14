@@ -1,0 +1,45 @@
+specification: x402
+specificationVersion: '2'
+provider: Blockscout
+providerId: blockscout
+generated: '2026-09-14'
+method: probed
+status: published
+description: >-
+  The Blockscout PRO API at api.blockscout.com is gated with x402: an unauthenticated request
+  returns HTTP 402 with a base64 `payment-required` header carrying the payment requirements,
+  and the JSON body "Proceed with API key or make a X402 payment to continue". An agent can
+  therefore pay per call in USDC on Base without holding an account or an API key.
+endpoint_probed: https://api.blockscout.com/api/v2/stats
+response:
+  status: 402
+  header: payment-required
+  encoding: base64 JSON
+  body_error: Proceed with API key or make a X402 payment to continue
+  signature_header_required: PAYMENT-SIGNATURE
+requirements:
+  x402_version: 2
+  scheme: exact
+  network: eip155:8453
+  network_name: Base mainnet
+  asset: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913'
+  asset_name: USD Coin
+  asset_version: '2'
+  amount: '2000'
+  amount_human: 0.002 USDC
+  pay_to: '0xd441D9F4c59CB26253E2F0A7a62ac9cE7823b4b4'
+  max_timeout_seconds: 60
+  resource: https://api.blockscout.com/api/v2/stats
+discovery:
+  well_known: none
+  note: >-
+    https://api.blockscout.com/.well-known/x402 returns 402 like every other path on the host
+    rather than serving a discovery document. The payment requirements are only obtainable by
+    making a request and reading the `payment-required` header off the 402.
+verification:
+  probed: '2026-09-14'
+  method: curl -D - https://api.blockscout.com/api/v2/stats; payment-required header base64-decoded
+scoring_note: >-
+  This does NOT light the Kin Score `agentic_commerce` dimension, which grades UCP/ACP
+  well-known documents only — score.rb carries no x402 check by design. Recorded here as
+  evidence of the payment surface, not as a scoring artifact.

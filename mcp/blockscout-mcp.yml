@@ -1,0 +1,73 @@
+generated: '2026-09-14'
+method: probed
+status: published
+source: https://github.com/blockscout/mcp-server
+server:
+  name: blockscout
+  description: >-
+    Blockscout operates a public remote MCP server wrapping the Blockscout block-explorer APIs
+    for agents, spanning EVM chains via a single endpoint. No authentication is required to
+    initialize or to enumerate tools. The server instructs callers to load the companion
+    `blockscout-analysis` agent skill before making tool calls, which carries the operating
+    rules and the curated `direct_api_call` endpoint reference.
+  transport: streamable-http
+  url: https://mcp.blockscout.com/mcp
+  implementation: blockscout-mcp-server
+  version: 1.26.0
+authorization:
+  type: none
+  note: >-
+    initialize and tools/list both succeed with no credential. Paid access to the underlying
+    Blockscout PRO API is metered separately (see finops/blockscout-x402.yml).
+protocol:
+  version: '2025-06-18'
+  capabilities:
+  - prompts
+  - resources
+  - tools
+deployment:
+  mode: remote
+  endpoint: https://mcp.blockscout.com/mcp
+  verified: probed
+  probe: live
+  checked: '2026-09-14'
+  source: >-
+    live initialize + tools/list handshake against https://mcp.blockscout.com/mcp, 2026-09-14.
+    GET returns 406; POST with Accept: application/json, text/event-stream returns an SSE
+    message carrying serverInfo blockscout-mcp-server 1.26.0.
+tools_count: 16
+tools:
+- name: __unlock_blockchain_analysis__
+  description: ''
+- name: get_block_info
+  description: ''
+- name: get_block_number
+  description: ''
+- name: get_address_by_ens_name
+  description: ''
+- name: get_transactions_by_address
+  description: ''
+- name: get_token_transfers_by_address
+  description: ''
+- name: lookup_token_by_symbol
+  description: ''
+- name: get_contract_abi
+  description: ''
+- name: inspect_contract_code
+  description: ''
+- name: read_contract
+  description: ''
+- name: get_address_info
+  description: ''
+- name: get_tokens_by_address
+  description: ''
+- name: nft_tokens_by_address
+  description: ''
+- name: get_transaction_info
+  description: ''
+- name: get_chains_list
+  description: ''
+- name: direct_api_call
+  description: ''
+tools_source: live tools/list via initialize handshake, 2026-09-14
+authorship: provider

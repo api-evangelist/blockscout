@@ -1,0 +1,33 @@
+generated: '2026-09-14'
+method: probed
+source: https://github.com/blockscout/agent-skills
+notes: >-
+  Blockscout publishes first-party Agent Skills (Claude SKILL.md format) in the
+  github.com/blockscout/agent-skills repository, distributed as a Claude plugin
+  (.claude-plugin). Two skills are published, split by integration path: blockscout-analysis
+  covers the Blockscout MCP Server, web3-dev covers direct HTTP calls to the Blockscout PRO
+  API. The MCP server's own initialize instructions name blockscout-analysis and ask callers
+  to load it before making tool calls. Metadata read from each SKILL.md frontmatter on
+  2026-09-14.
+skills:
+- name: blockscout-analysis
+  version: 0.6.0
+  license: MIT
+  author: blockscout.com
+  description: >-
+    Architectural rules, execution-strategy decisions, MCP REST API conventions for scripts,
+    endpoint reference files, response transformation requirements and output conventions for
+    analyzing Blockscout data. Declared MANDATORY before any Blockscout MCP tool call. Covers
+    all EVM chains.
+  source: https://github.com/blockscout/agent-skills/tree/main/blockscout-analysis
+  pairs_with: mcp/blockscout-mcp.yml
+- name: web3-dev
+  version: 0.1.0
+  license: MIT
+  author: blockscout.com
+  description: >-
+    Building web3 applications, scripts, CLIs, bots and mobile/desktop apps that read
+    blockchain data over HTTP via the Blockscout PRO API — transactions, blocks, addresses,
+    tokens, NFTs, logs, contract context, internal transactions and account abstraction
+    across 100+ EVM chains. The direct-HTTP sibling of blockscout-analysis.
+  source: https://github.com/blockscout/agent-skills/tree/main/web3-dev
