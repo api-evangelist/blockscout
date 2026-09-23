@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: API for BlockScout web app
   version: 1.0.0
-  title: BlockScout Addresses Stats API
+  title: BlockScout Stats API
   contact:
     email: support@blockscout.com
   license:
@@ -79,6 +79,32 @@ paths:
       - Stats
 components:
   schemas:
+    TransactionChartItem:
+      required:
+      - date
+      - transactions_count
+      properties:
+        date:
+          type: string
+          example: '2022-10-31'
+        transactions_count:
+          type: integer
+          example: 622
+    MarketChartItem:
+      required:
+      - date
+      - closing_price
+      - market_cap
+      properties:
+        date:
+          type: string
+          example: '2022-10-31'
+        closing_price:
+          type: string
+          example: '0.00254915'
+        market_cap:
+          type: string
+          example: '420471.10604559750644'
     StatsResponse:
       required:
       - total_blocks
@@ -133,29 +159,3 @@ components:
         network_utilization_percentage:
           type: number
           example: 40.2142
-    TransactionChartItem:
-      required:
-      - date
-      - transactions_count
-      properties:
-        date:
-          type: string
-          example: '2022-10-31'
-        transactions_count:
-          type: integer
-          example: 622
-    MarketChartItem:
-      required:
-      - date
-      - closing_price
-      - market_cap
-      properties:
-        date:
-          type: string
-          example: '2022-10-31'
-        closing_price:
-          type: string
-          example: '0.00254915'
-        market_cap:
-          type: string
-          example: '420471.10604559750644'

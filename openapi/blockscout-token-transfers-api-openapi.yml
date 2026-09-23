@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: API for BlockScout web app
   version: 1.0.0
-  title: BlockScout Addresses Token Transfers API
+  title: BlockScout Token Transfers API
   contact:
     email: support@blockscout.com
   license:
@@ -50,6 +50,149 @@ paths:
       - Token Transfers
 components:
   schemas:
+    AddressTag:
+      type: object
+      required:
+      - address_hash
+      - display_name
+      - label
+      properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    NFTInstance:
+      required:
+      - is_unique
+      - id
+      - token
+      - owner
+      properties:
+        is_unique:
+          type: boolean
+        id:
+          type: string
+          example: '431'
+        holder_address_hash:
+          type: string
+          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
+        image_url:
+          type: string
+          example: example.com/picture.png
+        animation_url:
+          type: string
+          example: example.com/video.mp4
+        external_app_url:
+          type: string
+          example: d-app.com
+        metadata:
+          type: object
+          example:
+            year: 2023
+            tags:
+            - poap
+            - event
+            name: 'Social Listening Committee #2 Attendees'
+            image_url: https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png
+            home_url: https://app.poap.xyz/token/6292128
+            external_url: https://api.poap.tech/metadata/99010/6292128
+            description: This is the POAP for attendees of the second Social Listening Committee.
+            attributes:
+            - value: 01-Feb-2023
+              trait_type: startDate
+            - value: 01-Feb-2023
+              trait_type: endDate
+            - value: 'false'
+              trait_type: virtualEvent
+            - value: Paris
+              trait_type: city
+            - value: France
+              trait_type: country
+            - value: https://www.chanel.com
+              trait_type: eventURL
+        owner:
+          $ref: '#/components/schemas/AddressParam'
+        token:
+          $ref: '#/components/schemas/TokenInfo'
+    TotalERC1155:
+      required:
+      - token_id
+      - decimals
+      - value
+      properties:
+        token_id:
+          type: string
+          example: '1'
+        decimals:
+          type: string
+          example: null
+        value:
+          type: string
+          example: '1000'
+        token_instance:
+          $ref: '#/components/schemas/NFTInstance'
+    TotalERC721:
+      required:
+      - token_id
+      properties:
+        token_id:
+          type: string
+          example: '1'
+        token_instance:
+          $ref: '#/components/schemas/NFTInstance'
+    AddressParam:
+      type: object
+      required:
+      - hash
+      - implementation_name
+      - is_contract
+      - is_verified
+      - name
+      - private_tags
+      - public_tags
+      - watchlist_names
+      properties:
+        hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        implementation_name:
+          type: string
+          example: implementationName
+        name:
+          type: string
+          example: contractName
+        ens_domain_name:
+          type: string
+          example: domain.eth
+        metadata:
+          type: object
+          example:
+            slug: tag_slug
+            name: Tag name
+            tagType: name
+            ordinal: 0
+            meta: {}
+        is_contract:
+          type: boolean
+        private_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        watchlist_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+        public_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        is_verified:
+          type: boolean
     WatchlistName:
       type: object
       required:
@@ -117,149 +260,6 @@ components:
         total_supply:
           type: string
           example: '10000000'
-    AddressTag:
-      type: object
-      required:
-      - address_hash
-      - display_name
-      - label
-      properties:
-        address_hash:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        display_name:
-          type: string
-          example: name to show
-        label:
-          type: string
-          example: label
-    TotalERC721:
-      required:
-      - token_id
-      properties:
-        token_id:
-          type: string
-          example: '1'
-        token_instance:
-          $ref: '#/components/schemas/NFTInstance'
-    NFTInstance:
-      required:
-      - is_unique
-      - id
-      - token
-      - owner
-      properties:
-        is_unique:
-          type: boolean
-        id:
-          type: string
-          example: '431'
-        holder_address_hash:
-          type: string
-          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
-        image_url:
-          type: string
-          example: example.com/picture.png
-        animation_url:
-          type: string
-          example: example.com/video.mp4
-        external_app_url:
-          type: string
-          example: d-app.com
-        metadata:
-          type: object
-          example:
-            year: 2023
-            tags:
-            - poap
-            - event
-            name: 'Social Listening Committee #2 Attendees'
-            image_url: https://assets.poap.xyz/chanel-poap-4c-2023-logo-1675083420470.png
-            home_url: https://app.poap.xyz/token/6292128
-            external_url: https://api.poap.tech/metadata/99010/6292128
-            description: This is the POAP for attendees of the second Social Listening Committee.
-            attributes:
-            - value: 01-Feb-2023
-              trait_type: startDate
-            - value: 01-Feb-2023
-              trait_type: endDate
-            - value: 'false'
-              trait_type: virtualEvent
-            - value: Paris
-              trait_type: city
-            - value: France
-              trait_type: country
-            - value: https://www.chanel.com
-              trait_type: eventURL
-        owner:
-          $ref: '#/components/schemas/AddressParam'
-        token:
-          $ref: '#/components/schemas/TokenInfo'
-    AddressParam:
-      type: object
-      required:
-      - hash
-      - implementation_name
-      - is_contract
-      - is_verified
-      - name
-      - private_tags
-      - public_tags
-      - watchlist_names
-      properties:
-        hash:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        implementation_name:
-          type: string
-          example: implementationName
-        name:
-          type: string
-          example: contractName
-        ens_domain_name:
-          type: string
-          example: domain.eth
-        metadata:
-          type: object
-          example:
-            slug: tag_slug
-            name: Tag name
-            tagType: name
-            ordinal: 0
-            meta: {}
-        is_contract:
-          type: boolean
-        private_tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressTag'
-        watchlist_names:
-          type: array
-          items:
-            $ref: '#/components/schemas/WatchlistName'
-        public_tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressTag'
-        is_verified:
-          type: boolean
-    TotalERC1155:
-      required:
-      - token_id
-      - decimals
-      - value
-      properties:
-        token_id:
-          type: string
-          example: '1'
-        decimals:
-          type: string
-          example: null
-        value:
-          type: string
-          example: '1000'
-        token_instance:
-          $ref: '#/components/schemas/NFTInstance'
     TokenTransfer:
       type: object
       required:

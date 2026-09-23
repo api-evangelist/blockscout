@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: API for BlockScout web app
   version: 1.0.0
-  title: BlockScout Addresses Smart Contracts API
+  title: BlockScout Smart Contracts API
   contact:
     email: support@blockscout.com
   license:
@@ -111,29 +111,6 @@ paths:
       - Smart Contracts
 components:
   schemas:
-    WatchlistName:
-      type: object
-      required:
-      - display_name
-      - label
-      properties:
-        display_name:
-          type: string
-          example: name to show
-        label:
-          type: string
-          example: label
-    ExternalLibrary:
-      required:
-      - name
-      - address_hash
-      properties:
-        name:
-          type: string
-          example: MathLib
-        address_hash:
-          type: string
-          example: '0xF61f5c4a3664501F499A9289AaEe76a709CE536e'
     AddressTag:
       type: object
       required:
@@ -150,61 +127,6 @@ components:
         label:
           type: string
           example: label
-    ConstructorArguments:
-      type: object
-      example:
-      - '0x2a3885b3f0c98f3e36334d4fa7beda53cb0ae095'
-      - internalType: address
-        name: _logic
-        type: address
-    AddressParam:
-      type: object
-      required:
-      - hash
-      - implementation_name
-      - is_contract
-      - is_verified
-      - name
-      - private_tags
-      - public_tags
-      - watchlist_names
-      properties:
-        hash:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        implementation_name:
-          type: string
-          example: implementationName
-        name:
-          type: string
-          example: contractName
-        ens_domain_name:
-          type: string
-          example: domain.eth
-        metadata:
-          type: object
-          example:
-            slug: tag_slug
-            name: Tag name
-            tagType: name
-            ordinal: 0
-            meta: {}
-        is_contract:
-          type: boolean
-        private_tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressTag'
-        watchlist_names:
-          type: array
-          items:
-            $ref: '#/components/schemas/WatchlistName'
-        public_tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressTag'
-        is_verified:
-          type: boolean
     SmartContractForList:
       required:
       - address
@@ -330,6 +252,84 @@ components:
         creation_status:
           type: string
           example: selfdestructed | failed | success
+    ConstructorArguments:
+      type: object
+      example:
+      - '0x2a3885b3f0c98f3e36334d4fa7beda53cb0ae095'
+      - internalType: address
+        name: _logic
+        type: address
+    AddressParam:
+      type: object
+      required:
+      - hash
+      - implementation_name
+      - is_contract
+      - is_verified
+      - name
+      - private_tags
+      - public_tags
+      - watchlist_names
+      properties:
+        hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        implementation_name:
+          type: string
+          example: implementationName
+        name:
+          type: string
+          example: contractName
+        ens_domain_name:
+          type: string
+          example: domain.eth
+        metadata:
+          type: object
+          example:
+            slug: tag_slug
+            name: Tag name
+            tagType: name
+            ordinal: 0
+            meta: {}
+        is_contract:
+          type: boolean
+        private_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        watchlist_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+        public_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        is_verified:
+          type: boolean
+    ExternalLibrary:
+      required:
+      - name
+      - address_hash
+      properties:
+        name:
+          type: string
+          example: MathLib
+        address_hash:
+          type: string
+          example: '0xF61f5c4a3664501F499A9289AaEe76a709CE536e'
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
     ContractSource:
       properties:
         file_path:

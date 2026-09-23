@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: API for BlockScout web app
   version: 1.0.0
-  title: BlockScout Addresses Withdrawals API
+  title: BlockScout Withdrawals API
   contact:
     email: support@blockscout.com
   license:
@@ -96,29 +96,6 @@ components:
             $ref: '#/components/schemas/AddressTag'
         is_verified:
           type: boolean
-    Withdrawal:
-      required:
-      - index
-      - amount
-      - validator_index
-      properties:
-        index:
-          type: integer
-          example: 1
-        amount:
-          type: string
-          example: '1000000000000000000'
-        validator_index:
-          type: integer
-          example: 1
-        receiver:
-          $ref: '#/components/schemas/AddressParam'
-        block_number:
-          type: integer
-          example: 1
-        timestamp:
-          type: string
-          example: '2023-06-20T07:55:00.000000Z'
     WatchlistName:
       type: object
       required:
@@ -147,3 +124,26 @@ components:
         label:
           type: string
           example: label
+    Withdrawal:
+      required:
+      - index
+      - amount
+      - validator_index
+      properties:
+        index:
+          type: integer
+          example: 1
+        amount:
+          type: string
+          example: '1000000000000000000'
+        validator_index:
+          type: integer
+          example: 1
+        receiver:
+          $ref: '#/components/schemas/AddressParam'
+        block_number:
+          type: integer
+          example: 1
+        timestamp:
+          type: string
+          example: '2023-06-20T07:55:00.000000Z'

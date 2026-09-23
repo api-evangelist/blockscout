@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: API for BlockScout web app
   version: 1.0.0
-  title: BlockScout Addresses Internal Transactions API
+  title: BlockScout Internal Transactions API
   contact:
     email: support@blockscout.com
   license:
@@ -97,6 +97,34 @@ components:
             $ref: '#/components/schemas/AddressTag'
         is_verified:
           type: boolean
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    AddressTag:
+      type: object
+      required:
+      - address_hash
+      - display_name
+      - label
+      properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
     InternalTransaction:
       type: object
       required:
@@ -146,31 +174,3 @@ components:
         value:
           type: string
           example: '30000000000000000'
-    AddressTag:
-      type: object
-      required:
-      - address_hash
-      - display_name
-      - label
-      properties:
-        address_hash:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        display_name:
-          type: string
-          example: name to show
-        label:
-          type: string
-          example: label
-    WatchlistName:
-      type: object
-      required:
-      - display_name
-      - label
-      properties:
-        display_name:
-          type: string
-          example: name to show
-        label:
-          type: string
-          example: label

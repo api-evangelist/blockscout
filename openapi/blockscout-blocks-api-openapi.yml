@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: API for BlockScout web app
   version: 1.0.0
-  title: BlockScout Addresses Blocks API
+  title: BlockScout Blocks API
   contact:
     email: support@blockscout.com
   license:
@@ -134,34 +134,6 @@ paths:
       - Blocks
 components:
   schemas:
-    TotalERC20:
-      required:
-      - decimals
-      - value
-      properties:
-        decimals:
-          type: string
-          example: '18'
-        value:
-          type: string
-          example: '1000'
-    DecodedInput:
-      type: object
-      required:
-      - method_call
-      - method_id
-      - parameters
-      properties:
-        method_call:
-          type: string
-          example: transferFrom(address _from, address _to, uint256 _value)
-        method_id:
-          type: string
-          example: 23b872dd
-        parameters:
-          type: array
-          items:
-            $ref: '#/components/schemas/DecodedInputParameter'
     Transaction:
       type: object
       required:
@@ -310,6 +282,28 @@ components:
         transaction_tag:
           type: string
           example: private_transaction_tag
+    TransactionActionAaveV3LiquidationCall:
+      required:
+      - data
+      - protocol
+      - type
+      properties:
+        data:
+          type: object
+          example:
+            debt_amount: '1.289548595490270429'
+            debt_symbol: AAVE
+            debt_address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
+            collateral_amount: '110.824768'
+            collateral_symbol: USDC
+            collateral_address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+            block_number: 1
+        protocol:
+          type: string
+          example: aave_v3
+        type:
+          type: string
+          example: liquidation_call
     TransactionActionUniswapV3MintNFT:
       required:
       - data
@@ -333,42 +327,6 @@ components:
         type:
           type: string
           example: mint_nft
-    TotalERC1155:
-      required:
-      - token_id
-      - decimals
-      - value
-      properties:
-        token_id:
-          type: string
-          example: '1'
-        decimals:
-          type: string
-          example: null
-        value:
-          type: string
-          example: '1000'
-        token_instance:
-          $ref: '#/components/schemas/NFTInstance'
-    TransactionActionAaveV3BSWRF:
-      required:
-      - data
-      - protocol
-      - type
-      properties:
-        data:
-          type: object
-          example:
-            amount: '1.289548595490270429'
-            symbol: AAVE
-            address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
-            block_number: 1
-        protocol:
-          type: string
-          example: aave_v3
-        type:
-          type: string
-          example: borrow | supply | withdraw | repay | flash_loan
     TokenTransfer:
       type: object
       required:
@@ -410,87 +368,29 @@ components:
         type:
           type: string
           example: token_transfer
-    WatchlistName:
-      type: object
+    Withdrawal:
       required:
-      - display_name
-      - label
+      - index
+      - amount
+      - validator_index
       properties:
-        display_name:
+        index:
+          type: integer
+          example: 1
+        amount:
           type: string
-          example: name to show
-        label:
+          example: '1000000000000000000'
+        validator_index:
+          type: integer
+          example: 1
+        receiver:
+          $ref: '#/components/schemas/AddressParam'
+        block_number:
+          type: integer
+          example: 1
+        timestamp:
           type: string
-          example: label
-    TokenInfo:
-      type: object
-      required:
-      - address
-      - circulating_market_cap
-      - icon_url
-      - symbol
-      - name
-      - decimals
-      - type
-      - holders
-      - exchange_rate
-      - total_supply
-      properties:
-        circulating_market_cap:
-          type: string
-          example: '83606435600.3635'
-        icon_url:
-          type: string
-          example: https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png
-        name:
-          type: string
-          example: Tether USD
-        decimals:
-          type: string
-          example: '6'
-        symbol:
-          type: string
-          example: USDT
-        address_hash:
-          type: string
-          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
-        type:
-          type: string
-          example: ERC-20
-        holders_count:
-          type: string
-          example: '837494234523'
-        exchange_rate:
-          type: string
-          example: '0.99'
-        total_supply:
-          type: string
-          example: '10000000'
-    TransactionActionAaveV3EnableDisableCollateral:
-      required:
-      - data
-      - protocol
-      - type
-      properties:
-        data:
-          type: object
-          example:
-            symbol: AAVE
-            address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
-            block_number: 1
-        protocol:
-          type: string
-          example: aave_v3
-        type:
-          type: string
-          example: enable_collateral | disable_collateral
-    TransactionAction:
-      oneOf:
-      - $ref: '#/components/schemas/TransactionActionAaveV3LiquidationCall'
-      - $ref: '#/components/schemas/TransactionActionAaveV3BSWRF'
-      - $ref: '#/components/schemas/TransactionActionAaveV3EnableDisableCollateral'
-      - $ref: '#/components/schemas/TransactionActionUniswapV3MintNFT'
-      - $ref: '#/components/schemas/TransactionActionUniswapV3BCS'
+          example: '2023-06-20T07:55:00.000000Z'
     Block:
       type: object
       required:
@@ -597,6 +497,117 @@ components:
         withdrawals_count:
           type: integer
           example: 16
+    Reward:
+      type: object
+      required:
+      - reward
+      - type
+      properties:
+        reward:
+          type: integer
+        type:
+          type: string
+          example: Miner Reward | Emission Reward | Chore Reward | Uncle Reward
+    DecodedInput:
+      type: object
+      required:
+      - method_call
+      - method_id
+      - parameters
+      properties:
+        method_call:
+          type: string
+          example: transferFrom(address _from, address _to, uint256 _value)
+        method_id:
+          type: string
+          example: 23b872dd
+        parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/DecodedInputParameter'
+    AddressTag:
+      type: object
+      required:
+      - address_hash
+      - display_name
+      - label
+      properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    TransactionActionAaveV3BSWRF:
+      required:
+      - data
+      - protocol
+      - type
+      properties:
+        data:
+          type: object
+          example:
+            amount: '1.289548595490270429'
+            symbol: AAVE
+            address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
+            block_number: 1
+        protocol:
+          type: string
+          example: aave_v3
+        type:
+          type: string
+          example: borrow | supply | withdraw | repay | flash_loan
+    AddressParam:
+      type: object
+      required:
+      - hash
+      - implementation_name
+      - is_contract
+      - is_verified
+      - name
+      - private_tags
+      - public_tags
+      - watchlist_names
+      properties:
+        hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        implementation_name:
+          type: string
+          example: implementationName
+        name:
+          type: string
+          example: contractName
+        ens_domain_name:
+          type: string
+          example: domain.eth
+        metadata:
+          type: object
+          example:
+            slug: tag_slug
+            name: Tag name
+            tagType: name
+            ordinal: 0
+            meta: {}
+        is_contract:
+          type: boolean
+        private_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        watchlist_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+        public_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        is_verified:
+          type: boolean
     TotalERC721:
       required:
       - token_id
@@ -606,63 +617,6 @@ components:
           example: '1'
         token_instance:
           $ref: '#/components/schemas/NFTInstance'
-    TransactionActionAaveV3LiquidationCall:
-      required:
-      - data
-      - protocol
-      - type
-      properties:
-        data:
-          type: object
-          example:
-            debt_amount: '1.289548595490270429'
-            debt_symbol: AAVE
-            debt_address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
-            collateral_amount: '110.824768'
-            collateral_symbol: USDC
-            collateral_address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
-            block_number: 1
-        protocol:
-          type: string
-          example: aave_v3
-        type:
-          type: string
-          example: liquidation_call
-    Fee:
-      type: object
-      required:
-      - type
-      - value
-      properties:
-        type:
-          type: string
-          example: maximum | actual
-        value:
-          type: string
-          example: '9853224000000000'
-    Withdrawal:
-      required:
-      - index
-      - amount
-      - validator_index
-      properties:
-        index:
-          type: integer
-          example: 1
-        amount:
-          type: string
-          example: '1000000000000000000'
-        validator_index:
-          type: integer
-          example: 1
-        receiver:
-          $ref: '#/components/schemas/AddressParam'
-        block_number:
-          type: integer
-          example: 1
-        timestamp:
-          type: string
-          example: '2023-06-20T07:55:00.000000Z'
     TransactionActionUniswapV3BCS:
       required:
       - data
@@ -684,38 +638,18 @@ components:
         type:
           type: string
           example: burn | collect | swap
-    AddressTag:
+    Fee:
       type: object
       required:
-      - address_hash
-      - display_name
-      - label
-      properties:
-        address_hash:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        display_name:
-          type: string
-          example: name to show
-        label:
-          type: string
-          example: label
-    DecodedInputParameter:
-      type: object
-      required:
-      - name
       - type
       - value
       properties:
-        name:
-          type: string
-          example: signature
         type:
           type: string
-          example: bytes
+          example: maximum | actual
         value:
           type: string
-          example: '0x0'
+          example: '9853224000000000'
     NFTInstance:
       required:
       - is_unique
@@ -769,65 +703,131 @@ components:
           $ref: '#/components/schemas/AddressParam'
         token:
           $ref: '#/components/schemas/TokenInfo'
-    AddressParam:
+    TotalERC1155:
+      required:
+      - token_id
+      - decimals
+      - value
+      properties:
+        token_id:
+          type: string
+          example: '1'
+        decimals:
+          type: string
+          example: null
+        value:
+          type: string
+          example: '1000'
+        token_instance:
+          $ref: '#/components/schemas/NFTInstance'
+    DecodedInputParameter:
       type: object
       required:
-      - hash
-      - implementation_name
-      - is_contract
-      - is_verified
       - name
-      - private_tags
-      - public_tags
-      - watchlist_names
+      - type
+      - value
       properties:
-        hash:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        implementation_name:
-          type: string
-          example: implementationName
         name:
           type: string
-          example: contractName
-        ens_domain_name:
-          type: string
-          example: domain.eth
-        metadata:
-          type: object
-          example:
-            slug: tag_slug
-            name: Tag name
-            tagType: name
-            ordinal: 0
-            meta: {}
-        is_contract:
-          type: boolean
-        private_tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressTag'
-        watchlist_names:
-          type: array
-          items:
-            $ref: '#/components/schemas/WatchlistName'
-        public_tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressTag'
-        is_verified:
-          type: boolean
-    Reward:
-      type: object
-      required:
-      - reward
-      - type
-      properties:
-        reward:
-          type: integer
+          example: signature
         type:
           type: string
-          example: Miner Reward | Emission Reward | Chore Reward | Uncle Reward
+          example: bytes
+        value:
+          type: string
+          example: '0x0'
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    TransactionActionAaveV3EnableDisableCollateral:
+      required:
+      - data
+      - protocol
+      - type
+      properties:
+        data:
+          type: object
+          example:
+            symbol: AAVE
+            address: '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9'
+            block_number: 1
+        protocol:
+          type: string
+          example: aave_v3
+        type:
+          type: string
+          example: enable_collateral | disable_collateral
+    TransactionAction:
+      oneOf:
+      - $ref: '#/components/schemas/TransactionActionAaveV3LiquidationCall'
+      - $ref: '#/components/schemas/TransactionActionAaveV3BSWRF'
+      - $ref: '#/components/schemas/TransactionActionAaveV3EnableDisableCollateral'
+      - $ref: '#/components/schemas/TransactionActionUniswapV3MintNFT'
+      - $ref: '#/components/schemas/TransactionActionUniswapV3BCS'
+    TokenInfo:
+      type: object
+      required:
+      - address
+      - circulating_market_cap
+      - icon_url
+      - symbol
+      - name
+      - decimals
+      - type
+      - holders
+      - exchange_rate
+      - total_supply
+      properties:
+        circulating_market_cap:
+          type: string
+          example: '83606435600.3635'
+        icon_url:
+          type: string
+          example: https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png
+        name:
+          type: string
+          example: Tether USD
+        decimals:
+          type: string
+          example: '6'
+        symbol:
+          type: string
+          example: USDT
+        address_hash:
+          type: string
+          example: '0x394c399dbA25B99Ab7708EdB505d755B3aa29997'
+        type:
+          type: string
+          example: ERC-20
+        holders_count:
+          type: string
+          example: '837494234523'
+        exchange_rate:
+          type: string
+          example: '0.99'
+        total_supply:
+          type: string
+          example: '10000000'
+    TotalERC20:
+      required:
+      - decimals
+      - value
+      properties:
+        decimals:
+          type: string
+          example: '18'
+        value:
+          type: string
+          example: '1000'
   parameters:
     blockNumberOrHash:
       name: block_number_or_hash
