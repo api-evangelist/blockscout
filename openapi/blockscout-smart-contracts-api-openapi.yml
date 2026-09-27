@@ -111,55 +111,33 @@ paths:
       - Smart Contracts
 components:
   schemas:
-    AddressTag:
+    ContractSource:
+      properties:
+        file_path:
+          type: string
+          example: contracts/erc-20.sol
+        source_code:
+          type: string
+          example: pragma solidity ^0.8.0; \n contract A {}
+    ConstructorArguments:
+      type: object
+      example:
+      - '0x2a3885b3f0c98f3e36334d4fa7beda53cb0ae095'
+      - internalType: address
+        name: _logic
+        type: address
+    WatchlistName:
       type: object
       required:
-      - address_hash
       - display_name
       - label
       properties:
-        address_hash:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
         display_name:
           type: string
           example: name to show
         label:
           type: string
           example: label
-    SmartContractForList:
-      required:
-      - address
-      - coin_balance
-      - compiler_version
-      - has_constructor_args
-      - language
-      - optimization_enabled
-      - verified_at
-      properties:
-        address_hash:
-          $ref: '#/components/schemas/AddressParam'
-        coin_balance:
-          type: string
-          example: '10000'
-        compiler_version:
-          type: string
-          example: v0.5.10+commit.5a6ea5b1
-        language:
-          type: string
-          example: vyper | yul | solidity
-        has_constructor_args:
-          type: boolean
-        optimization_enabled:
-          type: boolean
-        transactions_count:
-          type: integer
-        verified_at:
-          type: string
-          example: '2022-03-05T11:40:29.087000Z'
-        market_cap:
-          type: number
-          example: 1000000000.0001
     SmartContract:
       properties:
         verified_twin_address_hash:
@@ -252,13 +230,6 @@ components:
         creation_status:
           type: string
           example: selfdestructed | failed | success
-    ConstructorArguments:
-      type: object
-      example:
-      - '0x2a3885b3f0c98f3e36334d4fa7beda53cb0ae095'
-      - internalType: address
-        name: _logic
-        type: address
     AddressParam:
       type: object
       required:
@@ -318,26 +289,55 @@ components:
         address_hash:
           type: string
           example: '0xF61f5c4a3664501F499A9289AaEe76a709CE536e'
-    WatchlistName:
+    AddressTag:
       type: object
       required:
+      - address_hash
       - display_name
       - label
       properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
         display_name:
           type: string
           example: name to show
         label:
           type: string
           example: label
-    ContractSource:
+    SmartContractForList:
+      required:
+      - address
+      - coin_balance
+      - compiler_version
+      - has_constructor_args
+      - language
+      - optimization_enabled
+      - verified_at
       properties:
-        file_path:
+        address_hash:
+          $ref: '#/components/schemas/AddressParam'
+        coin_balance:
           type: string
-          example: contracts/erc-20.sol
-        source_code:
+          example: '10000'
+        compiler_version:
           type: string
-          example: pragma solidity ^0.8.0; \n contract A {}
+          example: v0.5.10+commit.5a6ea5b1
+        language:
+          type: string
+          example: vyper | yul | solidity
+        has_constructor_args:
+          type: boolean
+        optimization_enabled:
+          type: boolean
+        transactions_count:
+          type: integer
+        verified_at:
+          type: string
+          example: '2022-03-05T11:40:29.087000Z'
+        market_cap:
+          type: number
+          example: 1000000000.0001
   parameters:
     addressHash:
       name: address_hash

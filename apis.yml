@@ -34,7 +34,7 @@ tags:
 - Blockscout
 - Web3
 - Explorer
-- Open-Source
+- Open Source
 - EVM
 - Multi-Chain
 - GraphQL
@@ -43,7 +43,7 @@ tags:
 - MCP
 - Agent Skills
 - x402
-- agent-native
+- Agent-Native
 tags_raw:
 - Blockscout
 - Web3
@@ -58,6 +58,7 @@ tags_raw:
 - Agent Skills
 - x402
 - agent-native
+- Open-Source
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.23'

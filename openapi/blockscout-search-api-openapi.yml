@@ -74,7 +74,7 @@ paths:
           type: string
           example: USDT
       summary: search redirect
-      operationId: search redirect
+      operationId: searchRedirect
       responses:
         '200':
           description: search response
@@ -86,8 +86,29 @@ paths:
           description: bad input parameter
       tags:
       - Search
+      x-operation-id-source: normalized
+      x-operation-id-original: search redirect
 components:
   schemas:
+    SearchResultTransaction:
+      required:
+      - timestamp
+      - transaction_hash
+      - type
+      - url
+      properties:
+        timestamp:
+          type: string
+          example: '2022-10-31T07:18:05.000000Z'
+        transaction_hash:
+          type: string
+          example: '0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69'
+        type:
+          type: string
+          example: transaction
+        url:
+          type: string
+          example: /xdai/mainnet/tx/0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69
     SearchResultToken:
       required:
       - address
@@ -135,39 +156,6 @@ components:
         type:
           type: string
           example: token
-    SearchResultRedirect:
-      required:
-      - parameter
-      - redirect
-      - type
-      properties:
-        parameter:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        redirect:
-          type: boolean
-        type:
-          type: string
-          example: address | block | transaction
-    SearchResultTransaction:
-      required:
-      - timestamp
-      - transaction_hash
-      - type
-      - url
-      properties:
-        timestamp:
-          type: string
-          example: '2022-10-31T07:18:05.000000Z'
-        transaction_hash:
-          type: string
-          example: '0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69'
-        type:
-          type: string
-          example: transaction
-        url:
-          type: string
-          example: /xdai/mainnet/tx/0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69
     SearchResultBlock:
       required:
       - block_hash
@@ -214,3 +202,17 @@ components:
         url:
           type: string
           example: /xdai/mainnet/address/0xc1c1031e4A44B98707203480029e6576CB3267e3
+    SearchResultRedirect:
+      required:
+      - parameter
+      - redirect
+      - type
+      properties:
+        parameter:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        redirect:
+          type: boolean
+        type:
+          type: string
+          example: address | block | transaction
