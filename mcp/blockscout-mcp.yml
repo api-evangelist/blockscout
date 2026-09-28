@@ -4,21 +4,19 @@ status: published
 source: https://github.com/blockscout/mcp-server
 server:
   name: blockscout
-  description: >-
-    Blockscout operates a public remote MCP server wrapping the Blockscout block-explorer APIs
-    for agents, spanning EVM chains via a single endpoint. No authentication is required to
-    initialize or to enumerate tools. The server instructs callers to load the companion
-    `blockscout-analysis` agent skill before making tool calls, which carries the operating
-    rules and the curated `direct_api_call` endpoint reference.
+  description: Blockscout operates a public remote MCP server wrapping the Blockscout block-explorer APIs
+    for agents, spanning EVM chains via a single endpoint. No authentication is required to initialize
+    or to enumerate tools. The server instructs callers to load the companion `blockscout-analysis` agent
+    skill before making tool calls, which carries the operating rules and the curated `direct_api_call`
+    endpoint reference.
   transport: streamable-http
   url: https://mcp.blockscout.com/mcp
   implementation: blockscout-mcp-server
   version: 1.26.0
 authorization:
   type: none
-  note: >-
-    initialize and tools/list both succeed with no credential. Paid access to the underlying
-    Blockscout PRO API is metered separately (see finops/blockscout-x402.yml).
+  note: initialize and tools/list both succeed with no credential. Paid access to the underlying Blockscout
+    PRO API is metered separately (see finops/blockscout-x402.yml).
 protocol:
   version: '2025-06-18'
   capabilities:
@@ -31,43 +29,72 @@ deployment:
   verified: probed
   probe: live
   checked: '2026-09-14'
-  source: >-
-    live initialize + tools/list handshake against https://mcp.blockscout.com/mcp, 2026-09-14.
-    GET returns 406; POST with Accept: application/json, text/event-stream returns an SSE
-    message carrying serverInfo blockscout-mcp-server 1.26.0.
+  source: 'live initialize + tools/list handshake against https://mcp.blockscout.com/mcp, 2026-09-14.
+    GET returns 406; POST with Accept: application/json, text/event-stream returns an SSE message carrying
+    serverInfo blockscout-mcp-server 1.26.0.'
 tools_count: 16
 tools:
 - name: __unlock_blockchain_analysis__
-  description: ''
+  description: 'Initializes a Blockscout MCP session: returns server reference data, the     `blockscout-analysis`
+    skill pointer, and the URI resolution rule. Call this tool     exactly once per session, before any
+    other tool, and reuse its payload for the'
 - name: get_block_info
-  description: ''
+  description: Get block information like timestamp, gas used, burnt fees, transaction count etc.     Can
+    optionally include the list of transaction hashes contained in the block. Transaction hashes are omitted
+    by default; request them only when you
 - name: get_block_number
-  description: ''
+  description: Retrieves the block number and timestamp for a specific date/time or the latest block.     Use
+    when you need a block height for a specific point in time (e.g., "block at 2024-01-01")     or the
+    current chain tip. If `datetime` is provi
 - name: get_address_by_ens_name
-  description: ''
+  description: Useful for when you need to convert an ENS domain name (e.g. "blockscout.eth")     to its
+    corresponding Ethereum address.
 - name: get_transactions_by_address
-  description: ''
+  description: 'Retrieves native currency transfers and smart contract interactions (calls, internal txs)
+    for an address.     **EXCLUDES TOKEN TRANSFERS**: Filters out direct token balance changes (ERC-20,
+    etc.). You''ll see calls *to* token contracts,'
 - name: get_token_transfers_by_address
-  description: ''
+  description: 'Get ERC-20 token transfers for an address within a specific time range.     **SUPPORTS
+    PAGINATION**: If response includes ''pagination'' field, use the provided next_call to get additional
+    pages.'
 - name: lookup_token_by_symbol
-  description: ''
+  description: Search for token addresses by symbol or name. Returns multiple potential     matches based
+    on symbol or token name similarity. Only the first     7 matches from the Blockscout API are returned.
 - name: get_contract_abi
-  description: ''
+  description: Get smart contract ABI (Application Binary Interface).     An ABI defines all functions,
+    events, their parameters, and return types. The ABI is required to format function calls or interpret
+    contract data.
 - name: inspect_contract_code
-  description: ''
+  description: Inspects a verified contract's source code or metadata.
 - name: read_contract
-  description: ''
+  description: 'Calls a smart contract function (view/pure, or non-view/pure simulated via eth_call) and
+    returns the         decoded result.          This tool provides a direct way to query the state of
+    a smart contract.          Example:'
 - name: get_address_info
-  description: ''
+  description: 'Get comprehensive information about an address, including:     - Address existence check     -
+    Native token (ETH) balance (provided as is, without adjusting by decimals)     - First transaction
+    details (block number and timestamp) for'
 - name: get_tokens_by_address
-  description: ''
+  description: Get comprehensive ERC20 token holdings for an address with enriched metadata and market
+    data.     Returns detailed token information including contract details (name, symbol, decimals),
+    market metrics (exchange rate, market cap, volume
 - name: nft_tokens_by_address
-  description: ''
+  description: Retrieve NFT tokens (ERC-721, ERC-404, ERC-1155) owned by an address, grouped by collection.     Provides
+    collection details (type, address, name, symbol, total supply, holder count) and individual token
+    instance data (ID, name, descri
 - name: get_transaction_info
-  description: ''
+  description: Get comprehensive transaction information.     Unlike standard eth_getTransactionByHash,
+    this tool returns enriched data including decoded input parameters, detailed token transfers with
+    token metadata, transaction fee breakdown (prior
 - name: get_chains_list
-  description: ''
+  description: Get supported blockchain chains with their chain IDs.      Ethereum Mainnet is `chain_id`
+    `1`; use this tool to resolve any other chain.     Use this when another tool needs a supported `chain_id`
+    and only the chain name,     ecosystem, or
 - name: direct_api_call
-  description: ''
+  description: Call a raw Blockscout API endpoint for advanced or chain-specific data.      Before the
+    first call to this tool in a session, read     `blockscout-mcp://skill/SKILL.md` (the operating rules),
+    then     `blockscout-mcp://skill/references/bloc
 tools_source: live tools/list via initialize handshake, 2026-09-14
 authorship: provider
+descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
+  --descriptions, 2026-09-28
