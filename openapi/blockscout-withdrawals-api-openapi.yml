@@ -48,6 +48,18 @@ paths:
       - Withdrawals
 components:
   schemas:
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
     Withdrawal:
       required:
       - index
@@ -71,18 +83,6 @@ components:
         timestamp:
           type: string
           example: '2023-06-20T07:55:00.000000Z'
-    WatchlistName:
-      type: object
-      required:
-      - display_name
-      - label
-      properties:
-        display_name:
-          type: string
-          example: name to show
-        label:
-          type: string
-          example: label
     AddressParam:
       type: object
       required:

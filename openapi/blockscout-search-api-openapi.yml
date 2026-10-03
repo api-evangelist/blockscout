@@ -90,25 +90,6 @@ paths:
       x-operation-id-original: search redirect
 components:
   schemas:
-    SearchResultTransaction:
-      required:
-      - timestamp
-      - transaction_hash
-      - type
-      - url
-      properties:
-        timestamp:
-          type: string
-          example: '2022-10-31T07:18:05.000000Z'
-        transaction_hash:
-          type: string
-          example: '0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69'
-        type:
-          type: string
-          example: transaction
-        url:
-          type: string
-          example: /xdai/mainnet/tx/0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69
     SearchResultToken:
       required:
       - address
@@ -156,29 +137,39 @@ components:
         type:
           type: string
           example: token
-    SearchResultBlock:
+    SearchResultRedirect:
       required:
-      - block_hash
-      - block_number
+      - parameter
+      - redirect
+      - type
+      properties:
+        parameter:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        redirect:
+          type: boolean
+        type:
+          type: string
+          example: address | block | transaction
+    SearchResultTransaction:
+      required:
       - timestamp
+      - transaction_hash
       - type
       - url
       properties:
-        block_hash:
-          type: string
-          example: '0xba83e9ba0b43e8d112a07fdab08d53f473d2b7fb0e585bd437ae739933db203e'
-        block_number:
-          type: integer
-          example: 24816691
         timestamp:
           type: string
           example: '2022-10-31T07:18:05.000000Z'
+        transaction_hash:
+          type: string
+          example: '0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69'
         type:
           type: string
-          example: block
+          example: transaction
         url:
           type: string
-          example: /xdai/mainnet/block/0xba83e9ba0b43e8d112a07fdab08d53f473d2b7fb0e585bd437ae739933db203e
+          example: /xdai/mainnet/tx/0xe38c6772f33edfbd218f59853befe18391cb786f911fb6c0b00ed6dd72ef6e69
     SearchResultAddressOrContract:
       required:
       - address
@@ -202,17 +193,26 @@ components:
         url:
           type: string
           example: /xdai/mainnet/address/0xc1c1031e4A44B98707203480029e6576CB3267e3
-    SearchResultRedirect:
+    SearchResultBlock:
       required:
-      - parameter
-      - redirect
+      - block_hash
+      - block_number
+      - timestamp
       - type
+      - url
       properties:
-        parameter:
+        block_hash:
           type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        redirect:
-          type: boolean
+          example: '0xba83e9ba0b43e8d112a07fdab08d53f473d2b7fb0e585bd437ae739933db203e'
+        block_number:
+          type: integer
+          example: 24816691
+        timestamp:
+          type: string
+          example: '2022-10-31T07:18:05.000000Z'
         type:
           type: string
-          example: address | block | transaction
+          example: block
+        url:
+          type: string
+          example: /xdai/mainnet/block/0xba83e9ba0b43e8d112a07fdab08d53f473d2b7fb0e585bd437ae739933db203e

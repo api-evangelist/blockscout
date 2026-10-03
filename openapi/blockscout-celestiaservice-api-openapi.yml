@@ -121,49 +121,6 @@ paths:
       - CelestiaService
 components:
   schemas:
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/protobufAny'
-    v1HealthCheckResponse:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/HealthCheckResponseServingStatus'
-    HealthCheckResponseServingStatus:
-      type: string
-      enum:
-      - UNKNOWN
-      - SERVING
-      - NOT_SERVING
-      - SERVICE_UNKNOWN
-      default: UNKNOWN
-      description: ' - SERVICE_UNKNOWN: Used only by the Watch method.'
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    v1CelestiaBlobId:
-      type: object
-      properties:
-        height:
-          type: string
-          format: uint64
-        namespace:
-          type: string
-        commitment:
-          type: string
     v1CelestiaBlob:
       type: object
       properties:
@@ -182,6 +139,49 @@ components:
           format: uint64
         data:
           type: string
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'
+    v1CelestiaBlobId:
+      type: object
+      properties:
+        height:
+          type: string
+          format: uint64
+        namespace:
+          type: string
+        commitment:
+          type: string
+    v1HealthCheckResponse:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/HealthCheckResponseServingStatus'
+    HealthCheckResponseServingStatus:
+      type: string
+      enum:
+      - UNKNOWN
+      - SERVING
+      - NOT_SERVING
+      - SERVICE_UNKNOWN
+      default: UNKNOWN
+      description: ' - SERVICE_UNKNOWN: Used only by the Watch method.'
     v1CelestiaL2BatchMetadata:
       type: object
       properties:
