@@ -121,67 +121,6 @@ paths:
       - CelestiaService
 components:
   schemas:
-    v1CelestiaBlob:
-      type: object
-      properties:
-        height:
-          type: string
-          format: uint64
-        namespace:
-          type: string
-        commitment:
-          type: string
-        timestamp:
-          type: string
-          format: uint64
-        size:
-          type: string
-          format: uint64
-        data:
-          type: string
-    protobufAny:
-      type: object
-      properties:
-        '@type':
-          type: string
-      additionalProperties: {}
-    rpcStatus:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: object
-            $ref: '#/components/schemas/protobufAny'
-    v1CelestiaBlobId:
-      type: object
-      properties:
-        height:
-          type: string
-          format: uint64
-        namespace:
-          type: string
-        commitment:
-          type: string
-    v1HealthCheckResponse:
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/HealthCheckResponseServingStatus'
-    HealthCheckResponseServingStatus:
-      type: string
-      enum:
-      - UNKNOWN
-      - SERVING
-      - NOT_SERVING
-      - SERVICE_UNKNOWN
-      default: UNKNOWN
-      description: ' - SERVICE_UNKNOWN: Used only by the Watch method.'
     v1CelestiaL2BatchMetadata:
       type: object
       properties:
@@ -214,3 +153,64 @@ components:
           items:
             type: object
             $ref: '#/components/schemas/v1CelestiaBlobId'
+    v1CelestiaBlobId:
+      type: object
+      properties:
+        height:
+          type: string
+          format: uint64
+        namespace:
+          type: string
+        commitment:
+          type: string
+    HealthCheckResponseServingStatus:
+      type: string
+      enum:
+      - UNKNOWN
+      - SERVING
+      - NOT_SERVING
+      - SERVICE_UNKNOWN
+      default: UNKNOWN
+      description: ' - SERVICE_UNKNOWN: Used only by the Watch method.'
+    protobufAny:
+      type: object
+      properties:
+        '@type':
+          type: string
+      additionalProperties: {}
+    v1HealthCheckResponse:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/HealthCheckResponseServingStatus'
+    v1CelestiaBlob:
+      type: object
+      properties:
+        height:
+          type: string
+          format: uint64
+        namespace:
+          type: string
+        commitment:
+          type: string
+        timestamp:
+          type: string
+          format: uint64
+        size:
+          type: string
+          format: uint64
+        data:
+          type: string
+    rpcStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: object
+            $ref: '#/components/schemas/protobufAny'

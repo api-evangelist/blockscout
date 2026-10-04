@@ -336,70 +336,6 @@ paths:
       - Tokens
 components:
   schemas:
-    AddressParam:
-      type: object
-      required:
-      - hash
-      - implementation_name
-      - is_contract
-      - is_verified
-      - name
-      - private_tags
-      - public_tags
-      - watchlist_names
-      properties:
-        hash:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        implementation_name:
-          type: string
-          example: implementationName
-        name:
-          type: string
-          example: contractName
-        ens_domain_name:
-          type: string
-          example: domain.eth
-        metadata:
-          type: object
-          example:
-            slug: tag_slug
-            name: Tag name
-            tagType: name
-            ordinal: 0
-            meta: {}
-        is_contract:
-          type: boolean
-        private_tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressTag'
-        watchlist_names:
-          type: array
-          items:
-            $ref: '#/components/schemas/WatchlistName'
-        public_tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/AddressTag'
-        is_verified:
-          type: boolean
-    AddressTag:
-      type: object
-      required:
-      - address_hash
-      - display_name
-      - label
-      properties:
-        address_hash:
-          type: string
-          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
-        display_name:
-          type: string
-          example: name to show
-        label:
-          type: string
-          example: label
     NFTInstance:
       required:
       - is_unique
@@ -453,6 +389,72 @@ components:
           $ref: '#/components/schemas/AddressParam'
         token:
           $ref: '#/components/schemas/TokenInfo'
+    TokenCounters:
+      required:
+      - token_holders_count
+      - transfers_count
+      properties:
+        token_holders_count:
+          type: string
+          example: '100'
+        transfers_count:
+          type: string
+          example: '1000'
+    AddressParam:
+      type: object
+      required:
+      - hash
+      - implementation_name
+      - is_contract
+      - is_verified
+      - name
+      - private_tags
+      - public_tags
+      - watchlist_names
+      properties:
+        hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        implementation_name:
+          type: string
+          example: implementationName
+        name:
+          type: string
+          example: contractName
+        ens_domain_name:
+          type: string
+          example: domain.eth
+        metadata:
+          type: object
+          example:
+            slug: tag_slug
+            name: Tag name
+            tagType: name
+            ordinal: 0
+            meta: {}
+        is_contract:
+          type: boolean
+        private_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        watchlist_names:
+          type: array
+          items:
+            $ref: '#/components/schemas/WatchlistName'
+        public_tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddressTag'
+        is_verified:
+          type: boolean
+    RecaptchaBody:
+      required:
+      - recaptcha_response
+      properties:
+        recaptcha_response:
+          type: string
+          example: '123'
     WatchlistName:
       type: object
       required:
@@ -465,6 +467,72 @@ components:
         label:
           type: string
           example: label
+    TotalERC721:
+      required:
+      - token_id
+      properties:
+        token_id:
+          type: string
+          example: '1'
+        token_instance:
+          $ref: '#/components/schemas/NFTInstance'
+    AddressTag:
+      type: object
+      required:
+      - address_hash
+      - display_name
+      - label
+      properties:
+        address_hash:
+          type: string
+          example: '0xEb533ee5687044E622C69c58B1B12329F56eD9ad'
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
+    TokenTransfer:
+      type: object
+      required:
+      - block_hash
+      - from
+      - log_index
+      - to
+      - token
+      - total
+      - transaction_hash
+      - type
+      properties:
+        block_hash:
+          type: string
+          example: '0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a'
+        from:
+          $ref: '#/components/schemas/AddressParam'
+        log_index:
+          type: integer
+          example: 16
+        method:
+          type: string
+          example: transfer
+        timestamp:
+          type: string
+          example: '2023-07-03T20:09:59.000000Z'
+        to:
+          $ref: '#/components/schemas/AddressParam'
+        token:
+          $ref: '#/components/schemas/TokenInfo'
+        total:
+          oneOf:
+          - $ref: '#/components/schemas/TotalERC20'
+          - $ref: '#/components/schemas/TotalERC721'
+          - $ref: '#/components/schemas/TotalERC1155'
+        transaction_hash:
+          type: string
+          example: '0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592'
+        type:
+          type: string
+          example: token_transfer
     TokenInfo:
       type: object
       required:
@@ -526,17 +594,6 @@ components:
           example: '1000'
         token_instance:
           $ref: '#/components/schemas/NFTInstance'
-    TokenCounters:
-      required:
-      - token_holders_count
-      - transfers_count
-      properties:
-        token_holders_count:
-          type: string
-          example: '100'
-        transfers_count:
-          type: string
-          example: '1000'
     Holder:
       required:
       - address
@@ -551,47 +608,6 @@ components:
         token_id:
           type: string
           example: '10000'
-    TokenTransfer:
-      type: object
-      required:
-      - block_hash
-      - from
-      - log_index
-      - to
-      - token
-      - total
-      - transaction_hash
-      - type
-      properties:
-        block_hash:
-          type: string
-          example: '0xf569ec751152b2f814001fc730f7797aa155e4bc3ba9cb6ba24bc2c8c9468c1a'
-        from:
-          $ref: '#/components/schemas/AddressParam'
-        log_index:
-          type: integer
-          example: 16
-        method:
-          type: string
-          example: transfer
-        timestamp:
-          type: string
-          example: '2023-07-03T20:09:59.000000Z'
-        to:
-          $ref: '#/components/schemas/AddressParam'
-        token:
-          $ref: '#/components/schemas/TokenInfo'
-        total:
-          oneOf:
-          - $ref: '#/components/schemas/TotalERC20'
-          - $ref: '#/components/schemas/TotalERC721'
-          - $ref: '#/components/schemas/TotalERC1155'
-        transaction_hash:
-          type: string
-          example: '0x6662ad1ad2ea899e9e27832dc202fd2ef915a5d2816c1142e6933cff93f7c592'
-        type:
-          type: string
-          example: token_transfer
     TotalERC20:
       required:
       - decimals
@@ -603,22 +619,6 @@ components:
         value:
           type: string
           example: '1000'
-    TotalERC721:
-      required:
-      - token_id
-      properties:
-        token_id:
-          type: string
-          example: '1'
-        token_instance:
-          $ref: '#/components/schemas/NFTInstance'
-    RecaptchaBody:
-      required:
-      - recaptcha_response
-      properties:
-        recaptcha_response:
-          type: string
-          example: '123'
   parameters:
     id:
       name: id

@@ -79,6 +79,21 @@ paths:
       - Stats
 components:
   schemas:
+    MarketChartItem:
+      required:
+      - date
+      - closing_price
+      - market_cap
+      properties:
+        date:
+          type: string
+          example: '2022-10-31'
+        closing_price:
+          type: string
+          example: '0.00254915'
+        market_cap:
+          type: string
+          example: '420471.10604559750644'
     TransactionChartItem:
       required:
       - date
@@ -144,18 +159,3 @@ components:
         network_utilization_percentage:
           type: number
           example: 40.2142
-    MarketChartItem:
-      required:
-      - date
-      - closing_price
-      - market_cap
-      properties:
-        date:
-          type: string
-          example: '2022-10-31'
-        closing_price:
-          type: string
-          example: '0.00254915'
-        market_cap:
-          type: string
-          example: '420471.10604559750644'

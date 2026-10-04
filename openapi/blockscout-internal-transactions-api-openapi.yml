@@ -49,18 +49,6 @@ paths:
       - Internal Transactions
 components:
   schemas:
-    WatchlistName:
-      type: object
-      required:
-      - display_name
-      - label
-      properties:
-        display_name:
-          type: string
-          example: name to show
-        label:
-          type: string
-          example: label
     AddressParam:
       type: object
       required:
@@ -109,6 +97,18 @@ components:
             $ref: '#/components/schemas/AddressTag'
         is_verified:
           type: boolean
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
     InternalTransaction:
       type: object
       required:
