@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.blockscout.com/openapi.yaml",
+ "requested_url": "https://docs.blockscout.com/openapi.yaml",
+ "status": 200,
+ "content_type": "text/yaml",
+ "bytes": 116238,
+ "sha256": "0f86c80913049a650c2adffa3622b6456190e9635e3afeb791e7869c6d2ec197",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
