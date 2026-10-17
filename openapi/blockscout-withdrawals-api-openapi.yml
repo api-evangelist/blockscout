@@ -48,6 +48,18 @@ paths:
       - Withdrawals
 components:
   schemas:
+    WatchlistName:
+      type: object
+      required:
+      - display_name
+      - label
+      properties:
+        display_name:
+          type: string
+          example: name to show
+        label:
+          type: string
+          example: label
     Withdrawal:
       required:
       - index
@@ -119,18 +131,6 @@ components:
             $ref: '#/components/schemas/AddressTag'
         is_verified:
           type: boolean
-    WatchlistName:
-      type: object
-      required:
-      - display_name
-      - label
-      properties:
-        display_name:
-          type: string
-          example: name to show
-        label:
-          type: string
-          example: label
     AddressTag:
       type: object
       required:

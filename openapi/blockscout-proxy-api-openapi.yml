@@ -37,14 +37,6 @@ paths:
       - Proxy
 components:
   schemas:
-    v1IndexerStatus:
-      properties:
-        finished_past_indexing:
-          type: boolean
-        v06:
-          $ref: '#/components/schemas/v1EntryPointIndexerStatus'
-        v07:
-          $ref: '#/components/schemas/v1EntryPointIndexerStatus'
     v1EntryPointIndexerStatus:
       properties:
         enabled:
@@ -55,3 +47,11 @@ components:
           type: boolean
         past_rpc_logs_indexing_finished:
           type: boolean
+    v1IndexerStatus:
+      properties:
+        finished_past_indexing:
+          type: boolean
+        v06:
+          $ref: '#/components/schemas/v1EntryPointIndexerStatus'
+        v07:
+          $ref: '#/components/schemas/v1EntryPointIndexerStatus'
