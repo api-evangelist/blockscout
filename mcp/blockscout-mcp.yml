@@ -98,3 +98,38 @@ tools_source: live tools/list via initialize handshake, 2026-09-14
 authorship: provider
 descriptions_source: live tools/list (authorship probe or saved capture); filled by backfill-tools-from-authorship.py
   --descriptions, 2026-09-28
+tool_quality:
+  tool_count: 16
+  tokens_total: 20350
+  tokens_per_tool_median: 1236
+  heavy_tools:
+  - name: get_transaction_info
+    tokens: 1824
+  - name: nft_tokens_by_address
+    tokens: 1728
+  - name: inspect_contract_code
+    tokens: 1669
+  - name: read_contract
+    tokens: 1430
+  - name: get_tokens_by_address
+    tokens: 1347
+  heavy_tool_count: 11
+  params_total: 64
+  params_undescribed: 0
+  params_described_pct: 100.0
+  tools_with_undescribed_params: 0
+  tools_annotated: 16
+  annotated_pct: 100.0
+  state_changing_unhinted: []
+  tools_missing_schema: 0
+  short_descriptions: 0
+  duplicate_descriptions: 0
+  duplicate_names: 0
+  nonportable_names: []
+  output_schema_count: 16
+  token_estimate: chars/3.6 of each compact tool definition
+  source: mcp/blockscout-mcp-tools.json
+  measured: '2026-10-20'
+  scored: false
+  note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
+    from Glimind's agent-readiness audit.

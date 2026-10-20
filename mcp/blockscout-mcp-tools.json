@@ -1,0 +1,4070 @@
+{
+  "endpoint": "https://mcp.blockscout.com/mcp",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2025-06-18",
+  "server_info": {
+    "name": "blockscout-mcp-server",
+    "version": "1.26.0"
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "__unlock_blockchain_analysis__",
+        "title": "Unlock Blockchain Analysis",
+        "description": "Initializes a Blockscout MCP session: returns server reference data, the\n    `blockscout-analysis` skill pointer, and the URI resolution rule. Call this tool\n    exactly once per session, before any other tool, and reuse its payload for the\n    rest of the session; do not call it again.\n    ",
+        "inputSchema": {
+          "properties": {},
+          "title": "__unlock_blockchain_analysis__Arguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "InstructionsData": {
+              "description": "A structured representation of the server's session-initialization payload.\n\nCarries session-scoped reference scalars: the session identifier (on gated\ndeployments) and the server version. The skill pointer and its reference-path\nresolution rule are delivered via the response envelope's `instructions` list\ninstead of this model.",
+              "properties": {
+                "session_id": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Opaque session identifier.",
+                  "title": "Session Id"
+                },
+                "server_version": {
+                  "description": "The version of the Blockscout MCP server.",
+                  "title": "Server Version",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "server_version"
+              ],
+              "title": "InstructionsData",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/InstructionsData",
+              "description": "The main data payload of the tool's response."
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[InstructionsData]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Initializing blockchain analysis...",
+          "openai/toolInvocation/invoked": "Blockchain analysis ready"
+        }
+      },
+      {
+        "name": "get_block_info",
+        "title": "Get Block Information",
+        "description": "\n    Get block information like timestamp, gas used, burnt fees, transaction count etc.\n    Can optionally include the list of transaction hashes contained in the block. Transaction hashes are omitted by default; request them only when you truly need them, because on high-traffic chains the list may exhaust the context.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "number_or_hash": {
+              "description": "Block number or hash",
+              "title": "Number Or Hash",
+              "type": "string"
+            },
+            "include_transactions": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": false,
+              "description": "If true, includes a list of transaction hashes from the block.",
+              "title": "Include Transactions"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "number_or_hash"
+          ],
+          "title": "get_block_infoArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "BlockInfoData": {
+              "additionalProperties": true,
+              "description": "A structured representation of a block's information.",
+              "properties": {
+                "block_details": {
+                  "additionalProperties": true,
+                  "description": "A dictionary containing the detailed properties of the block.",
+                  "title": "Block Details",
+                  "type": "object"
+                },
+                "transaction_hashes": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "A list of transaction hashes included in the block.",
+                  "title": "Transaction Hashes"
+                }
+              },
+              "required": [
+                "block_details"
+              ],
+              "title": "BlockInfoData",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/BlockInfoData",
+              "description": "The main data payload of the tool's response."
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[BlockInfoData]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching block information...",
+          "openai/toolInvocation/invoked": "Block information ready"
+        }
+      },
+      {
+        "name": "get_block_number",
+        "title": "Get Block Number",
+        "description": "\n    Retrieves the block number and timestamp for a specific date/time or the latest block.\n    Use when you need a block height for a specific point in time (e.g., \"block at 2024-01-01\")\n    or the current chain tip. If `datetime` is provided, finds the block immediately\n    preceding that time. If omitted, returns the latest indexed block.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "datetime": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "The date and time (ISO 8601 format, e.g. 2025-05-22T23:00:00.00Z) to find the block for. If omitted, returns the latest block.",
+              "title": "Datetime"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id"
+          ],
+          "title": "get_block_numberArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "BlockNumberData": {
+              "description": "Represents the essential data for a resolved block number.",
+              "properties": {
+                "block_number": {
+                  "description": "The block number (height) in the blockchain",
+                  "title": "Block Number",
+                  "type": "integer"
+                },
+                "timestamp": {
+                  "description": "The timestamp when the block was mined (ISO format)",
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "block_number",
+                "timestamp"
+              ],
+              "title": "BlockNumberData",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/BlockNumberData",
+              "description": "The main data payload of the tool's response."
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[BlockNumberData]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching latest block number...",
+          "openai/toolInvocation/invoked": "Block number ready"
+        }
+      },
+      {
+        "name": "get_address_by_ens_name",
+        "title": "Get Address by ENS Name",
+        "description": "\n    Useful for when you need to convert an ENS domain name (e.g. \"blockscout.eth\")\n    to its corresponding Ethereum address.\n    ",
+        "inputSchema": {
+          "properties": {
+            "name": {
+              "description": "ENS domain name to resolve",
+              "title": "Name",
+              "type": "string"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "title": "get_address_by_ens_nameArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "EnsAddressData": {
+              "description": "A structured representation of an ENS name resolution.",
+              "properties": {
+                "resolved_address": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The resolved Ethereum address corresponding to the ENS name, or null if not found.",
+                  "title": "Resolved Address"
+                }
+              },
+              "title": "EnsAddressData",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/EnsAddressData",
+              "description": "The main data payload of the tool's response."
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[EnsAddressData]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Resolving ENS name...",
+          "openai/toolInvocation/invoked": "ENS name resolved"
+        }
+      },
+      {
+        "name": "get_transactions_by_address",
+        "title": "Get Transactions by Address",
+        "description": "\n    Retrieves native currency transfers and smart contract interactions (calls, internal txs) for an address.\n    **EXCLUDES TOKEN TRANSFERS**: Filters out direct token balance changes (ERC-20, etc.). You'll see calls *to* token contracts, but not the `Transfer` events. For token history, use `get_token_transfers_by_address`.\n    A single tx can have multiple records from internal calls.\n    Requires an `age_from` date to scope results for performance and relevance.\n    **SUPPORTS PAGINATION**: If response includes 'pagination' field, use the provided next_call to get additional pages.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "address": {
+              "description": "Address which either sender or receiver of the transaction",
+              "title": "Address",
+              "type": "string"
+            },
+            "age_from": {
+              "description": "Start date and time (e.g 2025-05-22T23:00:00.00Z). Alone, returns all transactions to/from the address since this date.",
+              "title": "Age From",
+              "type": "string"
+            },
+            "age_to": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "End date and time (e.g 2025-05-22T22:30:00.00Z). Adding this bounds the upper end of the date range started by `age_from`.",
+              "title": "Age To"
+            },
+            "methods": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A method signature to filter transactions by (e.g 0x304e6ade). Filters the (optionally date-bounded) results to a specific method signature.",
+              "title": "Methods"
+            },
+            "cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "The pagination cursor from a previous response to get the next page of results.",
+              "title": "Cursor"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "address",
+            "age_from"
+          ],
+          "title": "get_transactions_by_addressArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "AdvancedFilterItem": {
+              "additionalProperties": true,
+              "description": "Represents a single item from the advanced filter API response.",
+              "properties": {
+                "from": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The sender address.",
+                  "title": "From"
+                },
+                "to": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The recipient address.",
+                  "title": "To"
+                }
+              },
+              "title": "AdvancedFilterItem",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "description": "The main data payload of the tool's response.",
+              "items": {
+                "$ref": "#/$defs/AdvancedFilterItem"
+              },
+              "title": "Data",
+              "type": "array"
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[list[AdvancedFilterItem]]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching transactions...",
+          "openai/toolInvocation/invoked": "Transactions ready"
+        }
+      },
+      {
+        "name": "get_token_transfers_by_address",
+        "title": "Get Token Transfers by Address",
+        "description": "\n    Get ERC-20 token transfers for an address within a specific time range.\n    **SUPPORTS PAGINATION**: If response includes 'pagination' field, use the provided next_call to get additional pages.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "address": {
+              "description": "Address which either transfer initiator or transfer receiver",
+              "title": "Address",
+              "type": "string"
+            },
+            "age_from": {
+              "description": "Start date and time (e.g 2025-05-22T23:00:00.00Z). Alone, returns all ERC-20 transfers to/from the address since this date.",
+              "title": "Age From",
+              "type": "string"
+            },
+            "age_to": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "End date and time (e.g 2025-05-22T22:30:00.00Z). Adding this bounds the upper end of the date range started by `age_from`; if omitted, transfers up to the current time are returned.",
+              "title": "Age To"
+            },
+            "token": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "An ERC-20 token contract address to restrict results to a single token. If omitted, returns transfers of all tokens.",
+              "title": "Token"
+            },
+            "cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "The pagination cursor from a previous response to get the next page of results.",
+              "title": "Cursor"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "address",
+            "age_from"
+          ],
+          "title": "get_token_transfers_by_addressArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "AdvancedFilterItem": {
+              "additionalProperties": true,
+              "description": "Represents a single item from the advanced filter API response.",
+              "properties": {
+                "from": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The sender address.",
+                  "title": "From"
+                },
+                "to": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The recipient address.",
+                  "title": "To"
+                }
+              },
+              "title": "AdvancedFilterItem",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "description": "The main data payload of the tool's response.",
+              "items": {
+                "$ref": "#/$defs/AdvancedFilterItem"
+              },
+              "title": "Data",
+              "type": "array"
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[list[AdvancedFilterItem]]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching token transfers...",
+          "openai/toolInvocation/invoked": "Token transfers ready"
+        }
+      },
+      {
+        "name": "lookup_token_by_symbol",
+        "title": "Lookup Token by Symbol",
+        "description": "\n    Search for token addresses by symbol or name. Returns multiple potential\n    matches based on symbol or token name similarity. Only the first\n    7 matches from the Blockscout API are returned.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "symbol": {
+              "description": "Token symbol or name to search for",
+              "title": "Symbol",
+              "type": "string"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "symbol"
+          ],
+          "title": "lookup_token_by_symbolArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            },
+            "TokenSearchResult": {
+              "description": "Represents a single token found by a search query.",
+              "properties": {
+                "address": {
+                  "description": "The contract address of the token.",
+                  "title": "Address",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The full name of the token (e.g., 'USD Coin').",
+                  "title": "Name",
+                  "type": "string"
+                },
+                "symbol": {
+                  "description": "The symbol of the token (e.g., 'USDC').",
+                  "title": "Symbol",
+                  "type": "string"
+                },
+                "token_type": {
+                  "description": "The token standard (e.g., 'ERC-20').",
+                  "title": "Token Type",
+                  "type": "string"
+                },
+                "total_supply": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The total supply of the token.",
+                  "title": "Total Supply"
+                },
+                "circulating_market_cap": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The circulating market cap, if available.",
+                  "title": "Circulating Market Cap"
+                },
+                "exchange_rate": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The current exchange rate, if available.",
+                  "title": "Exchange Rate"
+                },
+                "is_smart_contract_verified": {
+                  "description": "Indicates if the token's contract is verified.",
+                  "title": "Is Smart Contract Verified",
+                  "type": "boolean"
+                },
+                "is_verified_via_admin_panel": {
+                  "description": "Indicates if the token is verified by the Blockscout team.",
+                  "title": "Is Verified Via Admin Panel",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "address",
+                "name",
+                "symbol",
+                "token_type",
+                "total_supply",
+                "circulating_market_cap",
+                "exchange_rate",
+                "is_smart_contract_verified",
+                "is_verified_via_admin_panel"
+              ],
+              "title": "TokenSearchResult",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "description": "The main data payload of the tool's response.",
+              "items": {
+                "$ref": "#/$defs/TokenSearchResult"
+              },
+              "title": "Data",
+              "type": "array"
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[list[TokenSearchResult]]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Looking up token by symbol...",
+          "openai/toolInvocation/invoked": "Token lookup ready"
+        }
+      },
+      {
+        "name": "get_contract_abi",
+        "title": "Get Contract ABI",
+        "description": "\n    Get smart contract ABI (Application Binary Interface).\n    An ABI defines all functions, events, their parameters, and return types. The ABI is required to format function calls or interpret contract data.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "address": {
+              "description": "Smart contract address",
+              "title": "Address",
+              "type": "string"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "address"
+          ],
+          "title": "get_contract_abiArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "ContractAbiData": {
+              "description": "A structured representation of a smart contract's ABI.",
+              "properties": {
+                "abi": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "additionalProperties": true,
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The Application Binary Interface (ABI) of the smart contract.",
+                  "title": "Abi"
+                }
+              },
+              "required": [
+                "abi"
+              ],
+              "title": "ContractAbiData",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/ContractAbiData",
+              "description": "The main data payload of the tool's response."
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[ContractAbiData]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching contract ABI...",
+          "openai/toolInvocation/invoked": "Contract ABI ready"
+        }
+      },
+      {
+        "name": "inspect_contract_code",
+        "title": "Inspect Contract Code",
+        "description": "Inspects a verified contract's source code or metadata.",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain.",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "address": {
+              "description": "The address of the smart contract.",
+              "title": "Address",
+              "type": "string"
+            },
+            "file_name": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "The name of the source file to inspect. If omitted, returns contract metadata and the list of source files.",
+              "title": "File Name"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "address"
+          ],
+          "title": "inspect_contract_codeArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "ContractMetadata": {
+              "additionalProperties": true,
+              "description": "Detailed metadata for a verified smart contract.",
+              "properties": {
+                "name": {
+                  "description": "The name of the contract.",
+                  "title": "Name",
+                  "type": "string"
+                },
+                "language": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The programming language of the contract (e.g., Solidity, Vyper).",
+                  "title": "Language"
+                },
+                "compiler_version": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The compiler version used.",
+                  "title": "Compiler Version"
+                },
+                "verified_at": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The timestamp when the contract was verified.",
+                  "title": "Verified At"
+                },
+                "source_code_tree_structure": {
+                  "description": "A list of all source file paths for the contract.",
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "Source Code Tree Structure",
+                  "type": "array"
+                },
+                "optimization_enabled": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Flag indicating if compiler optimization was enabled.",
+                  "title": "Optimization Enabled"
+                },
+                "optimization_runs": {
+                  "anyOf": [
+                    {
+                      "type": "integer"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The number of optimization runs.",
+                  "title": "Optimization Runs"
+                },
+                "evm_version": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The EVM version target.",
+                  "title": "Evm Version"
+                },
+                "license_type": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The license of the contract code (e.g., MIT, none).",
+                  "title": "License Type"
+                },
+                "proxy_type": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The type of proxy if the contract is a proxy (e.g., basic_implementation).",
+                  "title": "Proxy Type"
+                },
+                "is_fully_verified": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Flag indicating if the contract is fully verified.",
+                  "title": "Is Fully Verified"
+                },
+                "constructor_args": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The raw constructor arguments, possibly truncated.",
+                  "title": "Constructor Args"
+                },
+                "decoded_constructor_args": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "additionalProperties": true,
+                      "type": "object"
+                    },
+                    {
+                      "items": {},
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Decoded constructor arguments, if available.",
+                  "title": "Decoded Constructor Args"
+                },
+                "constructor_args_truncated": {
+                  "default": false,
+                  "description": "Indicates if constructor_args or decoded_constructor_args was truncated.",
+                  "title": "Constructor Args Truncated",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "name",
+                "language",
+                "compiler_version",
+                "verified_at",
+                "source_code_tree_structure",
+                "optimization_enabled",
+                "optimization_runs",
+                "evm_version",
+                "license_type",
+                "proxy_type",
+                "is_fully_verified",
+                "constructor_args"
+              ],
+              "title": "ContractMetadata",
+              "type": "object"
+            },
+            "ContractSourceFile": {
+              "description": "Container for a single contract source file.",
+              "properties": {
+                "file_content": {
+                  "description": "The raw source code of the file.",
+                  "title": "File Content",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "file_content"
+              ],
+              "title": "ContractSourceFile",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/ContractMetadata"
+                },
+                {
+                  "$ref": "#/$defs/ContractSourceFile"
+                }
+              ],
+              "description": "The main data payload of the tool's response.",
+              "title": "Data"
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[Union[ContractMetadata, ContractSourceFile]]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Inspecting contract code...",
+          "openai/toolInvocation/invoked": "Contract code ready"
+        }
+      },
+      {
+        "name": "read_contract",
+        "title": "Read from Contract",
+        "description": "\n        Calls a smart contract function (view/pure, or non-view/pure simulated via eth_call) and returns the\n        decoded result.\n\n        This tool provides a direct way to query the state of a smart contract.\n\n        Example:\n        To check the USDT balance of an address on Ethereum Mainnet, you would use the following arguments:\n    {\n      \"tool_name\": \"read_contract\",\n      \"params\": {\n        \"chain_id\": \"1\",\n        \"address\": \"0xdAC17F958D2ee523a2206206994597C13D831ec7\",\n        \"abi\": {\n          \"constant\": true,\n          \"inputs\": [{\"name\": \"_owner\", \"type\": \"address\"}],\n          \"name\": \"balanceOf\",\n          \"outputs\": [{\"name\": \"balance\", \"type\": \"uint256\"}],\n          \"payable\": false,\n          \"stateMutability\": \"view\",\n          \"type\": \"function\"\n        },\n        \"function_name\": \"balanceOf\",\n        \"args\": \"[\"0xF977814e90dA44bFA03b6295A0616a897441aceC\"]\"\n      }\n    }\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "address": {
+              "description": "Smart contract address",
+              "title": "Address",
+              "type": "string"
+            },
+            "abi": {
+              "additionalProperties": true,
+              "description": "The JSON ABI for the specific function being called. This should be a dictionary that defines the function's name, inputs, and outputs. The function ABI can be obtained using the `get_contract_abi` tool.",
+              "title": "Abi",
+              "type": "object"
+            },
+            "function_name": {
+              "description": "The symbolic name of the function to be called. This must match the `name` field in the provided ABI.",
+              "title": "Function Name",
+              "type": "string"
+            },
+            "args": {
+              "default": "[]",
+              "description": "A JSON string containing an array of arguments. Example: \"[\"0xabc...\"]\" for a single address argument, or \"[]\" for no arguments. Order and types must match ABI inputs. Addresses: use 0x-prefixed strings; Numbers: prefer integers (not quoted); numeric strings like \"1\" are also accepted and coerced to integers. Bytes: keep as 0x-hex strings.",
+              "title": "Args",
+              "type": "string"
+            },
+            "block": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ],
+              "default": "latest",
+              "description": "The block identifier to read the contract state from. Can be a block number (e.g., 19000000) or a string tag (e.g., 'latest'). Defaults to 'latest'.",
+              "title": "Block"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "address",
+            "abi",
+            "function_name"
+          ],
+          "title": "read_contractArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "ContractReadData": {
+              "description": "Result of a read-only smart contract function call.",
+              "properties": {
+                "result": {
+                  "description": "Return value from the contract function call.",
+                  "title": "Result"
+                }
+              },
+              "required": [
+                "result"
+              ],
+              "title": "ContractReadData",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/ContractReadData",
+              "description": "The main data payload of the tool's response."
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[ContractReadData]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Reading from contract...",
+          "openai/toolInvocation/invoked": "Contract read complete"
+        }
+      },
+      {
+        "name": "get_address_info",
+        "title": "Get Address Information",
+        "description": "\n    Get comprehensive information about an address, including:\n    - Address existence check\n    - Native token (ETH) balance (provided as is, without adjusting by decimals)\n    - First transaction details (block number and timestamp) for age calculation\n    - ENS name association (if any)\n    - Contract status (whether the address is a contract, whether it is verified)\n    - Proxy contract information (if applicable): determines if a smart contract is a proxy contract (which forwards calls to implementation contracts), including proxy type and implementation addresses\n    - Token details (if the contract is a token): name, symbol, decimals, total supply, etc.\n    Essential for address analysis, contract investigation, token research, and DeFi protocol analysis.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "address": {
+              "description": "Address to get information about",
+              "title": "Address",
+              "type": "string"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "address"
+          ],
+          "title": "get_address_infoArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "AddressInfoData": {
+              "description": "A structured representation of the combined address information.",
+              "properties": {
+                "basic_info": {
+                  "additionalProperties": true,
+                  "description": "Core on-chain data for the address from the Blockscout API.",
+                  "title": "Basic Info",
+                  "type": "object"
+                },
+                "first_transaction_details": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/FirstTransactionDetails"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Details about the first transaction made to or from this address, if any."
+                },
+                "metadata": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": true,
+                      "type": "object"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Optional metadata, such as public tags, from the Blockscout PRO API metadata endpoint.",
+                  "title": "Metadata"
+                }
+              },
+              "required": [
+                "basic_info"
+              ],
+              "title": "AddressInfoData",
+              "type": "object"
+            },
+            "FirstTransactionDetails": {
+              "description": "Details about the earliest transaction for an address.",
+              "properties": {
+                "block_number": {
+                  "description": "The block number of the first transaction.",
+                  "title": "Block Number",
+                  "type": "integer"
+                },
+                "timestamp": {
+                  "description": "The timestamp of the first transaction (ISO format).",
+                  "title": "Timestamp",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "block_number",
+                "timestamp"
+              ],
+              "title": "FirstTransactionDetails",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/AddressInfoData",
+              "description": "The main data payload of the tool's response."
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[AddressInfoData]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching address information...",
+          "openai/toolInvocation/invoked": "Address information ready"
+        }
+      },
+      {
+        "name": "get_tokens_by_address",
+        "title": "Get Tokens by Address",
+        "description": "\n    Get comprehensive ERC20 token holdings for an address with enriched metadata and market data.\n    Returns detailed token information including contract details (name, symbol, decimals), market metrics (exchange rate, market cap, volume), holders count, and actual balance (provided as is, without adjusting by decimals).\n    Essential for portfolio analysis, wallet auditing, and DeFi position tracking.\n    **SUPPORTS PAGINATION**: If response includes 'pagination' field, use the provided next_call to get additional pages.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "address": {
+              "description": "Wallet address",
+              "title": "Address",
+              "type": "string"
+            },
+            "cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "The pagination cursor from a previous response to get the next page of results.",
+              "title": "Cursor"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "address"
+          ],
+          "title": "get_tokens_by_addressArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            },
+            "TokenHoldingData": {
+              "description": "Represents a single token holding with its associated metadata.",
+              "properties": {
+                "address": {
+                  "description": "The contract address of the token.",
+                  "title": "Address",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The full name of the token (e.g., 'USD Coin').",
+                  "title": "Name",
+                  "type": "string"
+                },
+                "symbol": {
+                  "description": "The symbol of the token (e.g., 'USDC').",
+                  "title": "Symbol",
+                  "type": "string"
+                },
+                "decimals": {
+                  "description": "The number of decimals the token uses.",
+                  "title": "Decimals",
+                  "type": "string"
+                },
+                "total_supply": {
+                  "description": "The total supply of the token.",
+                  "title": "Total Supply",
+                  "type": "string"
+                },
+                "circulating_market_cap": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The circulating market cap, if available.",
+                  "title": "Circulating Market Cap"
+                },
+                "exchange_rate": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The current exchange rate, if available.",
+                  "title": "Exchange Rate"
+                },
+                "holders_count": {
+                  "description": "The number of addresses holding this token.",
+                  "title": "Holders Count",
+                  "type": "string"
+                },
+                "balance": {
+                  "description": "The token balance for the queried address (unadjusted for decimals).",
+                  "title": "Balance",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "address",
+                "name",
+                "symbol",
+                "decimals",
+                "total_supply",
+                "circulating_market_cap",
+                "exchange_rate",
+                "holders_count",
+                "balance"
+              ],
+              "title": "TokenHoldingData",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "description": "The main data payload of the tool's response.",
+              "items": {
+                "$ref": "#/$defs/TokenHoldingData"
+              },
+              "title": "Data",
+              "type": "array"
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[list[TokenHoldingData]]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching tokens by address...",
+          "openai/toolInvocation/invoked": "Tokens ready"
+        }
+      },
+      {
+        "name": "nft_tokens_by_address",
+        "title": "Get NFT Tokens by Address",
+        "description": "\n    Retrieve NFT tokens (ERC-721, ERC-404, ERC-1155) owned by an address, grouped by collection.\n    Provides collection details (type, address, name, symbol, total supply, holder count) and individual token instance data (ID, name, description, external URL, metadata attributes).\n    Essential for a detailed overview of an address's digital collectibles and their associated collection data.\n    **SUPPORTS PAGINATION**: If response includes 'pagination' field, use the provided next_call to get additional pages.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "address": {
+              "description": "NFT owner address",
+              "title": "Address",
+              "type": "string"
+            },
+            "cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "The pagination cursor from a previous response to get the next page of results.",
+              "title": "Cursor"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "address"
+          ],
+          "title": "nft_tokens_by_addressArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "NftCollectionHolding": {
+              "description": "Represents an address's holding in a single NFT collection.",
+              "properties": {
+                "collection": {
+                  "$ref": "#/$defs/NftCollectionInfo",
+                  "description": "The details of the NFT collection."
+                },
+                "amount": {
+                  "description": "The number of tokens from this collection owned by the address.",
+                  "title": "Amount",
+                  "type": "string"
+                },
+                "token_instances": {
+                  "description": "A list of the specific NFT instances owned by the address.",
+                  "items": {
+                    "$ref": "#/$defs/NftTokenInstance"
+                  },
+                  "title": "Token Instances",
+                  "type": "array"
+                }
+              },
+              "required": [
+                "collection",
+                "amount",
+                "token_instances"
+              ],
+              "title": "NftCollectionHolding",
+              "type": "object"
+            },
+            "NftCollectionInfo": {
+              "description": "Represents the metadata for an NFT collection.",
+              "properties": {
+                "type": {
+                  "description": "The token standard of the collection.",
+                  "title": "Type",
+                  "type": "string"
+                },
+                "address": {
+                  "description": "The smart contract address of the NFT collection.",
+                  "title": "Address",
+                  "type": "string"
+                },
+                "name": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The name of the collection.",
+                  "title": "Name"
+                },
+                "symbol": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The symbol of the collection.",
+                  "title": "Symbol"
+                },
+                "holders_count": {
+                  "description": "The number of unique addresses that hold a token from this collection.",
+                  "title": "Holders Count",
+                  "type": "integer"
+                },
+                "total_supply": {
+                  "description": "The total number of tokens in the collection.",
+                  "title": "Total Supply",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "type",
+                "address",
+                "holders_count",
+                "total_supply"
+              ],
+              "title": "NftCollectionInfo",
+              "type": "object"
+            },
+            "NftTokenInstance": {
+              "description": "Represents a single NFT instance with its metadata.",
+              "properties": {
+                "id": {
+                  "description": "The unique identifier of the NFT token instance.",
+                  "title": "Id",
+                  "type": "string"
+                },
+                "name": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The name of the NFT, extracted from its metadata.",
+                  "title": "Name"
+                },
+                "description": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The description of the NFT, extracted from its metadata.",
+                  "title": "Description"
+                },
+                "image_url": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "A URL for the NFT's image, from its metadata.",
+                  "title": "Image Url"
+                },
+                "external_app_url": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "A URL to an external site or application related to the NFT.",
+                  "title": "External App Url"
+                },
+                "metadata_attributes": {
+                  "anyOf": [
+                    {
+                      "items": {},
+                      "type": "array"
+                    },
+                    {
+                      "additionalProperties": true,
+                      "type": "object"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The metadata attributes (traits) associated with the NFT.",
+                  "title": "Metadata Attributes"
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "title": "NftTokenInstance",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "description": "The main data payload of the tool's response.",
+              "items": {
+                "$ref": "#/$defs/NftCollectionHolding"
+              },
+              "title": "Data",
+              "type": "array"
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[list[NftCollectionHolding]]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching NFT tokens...",
+          "openai/toolInvocation/invoked": "NFT tokens ready"
+        }
+      },
+      {
+        "name": "get_transaction_info",
+        "title": "Get Transaction Information",
+        "description": "\n    Get comprehensive transaction information.\n    Unlike standard eth_getTransactionByHash, this tool returns enriched data including decoded input parameters, detailed token transfers with token metadata, transaction fee breakdown (priority fees, burnt fees) and categorized transaction types.\n    By default, the raw transaction input is omitted if a decoded version is available to save context; request it with `include_raw_input=True` only when you truly need the raw hex data.\n    Essential for transaction analysis, debugging smart contract interactions, tracking DeFi operations.\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "transaction_hash": {
+              "description": "Transaction hash",
+              "title": "Transaction Hash",
+              "type": "string"
+            },
+            "include_raw_input": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": false,
+              "description": "If true, includes the raw transaction input data.",
+              "title": "Include Raw Input"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "transaction_hash"
+          ],
+          "title": "get_transaction_infoArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "DecodedInput": {
+              "additionalProperties": true,
+              "description": "Represents the decoded input data of a transaction.",
+              "properties": {
+                "method_call": {
+                  "description": "Name of the called method.",
+                  "title": "Method Call",
+                  "type": "string"
+                },
+                "method_id": {
+                  "description": "Identifier of the called method.",
+                  "title": "Method Id",
+                  "type": "string"
+                },
+                "parameters": {
+                  "description": "List of decoded input parameters for the method call.",
+                  "items": {},
+                  "title": "Parameters",
+                  "type": "array"
+                }
+              },
+              "required": [
+                "method_call",
+                "method_id",
+                "parameters"
+              ],
+              "title": "DecodedInput",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            },
+            "TokenTransfer": {
+              "additionalProperties": true,
+              "description": "Represents a single token transfer within a transaction.",
+              "properties": {
+                "from": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Sender address of the token transfer if available.",
+                  "title": "From"
+                },
+                "to": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "Recipient address of the token transfer if available.",
+                  "title": "To"
+                },
+                "token": {
+                  "anyOf": [
+                    {
+                      "additionalProperties": true,
+                      "type": "object"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Token metadata dictionary associated with the transfer.",
+                  "title": "Token"
+                },
+                "type": {
+                  "description": "Type of transfer (e.g., 'transfer', 'mint').",
+                  "title": "Type",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "from",
+                "to",
+                "type"
+              ],
+              "title": "TokenTransfer",
+              "type": "object"
+            },
+            "TransactionInfoData": {
+              "additionalProperties": true,
+              "description": "Structured representation of get_transaction_info data.",
+              "properties": {
+                "from": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Sender of the transaction if available.",
+                  "title": "From"
+                },
+                "to": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Recipient of the transaction if available.",
+                  "title": "To"
+                },
+                "token_transfers": {
+                  "description": "List of token transfers related to the transaction.",
+                  "items": {
+                    "$ref": "#/$defs/TokenTransfer"
+                  },
+                  "title": "Token Transfers",
+                  "type": "array"
+                },
+                "decoded_input": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/$defs/DecodedInput"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Decoded method input if available."
+                },
+                "user_operations": {
+                  "anyOf": [
+                    {
+                      "items": {
+                        "$ref": "#/$defs/UserOpsLite"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "List of ERC-4337 User Operations associated with this transaction",
+                  "title": "User Operations"
+                },
+                "raw_input": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Raw transaction input data if returned.",
+                  "title": "Raw Input"
+                },
+                "raw_input_truncated": {
+                  "anyOf": [
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "Indicates if raw_input was truncated.",
+                  "title": "Raw Input Truncated"
+                }
+              },
+              "title": "TransactionInfoData",
+              "type": "object"
+            },
+            "UserOpsLite": {
+              "description": "Represents a summary of an ERC-4337 User Operation.",
+              "properties": {
+                "sender": {
+                  "description": "The address that sent the user operation",
+                  "title": "Sender",
+                  "type": "string"
+                },
+                "operation_hash": {
+                  "description": "The hash of the user operation",
+                  "title": "Operation Hash",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sender",
+                "operation_hash"
+              ],
+              "title": "UserOpsLite",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "$ref": "#/$defs/TransactionInfoData",
+              "description": "The main data payload of the tool's response."
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[TransactionInfoData]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching transaction details...",
+          "openai/toolInvocation/invoked": "Transaction details ready"
+        }
+      },
+      {
+        "name": "get_chains_list",
+        "title": "Get List of Chains",
+        "description": "Get supported blockchain chains with their chain IDs.\n\n    Ethereum Mainnet is `chain_id` `1`; use this tool to resolve any other chain.\n    Use this when another tool needs a supported `chain_id` and only the chain name,\n    ecosystem, or native currency is known. Prefer a narrow `query` to avoid returning\n    the full registry to the agent. Do not rely on partial numeric chain ID queries such\n    as `1`, because matching is substring-based and may return many chains.\n    ",
+        "inputSchema": {
+          "properties": {
+            "query": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional case-insensitive substring filter applied to chain name, chain ID, native currency, and ecosystem. Prefer narrow text terms over partial numeric chain IDs because matching is substring-based.",
+              "title": "Query"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "title": "get_chains_listArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "ChainInfo": {
+              "description": "Represents a blockchain with its essential identifiers.",
+              "properties": {
+                "name": {
+                  "description": "The common name of the blockchain (e.g., 'Ethereum').",
+                  "title": "Name",
+                  "type": "string"
+                },
+                "chain_id": {
+                  "description": "The unique identifier for the chain.",
+                  "title": "Chain Id",
+                  "type": "string"
+                },
+                "is_testnet": {
+                  "description": "Indicates if the chain is a testnet.",
+                  "title": "Is Testnet",
+                  "type": "boolean"
+                },
+                "native_currency": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The native currency symbol of the chain (e.g., 'ETH').",
+                  "title": "Native Currency"
+                },
+                "ecosystem": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "description": "The ecosystem the chain belongs to, if applicable (e.g., 'Ethereum').",
+                  "title": "Ecosystem"
+                },
+                "settlement_layer_chain_id": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "description": "The L1 chain ID where this rollup settles, if applicable.",
+                  "title": "Settlement Layer Chain Id"
+                }
+              },
+              "required": [
+                "name",
+                "chain_id",
+                "is_testnet",
+                "native_currency",
+                "ecosystem"
+              ],
+              "title": "ChainInfo",
+              "type": "object"
+            },
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "description": "The main data payload of the tool's response.",
+              "items": {
+                "$ref": "#/$defs/ChainInfo"
+              },
+              "title": "Data",
+              "type": "array"
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[list[ChainInfo]]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Fetching chains list...",
+          "openai/toolInvocation/invoked": "Chains list ready"
+        }
+      },
+      {
+        "name": "direct_api_call",
+        "title": "Direct Blockscout API Call",
+        "description": "Call a raw Blockscout API endpoint for advanced or chain-specific data.\n\n    Before the first call to this tool in a session, read\n    `blockscout-mcp://skill/SKILL.md` (the operating rules), then\n    `blockscout-mcp://skill/references/blockscout-api-index.md` (the authoritative\n    index of callable endpoints); skip both reads only if this skill content is\n    already in context. Recalled Blockscout API knowledge is not a substitute:\n    endpoint paths, parameters, and response shapes vary across Blockscout\n    versions and per-chain deployments.\n\n    Supports POST requests with a JSON body for endpoints like JSON RPC.\n\n    **SUPPORTS PAGINATION**: If response includes 'pagination' field,\n    use the provided next_call to get additional pages (GET only).\n    ",
+        "inputSchema": {
+          "properties": {
+            "chain_id": {
+              "description": "The ID of the blockchain",
+              "title": "Chain Id",
+              "type": "string"
+            },
+            "endpoint_path": {
+              "description": "The Blockscout API path to call (e.g., '/api/v2/stats'); do not include query strings — pass all query parameters via query_params to avoid double-encoding.",
+              "title": "Endpoint Path",
+              "type": "string"
+            },
+            "query_params": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional query parameters forwarded to the Blockscout API.",
+              "title": "Query Params"
+            },
+            "cursor": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "The pagination cursor from a previous response to get the next page of results.",
+              "title": "Cursor"
+            },
+            "method": {
+              "default": "GET",
+              "description": "HTTP method used for the upstream call. Use POST with json_body.",
+              "enum": [
+                "GET",
+                "POST"
+              ],
+              "title": "Method",
+              "type": "string"
+            },
+            "json_body": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "JSON request body for POST requests.",
+              "title": "Json Body"
+            },
+            "session_id": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Opaque session identifier.",
+              "title": "Session Id"
+            }
+          },
+          "required": [
+            "chain_id",
+            "endpoint_path"
+          ],
+          "title": "direct_api_callArguments",
+          "type": "object"
+        },
+        "outputSchema": {
+          "$defs": {
+            "NextCallInfo": {
+              "description": "A structured representation of the tool call required to get the next page.",
+              "properties": {
+                "tool_name": {
+                  "description": "The name of the tool to call for the next page.",
+                  "title": "Tool Name",
+                  "type": "string"
+                },
+                "params": {
+                  "additionalProperties": true,
+                  "description": "A complete dictionary of parameters for the next tool call, including the new cursor.",
+                  "title": "Params",
+                  "type": "object"
+                }
+              },
+              "required": [
+                "tool_name",
+                "params"
+              ],
+              "title": "NextCallInfo",
+              "type": "object"
+            },
+            "PaginationInfo": {
+              "description": "Contains the structured information needed to retrieve the next page of results.",
+              "properties": {
+                "next_call": {
+                  "$ref": "#/$defs/NextCallInfo",
+                  "description": "The structured tool call required to fetch the subsequent page."
+                }
+              },
+              "required": [
+                "next_call"
+              ],
+              "title": "PaginationInfo",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "data": {
+              "description": "The main data payload of the tool's response.",
+              "title": "Data"
+            },
+            "data_description": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of notes explaining the structure, fields, or conventions of the 'data' payload.",
+              "title": "Data Description"
+            },
+            "notes": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of important contextual notes, such as warnings about data truncation or data quality issues.",
+              "title": "Notes"
+            },
+            "instructions": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "A list of suggested follow-up actions or instructions for the LLM to plan its next steps.",
+              "title": "Instructions"
+            },
+            "pagination": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/PaginationInfo"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Pagination information, present only if the 'data' is a single page of a larger result set."
+            },
+            "content_text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Optional human-readable summary used for MCP content responses.",
+              "title": "Content Text"
+            }
+          },
+          "required": [
+            "data"
+          ],
+          "title": "ToolResponse[Any]",
+          "type": "object"
+        },
+        "annotations": {
+          "readOnlyHint": true,
+          "destructiveHint": false,
+          "openWorldHint": true
+        },
+        "_meta": {
+          "openai/toolInvocation/invoking": "Calling Blockscout API...",
+          "openai/toolInvocation/invoked": "API call complete"
+        }
+      }
+    ]
+  }
+}
