@@ -14,7 +14,7 @@ edges:
     registered_name: com.blockscout/mcp-server
     register_id: com.blockscout/mcp-server
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
   mcp_registry:
     servers:
     - com.blockscout/mcp-server
@@ -30,7 +30,44 @@ edges:
   - namespace-domain
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
+- partner_name: Coinbase CDP x402 Bazaar
+  partner: coinbase
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000
+  mirror_of: coinbase/integrations/coinbase-integration-edges.yml
+  apps:
+  - blockscout
+  resources: 11
+  detected: '2026-10-21'
+  detected_by: sweep-x402-micropayments.py
 generated: '2026-10-14'
 method: searched
 checked:
 - https://registry.modelcontextprotocol.io/v0/servers
+- https://agentic.market
+- https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources
+- https://app.ampersend.ai/discover
+- https://docs.cdp.coinbase.com/x402/
+- https://docs.x402.org/dev-tools/facilitators
+- https://pay.sh
+- https://www.x402.org/ecosystem
+- https://x402-list.com
+- https://x402.org/members/
+- https://x402scan.com
+source:
+- https://x402.org/members/
+- https://docs.x402.org/dev-tools/facilitators
+- https://docs.cdp.coinbase.com/x402/
+- https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources
+- https://www.x402.org/ecosystem
+- https://x402scan.com
+- https://agentic.market
+- https://pay.sh
+- https://app.ampersend.ai/discover
+- https://x402-list.com

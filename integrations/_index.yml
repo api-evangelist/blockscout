@@ -19,6 +19,18 @@
     registered_name: com.blockscout/mcp-server
     register_id: com.blockscout/mcp-server
     detected_by: sweep-agent-tools.py
-    detected: '2026-10-15'
+    detected: '2026-10-19'
+  status: not-a-workflow
+  arazzo: null
+- slug: blockscout-coinbase-cdp-x402-bazaar
+  label: Coinbase CDP x402 Bazaar
+  partner: coinbase
+  partner_name: Coinbase CDP x402 Bazaar
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://api.cdp.coinbase.com/platform/v2/x402/discovery/resources?limit=1000
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
