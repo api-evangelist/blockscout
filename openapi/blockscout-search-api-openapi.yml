@@ -216,3 +216,9 @@ components:
         url:
           type: string
           example: /xdai/mainnet/address/0xc1c1031e4A44B98707203480029e6576CB3267e3
+x-provenance:
+  method: harvested
+  publisher: Blockscout
+  source: https://docs.blockscout.com/openapi.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

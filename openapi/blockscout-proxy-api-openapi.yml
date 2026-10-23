@@ -55,3 +55,9 @@ components:
           $ref: '#/components/schemas/v1EntryPointIndexerStatus'
         v07:
           $ref: '#/components/schemas/v1EntryPointIndexerStatus'
+x-provenance:
+  method: harvested
+  publisher: Blockscout
+  source: https://docs.blockscout.com/openapi.yaml
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
